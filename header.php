@@ -64,30 +64,27 @@
 
                 <!-- RIGHT MENU -->
                 <div class="d-flex align-items-center gap-3 vm-right-menu">
-                    <a href="#" class="vm-link">Shop</a>
-                    <a href="#" class="vm-link">Login</a>
-                    <a href="#" class="vm-link">Signup</a>
-
-                    <a href="#" class="vm-icon"><i class="far fa-heart"></i></a>
-                    <a href="#" class="vm-icon"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="<?php echo home_url('/shop'); ?>" class="vm-link">Shop</a>
+                    <a href="<?php echo home_url('/'); ?>" class="vm-link">Login</a>
+                    <a href="<?php echo home_url('/'); ?>" class="vm-link">Signup</a>
+                    <a href="<?php echo home_url('/shop'); ?>" class="vm-icon"><i class="far fa-heart"></i></a>
+                    <a href="<?php echo home_url('/cart'); ?>" class="vm-icon"><i class="fas fa-shopping-cart"></i></a>
                 </div>
             </div>
 
             <!-- NAV MENU ROW -->
             <nav class="vm-nav mt-2">
-                <ul class="nav gap-4">
 
-                    <li class="nav-item"><a class="nav-link active" href="#">Photos</a></li>
-
-                    <li class="nav-item position-relative">
-                        <a class="nav-link" href="#">Poster</a>
-                        <span class="vm-new-badge">New</span>
-                    </li>
-
-                    <li class="nav-item"><a class="nav-link" href="#">Wall Tiles</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Large Wall Art</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Exterior</a></li>
-                </ul>
+                <?php
+                
+                    wp_nav_menu( array(
+                        'theme_location' => 'main_menu', 
+                        'menu_class'     => 'nav gap-4',
+                        'container'      => false,
+                        'fallback_cb'    => false,
+                        'walker'         => new Walker_Nav_Menu_Bootstrap(), 
+                    ) );
+                    ?>
             </nav>
 
         </div>
