@@ -27,7 +27,7 @@
 
                 <!-- Column 1 -->
                 <div class="col-md-2">
-                      <?php
+                    <?php
                     wp_nav_menu( array(
                         'theme_location' => 'footer_nav1', 
                         'menu_class'     => 'list-unstyled',
@@ -51,7 +51,7 @@
 
                 <!-- Column 3 -->
                 <div class="col-md-2">
-                      <?php
+                    <?php
                     wp_nav_menu( array(
                         'theme_location' => 'footer_nav3', 
                         'menu_class'     => 'list-unstyled',
