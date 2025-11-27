@@ -1,0 +1,194 @@
+/*
+Theme Name: My Bootstrap Theme
+Theme URI: https://example.com
+Author: Your Name
+Author URI: https://example.com
+Description: Clean WordPress theme using Bootstrap 5.
+Version: 1.0
+Text Domain: my-bootstrap-theme
+*/
+
+/*Header*/
+
+/* HEADER BACKGROUND */
+.vm-header {
+  background: #f9f4e8;
+  border-bottom: 1px solid #ddd;
+}
+
+/* LINKS */
+.vm-link {
+  color: #333;
+  font-weight: 500;
+  text-decoration: none;
+}
+.vm-link:hover {
+  color: #6b4de6;
+}
+
+/* ICON LINKS */
+.vm-icon i {
+  font-size: 1.2rem;
+  color: #444;
+}
+.vm-icon:hover i {
+  color: #6b4de6;
+}
+
+/* SEARCH BAR */
+.vm-search {
+  max-width: 600px;
+}
+.vm-search-input {
+  border-radius: 40px;
+  padding-left: 20px;
+  padding-right: 45px;
+  border: 1px solid #ccc;
+}
+.vm-search-button {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: #884fe8;
+  font-size: 1.1rem;
+}
+.vm-search-button:hover {
+  opacity: 0.8;
+}
+
+/* NAV MENU */
+.vm-nav .nav-link {
+  color: #333;
+  font-weight: 500;
+  position: relative;
+}
+.vm-nav .nav-link:hover {
+  color: #6b4de6;
+}
+
+/* NEW BADGE */
+.vm-new-badge {
+  position: absolute;
+  top: -8px;
+  right: -28px;
+  font-size: 10px;
+  background: #00aaff;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+/* MAIN HERO */
+.vm-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.vm-hero-text {
+  font-size: 1.1rem;
+  color: #777;
+}
+
+.vm-hero-btn {
+  background: linear-gradient(90deg, #3ba3ff, #6d55ff);
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.vm-hero-btn:hover {
+  opacity: 0.85;
+  color: #fff;
+}
+
+/* PRODUCT PREVIEW */
+.vm-hero-product {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Options Box */
+.vm-option-box {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  width: 180px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.vm-option-item {
+  background: #f7f7f7;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+/* THUMBNAILS */
+.vm-thumbs .vm-thumb {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.vm-thumbs .vm-thumb:hover {
+  transform: scale(1.05);
+}
+
+/* STEPS SECTION */
+.vm-step-icon {
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, #3ba3ff, #6d55ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*Footer*/
+
+/* Top CTA Section */
+.vm-footer-cta {
+  background: #e7f5f6;
+}
+
+/* Gradient Button */
+.vm-btn {
+  background: linear-gradient(90deg, #2f8fdf, #6b4de6);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+.vm-btn:hover {
+  opacity: 0.85;
+  color: #fff;
+}
+
+/* Main Footer Gradient */
+.vm-footer-main {
+  background: linear-gradient(90deg, #6b4de6, #2f8fdf);
+  color: #fff;
+}
+
+/* Footer links */
+.vm-footer-main a {
+  color: #ffffff;
+  opacity: 0.85;
+  text-decoration: none;
+}
+.vm-footer-main a:hover {
+  opacity: 1;
+}
+
+/* Social Icons */
+.vm-footer-main i {
+  font-size: 1.3rem;
+}
