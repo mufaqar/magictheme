@@ -13,8 +13,8 @@
                 </h1>
 
                 <p class="vm-hero-text mt-3">
-                    Upload your photo or artwork, choose your print style, and get premium-quality prints
-                    delivered to your doorstep.
+                    Upload your photo or artwork, choose your print style,
+                    and get premium-quality prints delivered to your doorstep.
                 </p>
 
                 <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3">
@@ -25,19 +25,21 @@
             <!-- RIGHT SIDE -->
             <div class="col-lg-6">
 
-                <div class="vm-hero-product shadow">
+                <div class="vm-hero-product">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/banner-main.png"
                         class="img-fluid rounded" alt="Print Preview">
                     <!-- Options Box -->
                     <div class="vm-option-box">
                         <h5 class="fw-bold">8 × 10” Frame</h5>
-                        <div class="vm-option-item">Unmounted / Lamination / No Lamination</div>
-                        <div class="vm-option-item">Mounted</div>
-                        <div class="vm-option-item">Glossy Premium</div>
+                        <p>Options</p>
+                        <div class="vm-option-item">Unmounted / Lamination / No <br><span class="bold">Lamination</span>
+                        </div>
+                        <div class="vm-option-item">Mounted <br><span class="bold">None</span></div>
+                        <div class="vm-option-item">Glossy <br><span class="bold">Premium</span> </div>
 
                         <h6 class="fw-bold mt-3">Size</h6>
                         <div class="d-flex gap-3 mt-2">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sizes.png" width="40">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sizes.png" width="200">
 
                         </div>
                     </div>
@@ -58,7 +60,7 @@
 
     <!-- STEPS SECTION -->
     <div class="container mt-5 pt-4">
-        <div class="row text-center">
+        <div class="row">
 
             <div class="col-md-3">
                 <i class="fas fa-upload vm-step-icon"></i>
@@ -84,6 +86,50 @@
                 <p>Get high-quality prints delivered to your door.</p>
             </div>
 
+        </div>
+    </div>
+
+    <!-- Immortalize -->
+    <div class="vm-cta">
+        <div class="container mt-5 pt-4">
+            <div class="row align-items-center">
+                <!-- LEFT SIDE -->
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h1 class="Immortalize-title">
+                        Immortalize Your <br>
+                        Moments
+                    </h1>
+
+                    <p class="vm-hero-text mt-3">
+                        Turn your favorite memories into meaningful gifts or personal décor.
+                        From posters to wall tiles, every print is crafted to bring your moments to life.
+                        Premium quality, delivered ready to enjoy or gift.
+                    </p>
+
+                    <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3">
+                        Print Now ↗
+                    </a>
+                </div>
+                <!-- RIGHT SIDE -->
+                <div class="col-lg-6">
+                    <div class="vm-thumbs mt-3 d-flex gap-3">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-1.png" width="200"
+                            height="250">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-2.png" width="200"
+                            height="250">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-3.png" width="200"
+                            height="250">
+                    </div>
+                    <div class="vm-thumbs mt-3 d-flex gap-3">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-4.png" width="200"
+                            height="250">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-5.png" width="200"
+                            height="250">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-6.png" width="200"
+                            height="250">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

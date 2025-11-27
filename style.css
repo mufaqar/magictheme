@@ -11,10 +11,16 @@ Text Domain: my-bootstrap-theme
 /*Header*/
 
 /* HEADER BACKGROUND */
+
+
+
+
+
 .vm-header {
   background: #f9f4e8;
   border-bottom: 1px solid #ddd;
 }
+
 
 /* LINKS */
 .vm-link {
@@ -40,10 +46,10 @@ Text Domain: my-bootstrap-theme
   max-width: 600px;
 }
 .vm-search-input {
-  border-radius: 40px;
+  border-radius: 7px;
   padding-left: 20px;
   padding-right: 45px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
 }
 .vm-search-button {
   position: absolute;
@@ -59,14 +65,23 @@ Text Domain: my-bootstrap-theme
   opacity: 0.8;
 }
 
+
 /* NAV MENU */
+.nav{
+  display: flex;
+  justify-content: center;
+ margin-left: 45px;
+
+}
 .vm-nav .nav-link {
   color: #333;
   font-weight: 500;
   position: relative;
+
 }
 .vm-nav .nav-link:hover {
   color: #6b4de6;
+  
 }
 
 /* NEW BADGE */
@@ -83,14 +98,16 @@ Text Domain: my-bootstrap-theme
 
 /* MAIN HERO */
 .vm-hero-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1.1;
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 100%;
 }
 
 .vm-hero-text {
-  font-size: 1.1rem;
-  color: #777;
+  font-size: 30px;
+  color: #616161;
+  font-weight: 400;
+   line-height: 100%;
 }
 
 .vm-hero-btn {
@@ -99,6 +116,7 @@ Text Domain: my-bootstrap-theme
   color: #fff;
   font-weight: 600;
   font-size: 1.1rem;
+  min-width: 248px;
 }
 .vm-hero-btn:hover {
   opacity: 0.85;
@@ -107,24 +125,33 @@ Text Domain: my-bootstrap-theme
 
 /* PRODUCT PREVIEW */
 .vm-hero-product {
+  display: flex;
   border-radius: 16px;
-  overflow: hidden;
-  position: relative;
+  overflow: hidde;
+  position: relativ;
+}
+.img-fluid{
+  min-width: 70%;
+
+}
+.bold {
+  font-weight: 800;
 }
 
 /* Options Box */
 .vm-option-box {
-  position: absolute;
+  /* position: absolut; */
   top: 15px;
-  right: 15px;
-  background: #fff;
+  /* right: 15px; */
+  /* background: #ffffff; */
   padding: 15px;
-  border-radius: 12px;
-  width: 180px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  /* border-radius: 12px; */
+  width: 250px;
+  /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); */
 }
 .vm-option-item {
-  background: #f7f7f7;
+  /* background: #f7f7f7; */
+  border: 1px solid #ddd;
   padding: 8px;
   border-radius: 6px;
   margin-top: 6px;
@@ -133,10 +160,10 @@ Text Domain: my-bootstrap-theme
 
 /* THUMBNAILS */
 .vm-thumbs .vm-thumb {
-  width: 80px;
-  height: 60px;
+  width: 180px;
+  height: 150px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 21px;
   cursor: pointer;
   transition: 0.2s;
 }
@@ -177,11 +204,18 @@ Text Domain: my-bootstrap-theme
   background: linear-gradient(90deg, #6b4de6, #2f8fdf);
   color: #fff;
 }
+.list-unstyled li a{
+   display: flex;
+   padding-top: 10px;
+   color: #ffffff;
+   text-decoration: none;
+
+}
 
 /* Footer links */
 .vm-footer-main a {
   color: #ffffff;
-  opacity: 0.85;
+  
   text-decoration: none;
 }
 .vm-footer-main a:hover {
@@ -191,4 +225,47 @@ Text Domain: my-bootstrap-theme
 /* Social Icons */
 .vm-footer-main i {
   font-size: 1.3rem;
+}
+.vm-footer-cta{background:#17A2B814;color:#fff;padding-top: 20px; padding-bottom:20px;}
+.vm-footer-cta .vm-btn:hover{background:#fff;}
+.vm-footer-cta h2{ font-size:60px;font-weight:700; color: black;}
+.vm-footer-cta p{ font-size:30px;font-weight:500; color: black;}
+.vm-footer-main a{
+    color:#fff;text-decoration:none;font-size:15px;transition:.3s;
+}
+.vm-footer-main a:hover{color:#fff;}
+.flex-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;   
+    align-items: flex-end;      
+}
+
+.vm-footer-main i{
+    font-size:20px;transition:.3s;
+}
+.vm-footer-main i:hover{color:#fff;}
+.vm-footer-main img{max-width:200px;}
+.vm-footer-main ul li{margin-bottom:6px;}
+.vm-footer-main h6{font-size:16px;}
+
+@media(max-width:768px){
+    .vm-footer-main{text-align:center;}
+    .vm-footer-main .col-md-2,
+    .vm-footer-main .col-md-3{text-align:center!important;}
+    .vm-footer-main img{margin:0 auto;}
+}
+
+@media(max-width:480px){
+    .vm-footer-cta h2{font-size:22px;}
+    .vm-footer-cta p{font-size:14px;}
+}
+.Immortalize-title {
+  font-size: 100px;
+  font-weight: 600;
+  line-height: 100%;
+  color: black;
+}
+.color{
+  background: red;
 }

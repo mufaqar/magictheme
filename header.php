@@ -48,9 +48,9 @@
             <div class="d-flex justify-content-between align-items-center">
 
                 <!-- LOGO -->
-                <a href="<?php echo home_url('/'); ?>" class="d-flex align-items-center">
+                <a href="<?php echo home_url('/'); ?>" class="d-flex align-items-center ">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Visual Magic"
-                        width="55" class="me-2">
+                        width="290" class="me-2">
 
                 </a>
 
