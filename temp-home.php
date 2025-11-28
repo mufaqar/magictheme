@@ -90,15 +90,15 @@
     </div>
 
     <!-- Immortalize -->
-    <div class="vm-cta">
+    <section class="vm-cta vm_immortalize">
         <div class="container mt-5 pt-4">
             <div class="row align-items-center">
                 <!-- LEFT SIDE -->
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h1 class="Immortalize-title">
+                <div class="col-md-5 mb-4 mb-md-0">
+                    <h2 class="immortalize-title">
                         Immortalize Your <br>
                         Moments
-                    </h1>
+                    </h2>
 
                     <p class="vm-hero-text mt-3">
                         Turn your favorite memories into meaningful gifts or personal décor.
@@ -111,16 +111,14 @@
                     </a>
                 </div>
                 <!-- RIGHT SIDE -->
-                <div class="col-lg-6">
-                    <div class="vm-thumbs mt-3 d-flex gap-3">
+                <div class="col-md-7 immortalize_gallery">
+                    <div class="vm-thumbs mt-3">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-1.png"
                             width="200" height="250">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-2.png"
                             width="200" height="250">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-3.png"
                             width="200" height="250">
-                    </div>
-                    <div class="vm-thumbs mt-3 d-flex gap-3">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-4.png"
                             width="200" height="250">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-5.png"
@@ -131,7 +129,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Our Categories -->
     <div class="container mt-5 pt-4">
@@ -181,7 +179,8 @@
     <!-- card  -->
     <div class="features-section container">
         <div class="feature-box">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Delivery 2.png" class="feature-icon" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Delivery 2.png" class="feature-icon"
+                alt="">
             <h4>Same Day Deliver</h4>
             <p>Get your favorite photos printed and delivered to your doorstep on the very same day. Fast, easy &
                 hassle-free.</p>
@@ -215,12 +214,14 @@
 
 
 
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<!-- <?php if (have_posts()):
+    while (have_posts()):
+        the_post(); ?>
 <div class="row">
     <div class="col-12">
-        <h1 class="mb-3"><?php the_title(); ?></h1>
+        <h1 class="mb-3"><?php the_title(); ?>123</h1>
         <div><?php the_content(); ?></div>
     </div>
 </div>
-<?php endwhile; endif; ?>
+<?php endwhile; endif; ?> -->
 <?php get_footer(); ?>
