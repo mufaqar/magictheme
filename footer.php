@@ -7,9 +7,9 @@
                 <p class="fw-bold mb-1">Become a Member</p>
                 <h2 class="m-0">Get 25% off your first order</h2>
             </div>
-             <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3">
-                  Sign Up
-             </a>
+            <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3">
+                Sign Up
+            </a>
         </div>
     </div>
 
