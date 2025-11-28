@@ -27,32 +27,38 @@
 
                 <!-- Column 1 -->
                 <div class="col-md-2">
-                    <ul class="list-unstyled">
-                        <li><a href="#">Customer Service</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Ordering</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu( array(
+                        'theme_location' => 'footer_nav1', 
+                        'menu_class'     => 'list-unstyled',
+                        'container'      => false,    
+                        'fallback_cb'    => false,   
+                    ) );
+                    ?>
                 </div>
 
                 <!-- Column 2 -->
                 <div class="col-md-2">
-                    <ul class="list-unstyled">
-                        <li><a href="#">Company</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Privacy Notice</a></li>
-                        <li><a href="#">Terms</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu( array(
+                        'theme_location' => 'footer_nav2', 
+                        'menu_class'     => 'list-unstyled',
+                        'container'      => false,    
+                        'fallback_cb'    => false,   
+                    ) );
+                    ?>
                 </div>
 
                 <!-- Column 3 -->
                 <div class="col-md-2">
-                    <ul class="list-unstyled">
-                        <li><a href="#">Resources</a></li>
-                        <li><a href="#">Gift Cards</a></li>
-                        <li><a href="#">Account Access</a></li>
-                        <li><a href="#">Order Status</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu( array(
+                        'theme_location' => 'footer_nav3', 
+                        'menu_class'     => 'list-unstyled',
+                        'container'      => false,    
+                        'fallback_cb'    => false,   
+                    ) );
+                    ?>
                 </div>
                 <!-- Column 4 -->
                 <div class="mt-4 col-md-3 flex-end">

@@ -3,10 +3,16 @@ function bootstrap_theme_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     register_nav_menus(array(
-        'main-menu' => __('Main Menu', 'my-bootstrap-theme'),
+        'main_menu' => __('Main Menu'),
+        'footer_nav1' => __('Footer Nav1'),
+        'footer_nav2' => __('Footer Nav2'),
+        'footer_nav3' => __('Footer Nav3'),
     ));
 }
 add_action('after_setup_theme', 'bootstrap_theme_setup');
+
+
+include_once(get_template_directory() . '/inc/walker_nav.php');
 
 function bootstrap_theme_files() {
     // Bootstrap CSS (CDN)

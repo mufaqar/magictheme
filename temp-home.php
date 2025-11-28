@@ -7,8 +7,8 @@
             <!-- LEFT SIDE -->
             <div class="col-lg-6 mb-4 mb-lg-0">
                 <h1 class="vm-hero-title">
-                    We Print <br>
-                    Delivered to <br>
+                    We Print
+                    Delivered to
                     Your Door
                 </h1>
 
@@ -113,20 +113,20 @@
                 <!-- RIGHT SIDE -->
                 <div class="col-lg-6">
                     <div class="vm-thumbs mt-3 d-flex gap-3">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-1.png" width="200"
-                            height="250">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-2.png" width="200"
-                            height="250">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-3.png" width="200"
-                            height="250">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-1.png"
+                            width="200" height="250">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-2.png"
+                            width="200" height="250">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-3.png"
+                            width="200" height="250">
                     </div>
                     <div class="vm-thumbs mt-3 d-flex gap-3">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-4.png" width="200"
-                            height="250">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-5.png" width="200"
-                            height="250">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-6.png" width="200"
-                            height="250">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-4.png"
+                            width="200" height="250">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-5.png"
+                            width="200" height="250">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-6.png"
+                            width="200" height="250">
                     </div>
                 </div>
             </div>
