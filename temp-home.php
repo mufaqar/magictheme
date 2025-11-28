@@ -132,7 +132,84 @@
             </div>
         </div>
     </div>
+
+    <!-- Our Categories -->
+    <div class="container mt-5 pt-4">
+        <div class=" Categories-flex">
+            <h2 class="fw-bold mb-0">Our Categories</h2>
+            <div>
+                <a href="#" class="btn vm-hero-btn px-4 py-3">Print Now ↗</a>
+            </div>
+        </div>
+        <div class="col-lg-16 mt-5">
+            <div class="categories-grid">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Posters.png" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Photographic Prints.png" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Wall Art.png" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Wall Photos.png" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Exterior.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Stand Out Anywhere -->
+    <div class="hero-bg" style="
+    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/background image.png');">
+        <div class="container hero-wrap">
+            <div class="stand">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stand.png" alt=""
+                    class="stand-main">
+
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stand-2.png" alt=""
+                    class="stand-small">
+            </div>
+
+            <div class="hero-text">
+                <h2>Stand Out Anywhere</h2>
+                <p>
+                    Create professional prints for storefronts, events, trade shows, and promotions.
+                    Choose durable indoor or outdoor formats designed to showcase your brand. Fast,
+                    high-quality production for businesses of any size.
+                </p>
+                <a href="#" class=" print-btn">Print Now ↗</a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- card  -->
+    <div class="features-section container">
+        <div class="feature-box">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Delivery 2.png" class="feature-icon" alt="">
+            <h4>Same Day Deliver</h4>
+            <p>Get your favorite photos printed and delivered to your doorstep on the very same day. Fast, easy &
+                hassle-free.</p>
+        </div>
+
+        <div class="feature-box">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Group.png" class="feature-icon" alt="">
+            <h4>Custom Sizes & Materials</h4>
+            <p>Go beyond standard posters with custom dimensions, premium finishes, mountings for high-impact displays.
+            </p>
+        </div>
+
+        <div class="feature-box">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector.png" class="feature-icon" alt="">
+            <h4>Same Day Print</h4>
+            <p>High-quality printing without the waiting. Quick setup, premium results, same-day pickup or delivery.</p>
+        </div>
+
+        <div class="feature-box">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Print.png" class="feature-icon" alt="">
+            <h4>Flexible Quantities Options</h4>
+            <p>From single event posters to 1000-unit rollouts, we scale with you and offer agency-friendly reorders.
+            </p>
+        </div>
+    </div>
+
 </section>
+
 
 
 
