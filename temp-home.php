@@ -208,20 +208,4 @@
     </div>
 
 </section>
-
-
-
-
-
-
-<!-- <?php if (have_posts()):
-    while (have_posts()):
-        the_post(); ?>
-<div class="row">
-    <div class="col-12">
-        <h1 class="mb-3"><?php the_title(); ?>123</h1>
-        <div><?php the_content(); ?></div>
-    </div>
-</div>
-<?php endwhile; endif; ?> -->
 <?php get_footer(); ?>
