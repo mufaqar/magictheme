@@ -10,8 +10,6 @@ function bootstrap_theme_setup() {
     ));
 }
 add_action('after_setup_theme', 'bootstrap_theme_setup');
-
-
 include_once(get_template_directory() . '/inc/walker_nav.php');
 
 function bootstrap_theme_files() {
@@ -25,4 +23,3 @@ function bootstrap_theme_files() {
     wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'bootstrap_theme_files');
-?>
