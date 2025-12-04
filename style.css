@@ -236,12 +236,14 @@ textarea {
   padding: 80px 0;
 }
 
-.immortalize-title {
+.immortalize-title,
+.vm_artist_title {
   font-size: 80px;
   font-weight: 700;
   line-height: 100%;
   color: black;
 }
+
 
 .immortalize_gallery .vm-thumbs {
   display: grid;
@@ -270,7 +272,8 @@ textarea {
   margin-top: 10px;
   color: #000;
 }
-.work_card p{
+
+.work_card p {
   font-size: 12px;
   color: #000;
   background: #3DAFED;
@@ -280,10 +283,209 @@ textarea {
   margin-right: 0;
   margin-left: auto;
 }
-.work_card p span{
+
+.work_card p span {
   color: #fff;
 }
 
+.vm_inspiring {
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+}
+
+.vm_inspiring_title {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #fff;
+}
+
+.vm_inspiring_text {
+  font-size: 30px;
+  color: #fff;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.testimonial-section {
+  background: #FAFAFA;
+}
+
+/* Gradient Main Heading */
+.gradient-title {
+  font-size: 80px;
+  background: linear-gradient(90deg, #2EB2FA, #8078D1, #3DAFED);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Left Section Text */
+.testimonial-text h3 {
+  font-size: 32px;
+  line-height: 1.2;
+  color: #000;
+}
+
+/* Cards */
+.testimonial-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.08);
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.google-icon {
+  width: 45px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.review-text {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.58;
+}
+
+.stars {
+  color: #0066ff;
+  font-size: 16px;
+  margin-top: 14px;
+}
+
+.user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Pagination Arrows */
+.pagination-arrow {
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s ease-in-out;
+}
+
+.pagination-arrow:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.pagination-controls {
+  width: 100%;
+}
+
+.arrow-line {
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.arrow-line:hover {
+  color: #777;
+}
+
+/* Positioning Progress-bar */
+.progress-bar-wrapper {
+  flex-grow: 1;
+  height: 3px;
+  background: #cfcfcf;
+  border-radius: 10px;
+  position: relative;
+  margin: 0 18px;
+}
+
+.progress-line {
+  position: absolute;
+  height: 3px;
+  width: 0%;
+  background: #000;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+/* Positioning tweak if needed */
+.pagination-controls {
+  gap: 18px;
+}
+
+/*Faqs*/
+.faq-title {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 100%;
+  color: black;
+}
+
+.faq-item {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  background: #fff;
+}
+
+.faq-question {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  padding: 10px 22px;
+  text-align: left;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-icon {
+  font-size: 24px;
+  transition: 0.3s ease;
+  font-weight: 300;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 22px;
+  transition: max-height 0.35s ease;
+}
+
+.faq-answer p {
+  font-size: 16px;
+  color: #555;
+  padding: 0 0 10px;
+  line-height: 1.5;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 100px;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
 
 /*Footer*/
 
@@ -407,6 +609,11 @@ textarea {
     top: 100px;
   }
 
+  .hero-bg {
+    margin-top: 50px !important;
+    padding: 50px 20px !important;
+  }
+
   .vm-nav .nav {
     flex-direction: column;
     margin-left: 10px;
@@ -439,12 +646,16 @@ textarea {
   .vm-option-box {
     position: static;
     width: 100%;
-    margibmargin-bottom: 15px;
   }
 
   .vm-thumbs .vm-thumb {
     width: 60px;
     height: 60px;
+  }
+
+  .vm_immortalize,
+  .vm_artist {
+    padding: 50px 0;
   }
 
   .immortalize_gallery .vm-thumbs {
@@ -454,8 +665,27 @@ textarea {
     gap: 15px;
     /* optional spacing */
   }
-
+.features-section{
+  margin: 50px auto !important;
+}
   .vm-footer-main {
+    text-align: center;
+  }
+
+  .vm_inspiring_title {
+    font-size: 32px;
+  }
+
+  .vm_inspiring_text {
+    font-size: 18px;
+  }
+
+  .gradient-title {
+    font-size: 40px;
+  }
+
+  .testimonial-text h3 {
+    font-size: 22px;
     text-align: center;
   }
 
@@ -464,11 +694,16 @@ textarea {
     text-align: center !important;
   }
 
+  .faq-title {
+    font-size: 32px;
+  }
+
   .vm-footer-main img {
     margin: 0 auto;
   }
 
-  .immortalize-title {
+  .immortalize-title,
+  .vm_artist_title {
     font-size: 32px;
   }
 
@@ -484,6 +719,14 @@ textarea {
   .vm-hero-text {
     font-size: 18px;
     line-height: normal;
+  }
+
+  .vm_artist_title {
+    text-align: center;
+  }
+
+  .row.vm_artist_gallery {
+    flex-direction: column-reverse;
   }
 }
 
@@ -696,26 +939,31 @@ textarea {
   width: 45px;
   height: 45px;
 }
-.stats_box{
+
+.stats_box {
   display: flex;
   gap: 10px;
 }
+
 .stats_box h4 {
   font-size: 20px;
   font-weight: 700;
   color: #000;
   margin-bottom: 8px;
 }
-.stats_box  p {
+
+.stats_box p {
   font-size: 16px;
   color: #555;
   font-weight: 600;
   line-height: 1.2;
 }
+
 .stats_box .feature-icon {
   width: 45px;
   height: 45px;
 }
+
 @media (max-width: 991px) {
   .features-section {
     grid-template-columns: repeat(2, 1fr);
