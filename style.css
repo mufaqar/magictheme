@@ -229,8 +229,8 @@ textarea {
   -webkit-text-fill-color: transparent;
 }
 
-.vm_immortalize {
-  background-image: url("assets/images/immortalize.png");
+.vm_immortalize,
+.vm_artist {
   background-size: cover;
   background-position: center;
   padding: 80px 0;
@@ -238,19 +238,53 @@ textarea {
 
 .immortalize-title {
   font-size: 80px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 100%;
   color: black;
 }
+
 .immortalize_gallery .vm-thumbs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  gap: 15px; /* optional spacing */
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 equal columns */
+  gap: 15px;
+  /* optional spacing */
 }
+
 .immortalize_gallery .vm-thumbs img {
   width: 100%;
   height: 100%;
 }
+
+.artist-image {
+  background-position: right;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.work_card h6 {
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: #000;
+}
+.work_card p{
+  font-size: 12px;
+  color: #000;
+  background: #3DAFED;
+  border-radius: 6px;
+  padding: 2px 4px;
+  width: fit-content;
+  margin-right: 0;
+  margin-left: auto;
+}
+.work_card p span{
+  color: #fff;
+}
+
+
 /*Footer*/
 
 /* Top CTA Section */
@@ -412,11 +446,15 @@ textarea {
     width: 60px;
     height: 60px;
   }
+
   .immortalize_gallery .vm-thumbs {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 3 equal columns */
-    gap: 15px; /* optional spacing */
+    grid-template-columns: repeat(2, 1fr);
+    /* 3 equal columns */
+    gap: 15px;
+    /* optional spacing */
   }
+
   .vm-footer-main {
     text-align: center;
   }
@@ -628,34 +666,56 @@ textarea {
 .feature-box {
   padding: 25px 22px;
   border-radius: 14px;
-  border: 2px solid #e5e5e5;
+  border: 3px solid #616161;
   transition: 0.3s;
   background: #fff;
 }
 
 .feature-box:hover {
-  border-color: #4e8df5;
+  border: 3px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, #42a2d6, #736bc3, #3990bf) border-box;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 .feature-box h4 {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
+  color: #000;
   margin-top: 15px;
   margin-bottom: 8px;
 }
 
 .feature-box p {
-  font-size: 15px;
+  font-size: 16px;
   color: #555;
-  line-height: 1.6;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .feature-icon {
   width: 45px;
   height: 45px;
 }
-
+.stats_box{
+  display: flex;
+  gap: 10px;
+}
+.stats_box h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+.stats_box  p {
+  font-size: 16px;
+  color: #555;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.stats_box .feature-icon {
+  width: 45px;
+  height: 45px;
+}
 @media (max-width: 991px) {
   .features-section {
     grid-template-columns: repeat(2, 1fr);
