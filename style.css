@@ -229,13 +229,18 @@ textarea {
   -webkit-text-fill-color: transparent;
 }
 
-.vm_immortalize,
-.vm_artist {
+.vm_immortalize {
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   padding: 80px 0;
 }
-
+.vm_artist {
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding: 80px 0;
+}
 .immortalize-title,
 .vm_artist_title {
   font-size: 80px;

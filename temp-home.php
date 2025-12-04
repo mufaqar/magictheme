@@ -206,7 +206,7 @@
 <!-- Artist Spotlight -->
 <section class="vm-cta vm_artist" style="
     background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bwp.png');">
-    <div class="container mt-md-5 pt-md-4">
+    <div class="container">
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
             <div class="col-md-6 mb-4 mb-md-0">
