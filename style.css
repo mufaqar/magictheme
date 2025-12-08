@@ -977,6 +977,9 @@ textarea {
   height: 45px;
 }
 
+.click_section { background-position: top right; background-size: auto; background-repeat: no-repeat;}
+.click_section .vm_inspiring_title , .click_section .vm_inspiring_text { color: #000000;}
+
 @media (max-width: 991px) {
   .features-section {
     grid-template-columns: repeat(2, 1fr);

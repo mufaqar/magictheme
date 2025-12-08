@@ -292,7 +292,7 @@
             <h4>Same Day Deliver</h4>
             <p>Get your favorite photos printed and delivered to your doorstep on the very same day. Fast, easy &
                 hassle-free.</p>
-                <a href="#">Learn More</a>
+            <a href="#">Learn More</a>
         </div>
     </div>
 
@@ -341,7 +341,7 @@
                 </h2>
 
                 <p class="vm_inspiring_text mt-3">
-                    Take photo with your
+                    Take photo with your<br/>
                     camera of phone.
                 </p>
             </div>
@@ -349,8 +349,8 @@
     </div>
 </section>
 <!-- Click -->
-<section class="vm-cta vm_inspiring container" style="
-    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/click.jpg');">
+<section class="vm-cta vm_inspiring click_section container" style="
+    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/upload-bg.png');">
     <div class="container">
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
@@ -360,7 +360,7 @@
                 </h2>
 
                 <p class="vm_inspiring_text mt-3">
-                    Take photo with your
+                    Take photo with your<br/>
                     camera of phone.
                 </p>
             </div>
