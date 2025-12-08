@@ -966,6 +966,11 @@ textarea {
   font-weight: 600;
   line-height: 1.2;
 }
+.stats_box a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
 
 .stats_box .feature-icon {
   width: 45px;
