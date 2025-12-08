@@ -7,7 +7,7 @@
             <!-- LEFT SIDE -->
             <div class="col-lg-6 mb-4 mb-lg-0">
                 <h1 class="vm-hero-title">
-                    We Print
+                    Same Day Print
                     Delivered to
                     Your Door
                 </h1>
@@ -325,24 +325,59 @@
     </div>
 </div>
 
-<!-- Inspiring Artist? -->
-<section class="vm-cta vm_inspiring" style="
-    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/get-started.png');">
+<!-- Click -->
+<section class="vm-cta vm_inspiring container" style="
+    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/click.jpg');">
     <div class="container">
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
             <div class="col-md-6 mb-4 mb-md-0">
                 <h2 class="vm_inspiring_title">
-                    Are You An Inspiring Artist?
+                    Click
                 </h2>
 
                 <p class="vm_inspiring_text mt-3">
-                    Showcase your art, grow your audience, and turn creativity into income.
+                    Take photo with your
+                    camera of phone.
                 </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Click -->
+<section class="vm-cta vm_inspiring container" style="
+    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/click.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- LEFT SIDE -->
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h2 class="vm_inspiring_title">
+                    Click
+                </h2>
 
-                <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3">
-                    Get Started Today ↗
-                </a>
+                <p class="vm_inspiring_text mt-3">
+                    Take photo with your
+                    camera of phone.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Click -->
+<section class="vm-cta vm_inspiring container" style="
+    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/click.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- LEFT SIDE -->
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h2 class="vm_inspiring_title">
+                    Click
+                </h2>
+
+                <p class="vm_inspiring_text mt-3">
+                    Take photo with your
+                    camera of phone.
+                </p>
             </div>
         </div>
     </div>

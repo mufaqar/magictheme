@@ -149,14 +149,14 @@ textarea {
 
 /* MAIN HERO */
 .vm-hero-title {
-  font-size: 80px;
+  font-size: 70px;
   font-weight: 600;
   line-height: 100%;
   color: black;
 }
 
 .vm-hero-text {
-  font-size: 30px;
+  font-size: 20px;
   color: #616161;
   font-weight: 400;
   line-height: 100%;
@@ -243,7 +243,7 @@ textarea {
 }
 .immortalize-title,
 .vm_artist_title {
-  font-size: 80px;
+  font-size: 69px;
   font-weight: 700;
   line-height: 100%;
   color: black;
@@ -295,19 +295,22 @@ textarea {
 
 .vm_inspiring {
   background-size: cover;
-  background-position: center;
-  padding: 80px 0;
+  background-position: right center;
+  padding: 60px 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  margin-top: 15px;
 }
 
 .vm_inspiring_title {
-  font-size: 80px;
+  font-size: 70px;
   font-weight: 700;
   line-height: 100%;
   color: #fff;
 }
 
 .vm_inspiring_text {
-  font-size: 30px;
+  font-size: 24px;
   color: #fff;
   font-weight: 400;
   line-height: 100%;
@@ -319,7 +322,7 @@ textarea {
 
 /* Gradient Main Heading */
 .gradient-title {
-  font-size: 80px;
+  font-size: 65px;
   background: linear-gradient(90deg, #2EB2FA, #8078D1, #3DAFED);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -435,7 +438,7 @@ textarea {
 
 /*Faqs*/
 .faq-title {
-  font-size: 80px;
+  font-size: 70px;
   font-weight: 700;
   line-height: 100%;
   color: black;
@@ -554,7 +557,7 @@ textarea {
 }
 
 .vm-footer-cta h2 {
-  font-size: 60px;
+  font-size: 55px;
   font-weight: 700;
   color: black;
 }
@@ -756,7 +759,7 @@ textarea {
 
 /* Heading big on desktop */
 .Categories-flex h2 {
-  font-size: 60px;
+  font-size: 55px;
   font-weight: 700;
   margin: 0;
 }
@@ -846,13 +849,13 @@ textarea {
 }
 
 .hero-text h2 {
-  font-size: 60px;
+  font-size: 47px;
   font-weight: 600;
   color: #fff;
 }
 
 .hero-text p {
-  font-size: 22px;
+  font-size: 15px;
   color: #fff;
   margin-top: 15px;
   font-weight: 400;
@@ -926,7 +929,7 @@ textarea {
 }
 
 .feature-box h4 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: #000;
   margin-top: 15px;
@@ -934,7 +937,7 @@ textarea {
 }
 
 .feature-box p {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
   font-weight: 600;
   line-height: 1.2;
