@@ -241,7 +241,7 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/work1.png" width="418" height="574">
                 <div>
                     <h6><span>Dune</span> <span>$38.50</span></h6>
-                    <p>16” - 20” Multiple Size</p>
+                    <p>16” - 20” <span>Multiple Size</span></p>
                 </div>
             </div>
             <div class="col-md-9">
@@ -331,7 +331,7 @@
 
 <!-- Click -->
 <section class="vm-cta vm_inspiring container" style="
-    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/click.jpg');">
+    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/click-bg.png');">
     <div class="container">
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
@@ -341,46 +341,48 @@
                 </h2>
 
                 <p class="vm_inspiring_text mt-3">
-                    Take photo with your <br/>
+                    Take photo with your <br />
                     camera of phone.
                 </p>
             </div>
         </div>
     </div>
 </section>
-<!-- Click -->
-<section class="vm-cta vm_inspiring click_section container" style="
-    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/upload-bg.png');">
+<!-- Upload. -->
+<section class="vm-cta vm_inspiring click_section container">
     <div class="container">
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
             <div class="col-md-6 mb-4 mb-md-0">
                 <h2 class="vm_inspiring_title">
-                    Click
+                    Upload
                 </h2>
 
                 <p class="vm_inspiring_text mt-3">
-                    Take photo with your<br/>
-                    camera of phone.
+                    Upload them to your <br />
+                    Visual Magic Store.
                 </p>
+            </div>
+            <div class="col-md-6 text-md-end text-center">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/upload-bg.png" alt="Print" />
             </div>
         </div>
     </div>
 </section>
-<!-- Click -->
-<section class="vm-cta vm_inspiring container" style="
-    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/click.jpg');">
+<!-- Print -->
+<section class="vm-cta vm_print container" style="
+    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/print-bg.png');">
     <div class="container">
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
             <div class="col-md-6 mb-4 mb-md-0">
-                <h2 class="vm_inspiring_title">
-                    Click
+                <h2 class="vm_print_title">
+                    Print
                 </h2>
 
-                <p class="vm_inspiring_text mt-3">
-                    Take photo with your
-                    camera of phone.
+                <p class="vm_print_text mt-3">
+                    Make your memories timeless<br />
+                    with premium prints
                 </p>
             </div>
         </div>

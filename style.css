@@ -235,12 +235,14 @@ textarea {
   background-repeat: no-repeat;
   padding: 80px 0;
 }
+
 .vm_artist {
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
   padding: 80px 0;
 }
+
 .immortalize-title,
 .vm_artist_title {
   font-size: 69px;
@@ -296,10 +298,11 @@ textarea {
 .vm_inspiring {
   background-size: cover;
   background-position: right center;
-  padding: 60px 20px;
+  background-repeat: no-repeat;
+  padding: 70px 20px;
   border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-  margin-top: 15px;
+  box-shadow: 0 2.79px 9.77px 10.47px rgba(0, 0, 0, 0.11);
+  margin-top: 45px;
 }
 
 .vm_inspiring_title {
@@ -312,6 +315,32 @@ textarea {
 .vm_inspiring_text {
   font-size: 24px;
   color: #fff;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.vm_print {
+  background-color: #F3F3F3;
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding: 70px 20px;
+  border-radius: 14px;
+  box-shadow: 0 2.79px 9.77px 10.47px rgba(0, 0, 0, 0.11);
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+
+.vm_print_title {
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #000;
+}
+
+.vm_print_text {
+  font-size: 24px;
+  color: #000;
   font-weight: 400;
   line-height: 100%;
 }
@@ -673,11 +702,31 @@ textarea {
     gap: 15px;
     /* optional spacing */
   }
-.features-section{
-  margin: 50px auto !important;
-}
+
+  .features-section {
+    margin: 50px auto !important;
+  }
+
+  .vm_print {
+    background-position: bottom;
+    padding: 50px 0;
+  }
+
+  .vm_print_title {
+    font-size: 32px;
+  }
+
+  .vm_print_text {
+    font-size: 18px;
+  }
+
   .vm-footer-main {
     text-align: center;
+  }
+
+  .vm_inspiring {
+    background-position: center;
+    padding: 50px 0;
   }
 
   .vm_inspiring_title {
@@ -966,6 +1015,7 @@ textarea {
   font-weight: 600;
   line-height: 1.2;
 }
+
 .stats_box a {
   color: #007bff;
   text-decoration: none;
@@ -977,8 +1027,16 @@ textarea {
   height: 45px;
 }
 
-.click_section { background-position: top right; background-size: auto; background-repeat: no-repeat;}
-.click_section .vm_inspiring_title , .click_section .vm_inspiring_text { color: #000000;}
+.click_section {
+  background-position: top right;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+.click_section .vm_inspiring_title,
+.click_section .vm_inspiring_text {
+  color: #000000;
+}
 
 @media (max-width: 991px) {
   .features-section {
