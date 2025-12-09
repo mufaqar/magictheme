@@ -341,7 +341,7 @@
                 </h2>
 
                 <p class="vm_inspiring_text mt-3">
-                    Take photo with your<br/>
+                    Take photo with your <br/>
                     camera of phone.
                 </p>
             </div>
