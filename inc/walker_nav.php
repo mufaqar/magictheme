@@ -10,7 +10,6 @@ class Walker_Nav_Menu_Bootstrap extends Walker_Nav_Menu {
         if ( in_array( 'current-menu-item', $classes ) ) {
             $classes[] = 'active'; // Mark active item
         }
-
         // Custom badge logic: Add 'position-relative' and badge span if menu item title is 'Poster'
         $badge = '';
         if ( 'Poster' === $item->title ) {
