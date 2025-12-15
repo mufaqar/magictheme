@@ -1,5 +1,4 @@
 <?php
-// Custom Walker class for Bootstrap nav (add to functions.php)
 class Walker_Nav_Menu_Bootstrap extends Walker_Nav_Menu {
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
