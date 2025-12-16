@@ -7,7 +7,7 @@
                 <p class="fw-bold mb-1">Become a Member</p>
                 <h2 class="m-0">Get 25% off your first order</h2>
             </div>
-            <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3">
+            <a href="/sign-up" class="btn vm-hero-btn mt-3 px-4 py-3">
                 Sign Up
             </a>
         </div>
@@ -16,16 +16,11 @@
     <!-- Main Footer Area -->
     <div class="vm-footer-main py-5">
         <div class="container">
-            <div class="row g-4">
-
-                <!-- Logo -->
+            <div class="row g-4">          
                 <div class="col-md-3 text-center text-md-start">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo_footer.png" alt="Logo"
                         class="mb-2" width="200" />
-
                 </div>
-
-                <!-- Column 1 -->
                 <div class="col-md-2">
                     <?php
                     wp_nav_menu( array(
@@ -36,8 +31,6 @@
                     ) );
                     ?>
                 </div>
-
-                <!-- Column 2 -->
                 <div class="col-md-2">
                     <?php
                     wp_nav_menu( array(
@@ -48,9 +41,7 @@
                     ) );
                     ?>
                 </div>
-
-                <!-- Column 3 -->
-                <div class="col-md-2">
+                 <div class="col-md-2">
                     <?php
                     wp_nav_menu( array(
                         'theme_location' => 'footer_nav3', 
@@ -60,7 +51,6 @@
                     ) );
                     ?>
                 </div>
-                <!-- Column 4 -->
                 <div class="mt-4 col-md-3 flex-end">
                     <h6 class="fw-bold mb-2">Follow Us</h6>
 
@@ -69,22 +59,14 @@
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
-
                     <div class="small ">
                         Made With <span style="color:#ff5e8e;">❤</span> by ei1 @ 2025
                     </div>
                 </div>
-
             </div>
-
-            <!-- Bottom Bar -->
-
         </div>
     </div>
 </footer>
-
-
 <?php wp_footer(); ?>
 </body>
-
 </html>
