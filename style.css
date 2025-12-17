@@ -13,6 +13,11 @@ Text Domain: viual-magic
 /* HEADER BACKGROUND */
 
 /* Basic CSS Reset / Normalize */
+
+:root {
+  --icon-gradient: linear-gradient(135deg, #2EB2FA, #8078D1, #3DAFED);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +25,7 @@ Text Domain: viual-magic
 }
 
 .container {
-  max-width: 1300px;
+  max-width: 1234px;
   width: 100%;
   margin: 0 auto;
   padding: 0 15px;
@@ -84,6 +89,12 @@ textarea {
   color: #444;
 }
 
+.icon-gradient {
+  background: var(--icon-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .vm-icon:hover i {
   color: #7d3c98;
 }
@@ -144,7 +155,7 @@ textarea {
   background: #00aaff;
   color: #fff;
   padding: 2px 6px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 /* MAIN HERO */
@@ -230,9 +241,7 @@ textarea {
 }
 
 .vm_immortalize {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #17A2B814;
   padding: 80px 0;
 }
 
@@ -269,6 +278,21 @@ textarea {
   background-position: right;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.work_card img:first-child {
+  height: 100%;
+}
+
+.work_card img {
+  height: 236px;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: height 0.2s ease-in-out;
+}
+
+.work_card:hover img {
+  height: 388px;
 }
 
 .work_card h6 {
@@ -528,7 +552,28 @@ textarea {
 
 /* Top CTA Section */
 .vm-footer-cta {
-  background: #e7f5f6;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 0;
+}
+
+.vm-cta-btn {
+  background: #fff;
+  border-radius: 40px;
+  color: #000;
+  font-weight: 600;
+  font-size: 1.1rem;
+  min-width: 248px;
+}
+
+.vm-cta-btn:hover {
+  background: #000;
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  min-width: 248px;
 }
 
 /* Gradient Button */
@@ -572,13 +617,6 @@ textarea {
 /* Social Icons */
 .vm-footer-main i {
   font-size: 1.3rem;
-}
-
-.vm-footer-cta {
-  background: #17a2b814;
-  color: #fff;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
 }
 
 .vm-footer-cta .vm-btn:hover {
@@ -826,6 +864,132 @@ textarea {
   width: 100%;
   height: auto;
   border-radius: 10px;
+}
+
+/*Categories Page CSS*/
+.breadcrumb-wrapper {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 60px 0;
+}
+
+.breadcrumb-wrapper h1 {
+  font-family: Marble;
+  font-weight: 600;
+  font-style: Semi Bold;
+  font-size: 70px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.breadcrumb-wrapper p {
+  color: #fff;
+  font-family: Marble;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+
+}
+
+/* Categories Section */
+.categories-section {
+  padding: 80px 0;
+  background: #fff;
+  text-align: center;
+}
+
+.categories-title {
+  font-size: 70px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.categories-title span {
+  background: linear-gradient(90deg, #4facfe, #8f7cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.categories-subtitle {
+  max-width: 850px;
+  margin: 0 auto 60px;
+  font-size: 15px;
+  color: #666;
+}
+
+/* Category Card */
+.category-box {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  height: 364px;
+  width: fit-content;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.category-box::after {
+  content: '';
+  position: absolute;
+  height: 0px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, #7D3C984D, #7D3C9880);
+}
+
+.category-box:hover::after {
+  height: 100%;
+}
+
+
+.category-box img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* View Button */
+.category-box .view-btn {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #000;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.category-box:hover .view-btn {
+  bottom: 50%;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* Category Name */
+.category-name {
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .categories-title {
+    font-size: 28px;
+  }
+
+  .category-box {
+    height: 260px;
+  }
 }
 
 /* ============================= */

@@ -3,28 +3,24 @@
 <section class="vm-hero py-5">
     <div class="container">
         <div class="row align-items-center">
-
             <!-- LEFT SIDE -->
-            <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="col-lg-5 mb-4 mb-lg-0">
                 <h1 class="vm-hero-title">
                     Same Day Print
                     Delivered to
                     Your Door
                 </h1>
-
                 <p class="vm-hero-text mt-3">
                     Upload your photo or artwork, choose your print style,
                     and get premium-quality prints delivered to your doorstep.
                 </p>
 
                 <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3">
-                    Print Now ↗
+                    Print Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
                 </a>
             </div>
-
             <!-- RIGHT SIDE -->
-            <div class="col-lg-6">
-
+            <div class="col-lg-7">
                 <div class="vm-hero-product">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/banner-main.png"
                         class="img-fluid rounded" alt="Print Preview">
@@ -90,7 +86,7 @@
 </div>
 
 <!-- Immortalize -->
-<section class="vm-cta vm_immortalize">
+<section class="vm_immortalize">
     <div class="container mt-md-5 pt-md-4">
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
@@ -112,7 +108,7 @@
             </div>
             <!-- RIGHT SIDE -->
             <div class="col-md-7 immortalize_gallery">
-                <div class="vm-thumbs mt-3">
+                <div class="vm-thumbs">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-1.png" width="200"
                         height="250">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Immortalize-2.png" width="200"
@@ -222,7 +218,7 @@
                 </p>
 
                 <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3">
-                    See More ↗
+                    See More <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
                 </a>
             </div>
             <!-- RIGHT SIDE -->
@@ -236,6 +232,9 @@
         </div>
     </div>
     <div class="container mt-5 pt-5">
+        <h2 class="vm_artist_title text-center mb-4">
+            Artist Products
+        </h2>
         <div class="row vm_artist_gallery align-items-end">
             <div class="col-md-3 work_card">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/work1.png" width="418" height="574">
@@ -245,10 +244,7 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <h2 class="vm_artist_title mb-4">
-                    Artist Products
-                </h2>
-                <div class="row">
+                <div class="row align-items-end">
                     <div class="col-md-4 work_card">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/work2.png" width="418"
                             height="574">
@@ -278,7 +274,7 @@
         </div>
         <div class="text-center mt-5">
             <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3 ">
-                See More ↗
+                See More <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
             </a>
         </div>
     </div>
