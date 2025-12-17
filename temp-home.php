@@ -15,7 +15,7 @@
                     and get premium-quality prints delivered to your doorstep.
                 </p>
 
-                <a href="/prints" class="btn vm-hero-btn mt-3 px-4 py-3">
+                <a href="<?php echo home_url('/prints'); ?>" class="btn vm-hero-btn mt-3 px-4 py-3">
                     Print Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
                 </a>
             </div>
@@ -102,7 +102,7 @@
                     Premium quality, delivered ready to enjoy or gift.
                 </p>
 
-                <a href="/prints"  class="btn vm-hero-btn mt-3 px-4 py-3">
+                <a href="<?php echo home_url('/prints'); ?>"  class="btn vm-hero-btn mt-3 px-4 py-3">
                     Print Now ↗
                 </a>
             </div>
@@ -132,7 +132,7 @@
     <div class=" Categories-flex">
         <h2 class="fw-bold mb-0">Our Categories</h2>
         <div>
-            <a href="/prints"  class="btn vm-hero-btn px-4 py-3">Print Now ↗</a>
+            <a href="<?php echo home_url('/prints'); ?>"  class="btn vm-hero-btn px-4 py-3">Print Now ↗</a>
         </div>
     </div>
     <div class="col-lg-16 mt-5">
@@ -163,7 +163,7 @@
                 Choose durable indoor or outdoor formats designed to showcase your brand. Fast,
                 high-quality production for businesses of any size.
             </p>
-            <a href="/prints"  class=" print-btn">Print Now ↗</a>
+            <a href="<?php echo home_url('/prints'); ?>"  class=" print-btn">Print Now ↗</a>
         </div>
 
     </div>
