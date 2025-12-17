@@ -57,6 +57,7 @@ $categories = [
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="category-box">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/category3.png" alt="Wall Tiles">
+                    <a href="#" class="view-btn">View Details →</a>
                 </div>
                 <h6 class="category-name">Wall Tiles</h6>
             </div>
@@ -65,6 +66,7 @@ $categories = [
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="category-box">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/category4.png" alt="Wall Art">
+                    <a href="#" class="view-btn">View Details →</a>
                 </div>
                 <h6 class="category-name">Wall Art</h6>
             </div>
@@ -73,6 +75,7 @@ $categories = [
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="category-box">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/category5.png" alt="Exterior">
+                    <a href="#" class="view-btn">View Details →</a>
                 </div>
                 <h6 class="category-name">Exterior</h6>
             </div>
