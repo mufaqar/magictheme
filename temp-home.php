@@ -55,7 +55,7 @@
     </div>
 </section>
 <!-- STEPS SECTION -->
-<div class="container mt-md-5 pt-md-4">
+<div class="container my-md-5 py-md-4">
     <div class="row">
 
         <div class="col-md-3">
@@ -87,7 +87,7 @@
 
 <!-- Immortalize -->
 <section class="vm_immortalize">
-    <div class="container mt-md-5 pt-md-4">
+    <div class="container">
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
             <div class="col-md-5 mb-4 mb-md-0">
