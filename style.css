@@ -1430,6 +1430,15 @@ textarea {
   .product-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .sorting-bar {
+    font-size: 14px;
+  }
+
+  .sorting-bar select {
+    font-size: 14px;
+    padding: 4px 4px;
+  }
 }
 
 /* ============================= */
