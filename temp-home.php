@@ -155,7 +155,6 @@
 
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stand-2.png" alt="" class="stand-small">
         </div>
-
         <div class="hero-text">
             <h2>Stand Out Anywhere</h2>
             <p>
@@ -209,7 +208,6 @@
                 <h2 class="immortalize-title">
                     Artist Spotlight
                 </h2>
-
                 <p class="vm-hero-text mt-3">
                     Viet Chu is an artist who chose photography as one of the mediums for his exploration and
                     expression of esoteric beauty. In his dedication of that pursuit, he infuses intuitive
