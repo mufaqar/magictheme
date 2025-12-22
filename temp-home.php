@@ -214,7 +214,6 @@
                     sensibility and emotional intelligence to stop and capture a moment of time, that tells a story
                     for the rest of time.
                 </p>
-
                 <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3">
                     See More <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
                 </a>
