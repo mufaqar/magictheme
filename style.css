@@ -26,8 +26,7 @@ Text Domain: viual-magic
 
 @font-face {
   font-family: 'MarbleBold';
-  src: url('assets/fonts/marbletext-bold.woff2') format('woff2'),
-    url('assets/fonts/marbletext-bold.woff') format('woff');
+  src: url('assets/fonts/marble-bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -35,14 +34,13 @@ Text Domain: viual-magic
 
 @font-face {
   font-family: 'MarbleRegular';
-  src: url('assets/fonts/marble-regular.woff2') format('woff2'),
-    url('assets/fonts/marble-regular.woff') format('woff');
+  src: url('assets/fonts/marble-regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-/* h1,
+h1,
 h2,
 h3,
 h4,
@@ -55,7 +53,7 @@ p,
 a,
 span.li {
   font-family: 'MarbleRegular', sans-serif;
-} */
+}
 
 .container {
   max-width: 1234px;
@@ -108,6 +106,7 @@ textarea {
 /* LINKS */
 .vm-link {
   color: #333;
+  font-size: 15px;
   font-weight: 500;
   text-decoration: none;
 }
@@ -171,6 +170,7 @@ textarea {
 .vm-nav .nav-link {
   color: #616161;
   font-weight: 500;
+  font-size: 15px;
   position: relative;
 }
 
@@ -211,7 +211,7 @@ textarea {
   border-radius: 40px;
   color: #fff;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 20px;
   min-width: 248px;
 }
 
@@ -287,7 +287,7 @@ textarea {
 
 .immortalize-title,
 .vm_artist_title {
-  font-size: 69px;
+  font-size: 70px;
   font-weight: 700;
   line-height: 100%;
   color: black;
@@ -329,7 +329,7 @@ textarea {
 }
 
 .work_card h6 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   display: flex;
   justify-content: space-between;
@@ -338,7 +338,7 @@ textarea {
 }
 
 .work_card p {
-  font-size: 12px;
+  font-size: 14px;
   color: #000;
   background: #3DAFED;
   border-radius: 6px;
@@ -370,7 +370,7 @@ textarea {
 }
 
 .vm_inspiring_text {
-  font-size: 24px;
+  font-size: 22px;
   color: #fff;
   font-weight: 400;
   line-height: 100%;
@@ -408,7 +408,7 @@ textarea {
 
 /* Gradient Main Heading */
 .gradient-title {
-  font-size: 65px;
+  font-size: 70px;
   background: linear-gradient(90deg, #2EB2FA, #8078D1, #3DAFED);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -524,7 +524,7 @@ textarea {
 
 /*Faqs*/
 .faq-title {
-  font-size: 70px;
+  font-size: 69px;
   font-weight: 700;
   line-height: 100%;
   color: black;
@@ -543,7 +543,7 @@ textarea {
   width: 100%;
   border: none;
   background: transparent;
-  font-size: 18px;
+  font-size: 20px;
   padding: 10px 22px;
   text-align: left;
   font-weight: 600;
@@ -551,10 +551,12 @@ textarea {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  font-family: 'MarbleRegular', sans-serif;
 }
 
 .faq-icon {
   font-size: 24px;
+  font-family: 'MarbleRegular', sans-serif;
   transition: 0.3s ease;
   font-weight: 300;
 }
@@ -568,7 +570,7 @@ textarea {
 
 .faq-answer p {
   font-size: 16px;
-  color: #555;
+  color: #000000;
   padding: 0 0 10px;
   line-height: 1.5;
 }
@@ -879,7 +881,7 @@ textarea {
 
 /* Heading big on desktop */
 .Categories-flex h2 {
-  font-size: 55px;
+  font-size: 70px;
   font-weight: 700;
   margin: 0;
 }
@@ -982,7 +984,7 @@ textarea {
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
-  padding: 4px 10px;
+  padding: 4px 4px;
   border-radius: 10px;
   font-size: 18px;
   text-decoration: none;
@@ -999,7 +1001,7 @@ textarea {
 }
 
 .category-box:hover .view-btn {
-  bottom: 50%;
+  bottom: 40%;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
 }
 
@@ -1008,6 +1010,7 @@ textarea {
   margin-top: 20px;
   font-weight: 700;
   color: #000;
+  font-size: 20px;
 }
 
 /*Feature Section */
@@ -1335,8 +1338,9 @@ textarea {
 }
 
 .product-card:hover .view-btn {
-  bottom: 50%;
+  bottom: 40%;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+  padding: 4px 4px;
 }
 
 .upload_span {
@@ -1511,13 +1515,13 @@ textarea {
 }
 
 .hero-text h2 {
-  font-size: 47px;
+  font-size: 70px;
   font-weight: 600;
   color: #fff;
 }
 
 .hero-text p {
-  font-size: 15px;
+  font-size: 20px;
   color: #fff;
   margin-top: 15px;
   font-weight: 400;
@@ -1529,6 +1533,7 @@ textarea {
   padding: 14px 32px;
   background: #fff;
   color: #333;
+  font-size: 20px;
   border-radius: 40px;
   font-weight: 600;
   text-decoration: none;
@@ -1591,7 +1596,7 @@ textarea {
 }
 
 .feature-box h4 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: #000;
   margin-top: 15px;
@@ -1599,9 +1604,9 @@ textarea {
 }
 
 .feature-box p {
-  font-size: 14px;
-  color: #555;
-  font-weight: 600;
+  font-size: 15px;
+  color: #616161;
+  font-weight: 500;
   line-height: 1.2;
 }
 
@@ -1624,8 +1629,8 @@ textarea {
 
 .stats_box p {
   font-size: 16px;
-  color: #555;
-  font-weight: 600;
+  color: #616161;
+  font-weight: 500;
   line-height: 1.2;
 }
 

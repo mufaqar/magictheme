@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
-            <div class="col-lg-5 mb-4 mb-lg-0">
+            <div class="col-lg-6 mb-4 mb-lg-0">
                 <h1 class="vm-hero-title">
                     Same Day Print
                     Delivered to
@@ -20,7 +20,7 @@
                 </a>
             </div>
             <!-- RIGHT SIDE -->
-            <div class="col-lg-7">
+            <div class="col-lg-6">
                 <div class="vm-hero-product">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/banner-main.png"
                         class="img-fluid rounded" alt="Print Preview">
@@ -102,8 +102,8 @@
                     Premium quality, delivered ready to enjoy or gift.
                 </p>
 
-                <a href="<?php echo home_url('/prints'); ?>"  class="btn vm-hero-btn mt-3 px-4 py-3">
-                    Print Now ↗
+                <a href="<?php echo home_url('/prints'); ?>" class="btn vm-hero-btn mt-3 px-4 py-3">
+                    Print Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
                 </a>
             </div>
             <!-- RIGHT SIDE -->
@@ -132,7 +132,7 @@
     <div class=" Categories-flex">
         <h2 class="fw-bold mb-0">Our Categories</h2>
         <div>
-            <a href="<?php echo home_url('/prints'); ?>"  class="btn vm-hero-btn px-4 py-3">Print Now ↗</a>
+            <a href="<?php echo home_url('/prints'); ?>" class="btn vm-hero-btn px-4 py-3">Print Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i></a>
         </div>
     </div>
     <div class="col-lg-16 mt-5">
@@ -162,7 +162,7 @@
                 Choose durable indoor or outdoor formats designed to showcase your brand. Fast,
                 high-quality production for businesses of any size.
             </p>
-            <a href="<?php echo home_url('/prints'); ?>"  class=" print-btn">Print Now ↗</a>
+            <a href="<?php echo home_url('/prints'); ?>" class=" print-btn">Print Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i></a>
         </div>
 
     </div>
@@ -282,9 +282,8 @@
     <div class="stats_box">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stats1.png" class="feature-icon" alt="">
         <div>
-            <h4>Same Day Deliver</h4>
-            <p>Get your favorite photos printed and delivered to your doorstep on the very same day. Fast, easy &
-                hassle-free.</p>
+            <h4>Worldwide Shipping</h4>
+            <p>Available as standard on express delivery</p>
             <a href="#">Learn More</a>
         </div>
     </div>
@@ -292,9 +291,8 @@
     <div class="stats_box">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stats2.png" class="feature-icon" alt="">
         <div>
-            <h4>Custom Sizes & Materials</h4>
-            <p>Go beyond standard posters with custom dimensions, premium finishes, mountings for high-impact
-                displays.
+            <h4>Secure Payments </h4>
+            <p>100% Secure payment with 256-bit SSL encryption
             </p>
             <a href="#">Learn More</a>
         </div>
@@ -303,9 +301,8 @@
     <div class="stats_box">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stats3.png" class="feature-icon" alt="">
         <div>
-            <h4>Same Day Print</h4>
-            <p>High-quality printing without the waiting. Quick setup, premium results, same-day pickup or delivery.
-            </p>
+            <h4>Free Return</h4>
+            <p>Exchange or money back guarantee for all orders</p>
             <a href="#">Learn More</a>
         </div>
     </div>
@@ -313,10 +310,8 @@
     <div class="stats_box">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stats4.png" class="feature-icon" alt="">
         <div>
-            <h4>Flexible Quantities Options</h4>
-            <p>From single event posters to 1000-unit rollouts, we scale with you and offer agency-friendly
-                reorders.
-            </p>
+            <h4>Local Support</h4>
+            <p>24/7 Dedicated support</p>
             <a href="#">Learn More</a>
         </div>
     </div>
