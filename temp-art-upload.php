@@ -2,9 +2,7 @@
 
 <!-- Breadcrumb -->
 <?php get_template_part('template-parts/breadcrumb'); ?>
-<style>
-   
-</style>
+
 <section class="upload-art-section">
     <div class="container">
         <div class="row align-items-start g-4">
