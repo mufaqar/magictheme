@@ -2,7 +2,9 @@
 
 <!-- Breadcrumb -->
 <?php get_template_part('template-parts/breadcrumb'); ?>
-
+<style>
+   
+</style>
 <section class="upload-art-section">
     <div class="container">
         <div class="row align-items-start g-4">
@@ -24,32 +26,30 @@
 
                     <input type="file" class="d-none" id="fileUpload">
                 </div>
+                <!-- File preview -->
+                <div class="file-preview text-center d-none" id="filePreview">
+                    <img id="previewImage" src="" alt="Preview" style="max-width:100%; border-radius:8px;" />
+                </div>
             </div>
 
             <!-- Product Details -->
             <div class="col-lg-5">
                 <div class="single-pro-info">
-
                     <span class="category">Wall Art</span>
-
                     <h2 class="single-pro-size">30” × 60”</h2>
-
                     <div class="rating mb-2">
                         ★★★★★ <span>(150 Reviews)</span>
                         <span class="stock">| In Stock</span>
                     </div>
-
                     <p class="description">
                         A popular wall art size ideal for feature walls and
                         vertical spaces. Perfect for showcasing your custom
                         images with a clean, balanced look.
                     </p>
-
                     <div class="price mb-3">
                         <strong>$80.00</strong> <span>/ Starting From*</span>
                         <div class="seen">Seen it for Less?</div>
                     </div>
-
                     <div class="features mb-4">
                         <strong>Key Features:</strong>
                         <ul>
@@ -62,7 +62,7 @@
 
                     <div class="action-buttons mb-4">
                         <div class="d-flex justify-content-between mb-4">
-                            <button class="btn btn-primary">
+                            <button class="btn btn-primary" id="fileInput" type="button">
                                 Upload Design
                             </button>
                             <button class="notify">
@@ -80,6 +80,36 @@
                             </button>
                         </div>
 
+                    </div>
+                    <!-- STEP 1: Uploading -->
+                    <div class="upload-step-box" id="stepUploading">
+                        <div class="card-box">
+                            <h6>Uploading image</h6>
+                            <p class="d-flex justify-content-between">Uploading Your Artwork <small
+                                    id="uploadPercent">0%</small></p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar upload-bar" id="uploadBar" style="width: 0%;"></div>
+                            </div>
+                            <p class="mt-4 d-flex justify-content-between">Scaling Your Artwork <small
+                                    id="scalePercent">0%</small></p>
+                            <div class="progress mb-2">
+                                <div class="progress-bar scale-bar" id="scaleBar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="other-actions mb-4 mt-4">
+                            <div class=" mb-4">
+                                <button class="btn btn-primary w-100" type="button">
+                                    Upload Another Image
+                                </button>
+                            </div>
+                            <div class="">
+                                <button class="btn btn-primary w-100">
+                                    Improve with AI
+                                </button>
+                            </div>
+
+                        </div>
                     </div>
 
                     <div class="info-box">
@@ -532,9 +562,6 @@
 
 
 <script>
-    document.querySelector('.upload-box').addEventListener('click', function () {
-        document.getElementById('fileUpload').click();
-    });
     document.querySelectorAll('.require-title').forEach(button => {
         button.addEventListener('click', () => {
             const item = button.closest('.require-item');
@@ -549,5 +576,83 @@
             // Toggle current item
             item.classList.toggle('active');
         });
+    });
+</script>
+<script>
+    const uploadBox = document.querySelector('.upload-box');
+    const uploadButton = document.getElementById('fileInput'); // Upload Design button
+    const fileInput = document.getElementById('fileUpload');
+    const actionButtons = document.querySelector('.action-buttons');
+    const infoBox = document.querySelector('.info-box');//info-box
+    const stepUploading = document.getElementById('stepUploading');
+
+    const uploadBar = document.getElementById('uploadBar');
+    const scaleBar = document.getElementById('scaleBar');
+    const uploadPercent = document.getElementById('uploadPercent');
+    const scalePercent = document.getElementById('scalePercent');
+
+    const filePreview = document.getElementById('filePreview');
+    const previewImage = document.getElementById('previewImage');
+
+    // Initially hide upload-step-box
+    stepUploading.style.display = 'none';
+
+    // Trigger file input when clicking upload box or button
+    uploadBox.addEventListener('click', () => fileInput.click());
+    uploadButton.addEventListener('click', () => fileInput.click());
+
+    // When file is selected
+    fileInput.addEventListener('change', () => {
+        if (fileInput.files.length === 0) return;
+
+        const file = fileInput.files[0];
+
+        // Show file preview
+        if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewImage.src = e.target.result;
+                filePreview.classList.remove('d-none');
+                uploadBox.style.display = 'none'; // hide upload-box if needed
+            };
+            reader.readAsDataURL(file);
+        } else {
+            // For non-image files, just show the file name
+            filePreview.innerHTML = `<p>${file.name}</p>`;
+            filePreview.classList.remove('d-none');
+            uploadBox.style.display = 'none';
+        }
+
+        // Hide action buttons
+        actionButtons.style.display = 'none';
+        infoBox.style.display = 'none';
+
+        // Show upload-step-box
+        stepUploading.style.display = 'block';
+
+        // Reset progress bars
+        uploadBar.style.width = '0%';
+        scaleBar.style.width = '0%';
+        uploadBar.className = 'progress-bar upload-bar theme-primary';
+        scaleBar.className = 'progress-bar scale-bar theme-secondary';
+        uploadPercent.textContent = '0%';
+        scalePercent.textContent = '0%';
+
+        // Simulate uploading
+        let progress = 0;
+        const interval = setInterval(() => {
+            if (progress >= 100) {
+                clearInterval(interval);
+                // Turn bars green when done
+                uploadBar.className = 'progress-bar upload-bar bg-success';
+                scaleBar.className = 'progress-bar scale-bar bg-success';
+            } else {
+                progress += 2; // speed
+                uploadBar.style.width = progress + '%';
+                scaleBar.style.width = progress + '%';
+                uploadPercent.textContent = progress + '%';
+                scalePercent.textContent = progress + '%';
+            }
+        }, 100);
     });
 </script>

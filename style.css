@@ -1547,7 +1547,8 @@ textarea {
 }
 
 /* Buttons */
-.action-buttons .btn-primary {
+.action-buttons .btn-primary,
+.other-actions .btn-primary {
   font-family: 'MarbleRegular', sans-serif;
   background: linear-gradient(90deg, #2EB2FA, #8078D1, #3DAFED);
   padding: 10px 10px;
@@ -1563,7 +1564,8 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-.action-buttons .btn-primary:hover {
+.action-buttons .btn-primary:hover,
+.other-actions .btn-primary:hover {
   transform: translatey(-10px);
 }
 
@@ -2001,6 +2003,35 @@ textarea {
   color: #fff;
   font-size: 20px;
   text-align: center;
+}
+
+.upload-step-box .card-box {
+  background: #F8F8F8;
+  border-radius: 14px;
+  padding: 18px 12px;
+}
+
+.upload-step-box .card-box h6 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.upload-step-box .card-box p {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 100%;
+  color: #000;
+}
+
+.theme-primary {
+  background-color: #8078D1;
+}
+
+.theme-secondary {
+  background-color: #3DAFED;
 }
 
 /*Single Product end*/
