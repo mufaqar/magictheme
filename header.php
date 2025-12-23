@@ -56,8 +56,8 @@
                 <!-- RIGHT MENU -->
                 <div class="d-md-flex d-none align-items-center gap-3 vm-right-menu">
                     <a href="<?php echo home_url('/shop'); ?>" class="vm-link">Shop</a>
-                    <a href="<?php echo home_url('/'); ?>" class="vm-link">Login</a>
-                    <a href="<?php echo home_url('/'); ?>" class="vm-link">Signup</a>
+                    <a href="<?php echo home_url('/my-account'); ?>" class="vm-link">Login</a>
+                    <a href="<?php echo home_url('/my-account'); ?>" class="vm-link">Signup</a>
                     <a href="<?php echo home_url('/shop'); ?>" class="vm-icon icon-gradient"><i class="far fa-heart"></i></a>
                     <a href="<?php echo home_url('/cart'); ?>" class="vm-icon"><i class="fas fa-shopping-cart"></i></a>
                 </div>
