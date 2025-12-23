@@ -128,7 +128,7 @@
 </section>
 
 <!-- Our Categories -->
-<div class="container mt-md-5 pt-md-4">
+<div class="container my-5 py-4">
     <div class=" Categories-flex">
         <h2 class="fw-bold mb-0">Our Categories</h2>
         <div>
