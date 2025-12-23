@@ -1,11 +1,5 @@
 <?php /*Template Name: Art Upload */ get_header(); ?>
-<style>
-   
-    @media (max-width: 768px) {
 
-       
-    }
-</style>
 <!-- Breadcrumb -->
 <?php get_template_part('template-parts/breadcrumb'); ?>
 
