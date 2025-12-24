@@ -869,3 +869,19 @@
         }, 100);
     });
 </script>
+<script>
+    document.querySelectorAll('.image-options').forEach(group => {
+        group.addEventListener('click', (e) => {
+            const option = e.target.closest('.image-option');
+            if (!option) return;
+
+            // Remove active from siblings
+            group.querySelectorAll('.image-option').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Add active to clicked option
+            option.classList.add('active');
+        });
+    });
+</script>
