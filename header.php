@@ -40,7 +40,6 @@
 <body <?php body_class(); ?>>
     <header class="vm-header py-2">
         <div class="container">
-
             <!-- Top Row -->
             <div class="d-flex flex-md-row flex-row justify-content-between align-items-center">
                 <a href="<?php bloginfo('url'); ?>" class="d-flex align-items-center">
@@ -83,12 +82,6 @@
             </div>
         </div>
     </header>
-
-   
-
-
-
-
     <script>
         document.getElementById("mobileToggle").addEventListener("click", function () {
             const icon = this.querySelector("i");
