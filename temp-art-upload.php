@@ -2,7 +2,111 @@
 
 <!-- Breadcrumb -->
 <?php get_template_part('template-parts/breadcrumb'); ?>
+<style>
+    .print-options-card {
+        width: 320px;
+        background: #fff;
+        border-radius: 14px;
+        padding: 18px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        font-family: 'Inter', sans-serif;
+    }
 
+    .option-group {
+        margin-bottom: 16px;
+    }
+
+    .option-group h6 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    /* Image Options Grid */
+    .image-options {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .image-option {
+        width: 90px;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        background: #fff;
+        padding: 10px 6px;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .image-option img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        margin-bottom: 6px;
+    }
+
+    .image-option span {
+        font-size: 12px;
+        display: block;
+    }
+
+    /* Active State */
+    .image-option.active {
+        border-color: #3b82f6;
+        background: #f0f7ff;
+    }
+
+    .image-option:hover {
+        border-color: #3b82f6;
+    }
+
+    /* Info Box */
+    .info-box {
+        background: #f8fafc;
+        border-radius: 10px;
+        padding: 12px;
+        margin-bottom: 16px;
+    }
+
+    .info-box h6 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .info-box ul {
+        padding-left: 16px;
+    }
+
+    .info-box li {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    /* Buttons */
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background: #3b82f6;
+        color: #fff;
+        margin-bottom: 8px;
+    }
+
+    .btn-secondary {
+        background: #7c83ff;
+        color: #fff;
+    }
+</style>
 <section class="upload-art-section">
     <div class="container">
         <div class="row align-items-start g-4">
@@ -108,6 +212,84 @@
                             </div>
 
                         </div>
+                    </div>
+
+                    <div class="print-options-card">
+
+                        <!-- Orientation -->
+                        <div class="option-group">
+                            <h6>Orientation</h6>
+                            <div class="image-options">
+
+                                <button class="image-option active">
+                                    <img src="portrait.png" alt="Portrait">
+                                    <span>Portrait</span>
+                                </button>
+
+                                <button class="image-option">
+                                    <img src="landscape.png" alt="Landscape">
+                                    <span>Landscape</span>
+                                </button>
+
+                                <button class="image-option">
+                                    <img src="square.png" alt="Square">
+                                    <span>Square</span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <!-- Material -->
+                        <div class="option-group">
+                            <h6>Material</h6>
+                            <div class="image-options">
+
+                                <button class="image-option active">
+                                    <img src="glossy.png" alt="Glossy">
+                                    <span>Premium Glossy</span>
+                                </button>
+
+                                <button class="image-option">
+                                    <img src="matte.png" alt="Matte">
+                                    <span>Premium Matte</span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <!-- Mount -->
+                        <div class="option-group">
+                            <h6>Mount & Lamination</h6>
+                            <div class="image-options">
+
+                                <button class="image-option active">
+                                    <img src="unmounted.png" alt="Unmounted">
+                                    <span>Unmounted</span>
+                                </button>
+
+                                <button class="image-option">
+                                    <img src="mounted.png" alt="Mounted">
+                                    <span>Mounted</span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <!-- Info -->
+                        <div class="info-box2">
+                            <h6>Your Poster is Available for</h6>
+                            <ul>
+                                <li>Same-Day pickup (2–7pm)</li>
+                                <li>Super-Fast Delivery</li>
+                                <li>Standard Delivery (3–5 Days)</li>
+                                <li>Free shipping on orders over $50</li>
+                            </ul>
+                        </div>
+
+                        <!-- Buttons -->
+                        <button class="btn-primary">Add to Cart</button>
+                        <button class="btn-secondary">Instant Checkout</button>
+
                     </div>
 
                     <div class="info-box">
