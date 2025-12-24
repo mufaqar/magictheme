@@ -3,23 +3,42 @@
 <!-- Breadcrumb -->
 <?php get_template_part('template-parts/breadcrumb'); ?>
 <style>
-    .print-options-card {
-        width: 320px;
-        background: #fff;
-        border-radius: 14px;
-        padding: 18px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        font-family: 'Inter', sans-serif;
-    }
+    .print-options-card {}
 
     .option-group {
-        margin-bottom: 16px;
+        background: #3DAFED0D;
+        border-radius: 14px;
+        padding: 13px 16px;
+        margin-bottom: 20px;
     }
 
-    .option-group h6 {
-        font-size: 14px;
-        font-weight: 600;
-        margin-bottom: 8px;
+    .option-group .option-title {
+        border-bottom: 1px solid #000000;
+        padding-bottom: 15px;
+        margin-bottom: 10px;
+    }
+
+    .option-group .option-title h6 {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 100%;
+        color: #000;
+    }
+
+    .option-group .option-title p {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 100%;
+        color: #000;
+        text-align: end;
+        margin-bottom: 0;
+    }
+
+    .option-group .option-title p small {
+        font-weight: 400;
+        font-size: 8px;
+        line-height: 100%;
+        color: #000;
     }
 
     /* Image Options Grid */
@@ -31,10 +50,10 @@
 
     .image-option {
         width: 90px;
-        border: 2px solid #e5e7eb;
+        border: 1px solid #D9D9D947;
         border-radius: 10px;
-        background: #fff;
-        padding: 10px 6px;
+        background: #D9D9D947;
+        padding: 9px 10px;
         cursor: pointer;
         text-align: center;
         transition: all 0.3s ease;
@@ -48,63 +67,55 @@
     }
 
     .image-option span {
-        font-size: 12px;
+        font-size: 10px;
         display: block;
     }
 
     /* Active State */
     .image-option.active {
-        border-color: #3b82f6;
-        background: #f0f7ff;
+        border-color: #3483AE;
     }
 
     .image-option:hover {
-        border-color: #3b82f6;
+        border-color: #3483AE;
     }
 
     /* Info Box */
-    .info-box {
-        background: #f8fafc;
-        border-radius: 10px;
-        padding: 12px;
+    .info-box2 {
         margin-bottom: 16px;
     }
 
-    .info-box h6 {
-        font-size: 14px;
-        font-weight: 600;
-        margin-bottom: 8px;
+    .info-box2 h6 {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 100%;
+        color: #000;
+        margin-bottom: 16px;
     }
 
-    .info-box ul {
+    .info-box2 ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
         padding-left: 16px;
     }
 
-    .info-box li {
-        font-size: 13px;
-        margin-bottom: 6px;
+    .info-box2 ul li {
+        display: flex;
+        gap: 20px;
     }
 
-    /* Buttons */
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        padding: 12px;
-        border-radius: 10px;
-        border: none;
-        font-weight: 600;
-        cursor: pointer;
+    .info-box2 li img {
+        width: 45px;
+        height: 45px;
+        object-fit: contain;
     }
 
-    .btn-primary {
-        background: #3b82f6;
-        color: #fff;
-        margin-bottom: 8px;
-    }
-
-    .btn-secondary {
-        background: #7c83ff;
-        color: #fff;
+    .info-box2 li span {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #000;
     }
 </style>
 <section class="upload-art-section">
@@ -161,7 +172,7 @@
                             <li>Fade-resistant, long-lasting inks</li>
                         </ul>
                     </div>
-
+                    <!-- STEP 1: Uploading -->
                     <div class="action-buttons mb-4">
                         <div class="d-flex justify-content-between mb-4">
                             <button class="btn btn-primary" id="fileInput" type="button">
@@ -181,9 +192,34 @@
                                     alt="icon" />
                             </button>
                         </div>
+                        <div class="info-box">
+                            <div class="info-item">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/upl.png"
+                                    alt="icon" />
+                                <div>
+                                    <strong>Print Quality</strong>
+                                    <p>
+                                        Your artwork is printed using professional-grade
+                                        materials to ensure sharp details, vibrant colors,
+                                        and a gallery-level finish.
+                                    </p>
+                                </div>
+                            </div>
 
+                            <div class="info-item">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/filter.png"
+                                    alt="icon" />
+                                <div>
+                                    <strong>Secure Upload</strong>
+                                    <p>
+                                        Your files are encrypted and used only for printing
+                                        your order. We never store or reuse customer artwork.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- STEP 1: Uploading -->
+                    <!-- STEP 2: Uploading -->
                     <div class="upload-step-box" id="stepUploading">
                         <div class="card-box">
                             <h6>Uploading image</h6>
@@ -213,65 +249,79 @@
 
                         </div>
                     </div>
-
+                    <!-- STEP 3: Uploading -->
                     <div class="print-options-card">
-
                         <!-- Orientation -->
                         <div class="option-group">
-                            <h6>Orientation</h6>
+                            <div class="option-title d-md-flex justify-content-between">
+                                <h6>Orientation</h6>
+                                <p>Portrait<br />
+                                    <small>Size SImulation</small>
+                                </p>
+                            </div>
                             <div class="image-options">
-
                                 <button class="image-option active">
-                                    <img src="portrait.png" alt="Portrait">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portrait3.png"
+                                        alt="Portrait">
                                     <span>Portrait</span>
                                 </button>
-
                                 <button class="image-option">
-                                    <img src="landscape.png" alt="Landscape">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portrait2.png"
+                                        alt="Landscape">
                                     <span>Landscape</span>
                                 </button>
-
-                                <button class="image-option">
-                                    <img src="square.png" alt="Square">
-                                    <span>Square</span>
-                                </button>
-
                             </div>
                         </div>
-
                         <!-- Material -->
                         <div class="option-group">
-                            <h6>Material</h6>
+                            <div class="option-title d-md-flex justify-content-between">
+                                <h6>Material</h6>
+                                <p>Premium Glossy <br />
+                                    <small>More info</small>
+                                </p>
+                            </div>
                             <div class="image-options">
-
                                 <button class="image-option active">
-                                    <img src="glossy.png" alt="Glossy">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/glossy.png"
+                                        alt="Glossy">
                                     <span>Premium Glossy</span>
                                 </button>
-
                                 <button class="image-option">
-                                    <img src="matte.png" alt="Matte">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/matt.png"
+                                        alt="Matte">
                                     <span>Premium Matte</span>
                                 </button>
-
                             </div>
                         </div>
-
                         <!-- Mount -->
                         <div class="option-group">
-                            <h6>Mount & Lamination</h6>
+                            <div class="option-title d-md-flex justify-content-between">
+                                <h6>Mount & Lamination</h6>
+                                <p>Unmounted <br />
+                                    <small>More info</small>
+                                </p>
+                            </div>
                             <div class="image-options">
-
                                 <button class="image-option active">
-                                    <img src="unmounted.png" alt="Unmounted">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mount.png"
+                                        alt="Unmounted">
                                     <span>Unmounted</span>
                                 </button>
-
                                 <button class="image-option">
-                                    <img src="mounted.png" alt="Mounted">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mount2.png"
+                                        alt="Mounted">
                                     <span>Mounted</span>
                                 </button>
-
+                                <button class="image-option">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mount3.png"
+                                        alt="Mounted">
+                                    <span>Mounted</span>
+                                </button>
+                                <button class="image-option">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mount4.png"
+                                        alt="Mounted">
+                                    <span>Mounted</span>
+                                </button>
                             </div>
                         </div>
 
@@ -279,45 +329,28 @@
                         <div class="info-box2">
                             <h6>Your Poster is Available for</h6>
                             <ul>
-                                <li>Same-Day pickup (2–7pm)</li>
-                                <li>Super-Fast Delivery</li>
-                                <li>Standard Delivery (3–5 Days)</li>
-                                <li>Free shipping on orders over $50</li>
+                                <li> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pickup.png"
+                                        alt="pickup"> <span><strong>Store Pickup </strong> Order by 12 pm for free
+                                        same-day
+                                        pickup.</span></li>
+                                <li> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/delivery.png"
+                                        alt="delivery"> <span><strong>Delivery</strong> As early as December 29th with
+                                        Expedited
+                                        Shipping.</span></li>
+                                <li> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/shipping.png"
+                                        alt="shipping"> <span><strong>Shipping</strong> Dispatched as early as December
+                                        29th via
+                                        Expedited Shipping.</span></li>
                             </ul>
                         </div>
 
                         <!-- Buttons -->
-                        <button class="btn-primary">Add to Cart</button>
-                        <button class="btn-secondary">Instant Checkout</button>
-
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-item">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/upl.png" alt="icon" />
-                            <div>
-                                <strong>Print Quality</strong>
-                                <p>
-                                    Your artwork is printed using professional-grade
-                                    materials to ensure sharp details, vibrant colors,
-                                    and a gallery-level finish.
-                                </p>
-                            </div>
+                        <div class="cart-buttons mt-5">
+                            <button class="btn btn-primary w-100 mb-3">Add to Cart</button>
+                            <button class="btn btn-primary w-100">Instant Checkout</button>
                         </div>
 
-                        <div class="info-item">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/filter.png"
-                                alt="icon" />
-                            <div>
-                                <strong>Secure Upload</strong>
-                                <p>
-                                    Your files are encrypted and used only for printing
-                                    your order. We never store or reuse customer artwork.
-                                </p>
-                            </div>
-                        </div>
                     </div>
-
                 </div>
             </div>
 

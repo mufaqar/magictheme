@@ -150,7 +150,7 @@
                     <div class="product-card">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/category2.png"
                             alt="Photographic Prints">
-                        <a href="#" class="view-btn"><span>24x96 <br /><span class="upload_span">Upload Image <i
+                        <a href="<?php echo home_url('/wall-art-30-x-60'); ?>" class="view-btn"><span>24x96 <br /><span class="upload_span">Upload Image <i
                                         class="fa-solid fa-arrow-down"
                                         style="transform: rotate(-130deg);"></i></span></span></a>
                     </div>

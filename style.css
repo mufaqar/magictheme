@@ -1548,7 +1548,7 @@ textarea {
 
 /* Buttons */
 .action-buttons .btn-primary,
-.other-actions .btn-primary {
+.other-actions .btn-primary, .cart-buttons .btn-primary {
   font-family: 'MarbleRegular', sans-serif;
   background: linear-gradient(90deg, #2EB2FA, #8078D1, #3DAFED);
   padding: 10px 10px;
@@ -1565,7 +1565,7 @@ textarea {
 }
 
 .action-buttons .btn-primary:hover,
-.other-actions .btn-primary:hover {
+.other-actions .btn-primary:hover, .cart-buttons .btn-primary:hover {
   transform: translatey(-10px);
 }
 
@@ -1599,6 +1599,7 @@ textarea {
 .info-box {
   border: 1px solid #00000080;
   border-radius: 4.22px;
+  margin-top: 35px;
 }
 
 .info-item {
