@@ -16,7 +16,7 @@
                 </p>
 
                 <a href="<?php echo home_url('/prints'); ?>" class="btn vm-hero-btn mt-3 px-4 py-3">
-                    Print Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
+                   Customize Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
                 </a>
             </div>
             <!-- RIGHT SIDE -->
@@ -103,7 +103,7 @@
                 </p>
 
                 <a href="<?php echo home_url('/prints'); ?>" class="btn vm-hero-btn mt-3 px-4 py-3">
-                    Print Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
+                    Upload Now  <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
                 </a>
             </div>
             <!-- RIGHT SIDE -->
@@ -132,7 +132,7 @@
     <div class=" Categories-flex">
         <h2 class="fw-bold mb-0">Our Categories</h2>
         <div>
-            <a href="<?php echo home_url('/prints'); ?>" class="btn vm-hero-btn px-4 py-3">Print Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i></a>
+            <a href="<?php echo home_url('/prints'); ?>" class="btn vm-hero-btn px-4 py-3">See All <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i></a>
         </div>
     </div>
     <div class="col-lg-16 mt-5">
@@ -162,7 +162,7 @@
                 Choose durable indoor or outdoor formats designed to showcase your brand. Fast,
                 high-quality production for businesses of any size.
             </p>
-            <a href="<?php echo home_url('/prints'); ?>" class=" print-btn">Print Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i></a>
+            <a href="<?php echo home_url('/prints'); ?>" class=" print-btn">Design Now<i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i></a>
         </div>
 
     </div>
@@ -270,8 +270,8 @@
             </div>
         </div>
         <div class="text-center mt-5">
-            <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3 ">
-                See More <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
+            <a href="/shop" class="btn vm-hero-btn mt-3 px-4 py-3 ">
+               Buy Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
             </a>
         </div>
     </div>
