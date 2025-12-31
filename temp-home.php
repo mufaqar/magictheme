@@ -199,7 +199,6 @@
             <a href="<?php echo home_url('/prints'); ?>" class=" print-btn">Design Now<i class="fa-solid fa-arrow-down"
                     style="transform: rotate(-130deg);"></i></a>
         </div>
-
     </div>
 </div> -->
 
