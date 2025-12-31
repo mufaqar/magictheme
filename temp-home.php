@@ -31,25 +31,25 @@
     <div class="row">
 
         <div class="col-md-3">
-            <i class="fas fa-upload vm-step-icon"></i>
+           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/upload-icon.png" class="mb-3" alt="icon" width="40px" height="40px">
             <h5 class="fw-bold mt-2">Upload</h5>
             <p>Add your photos or artwork fast, simple, seamless.</p>
         </div>
 
         <div class="col-md-3">
-            <i class="fas fa-check-square vm-step-icon"></i>
+           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-icon.png" class="mb-3" alt="icon" width="40px" height="40px">
             <h5 class="fw-bold mt-2">Select</h5>
             <p>Choose from posters, prints, wall tiles, or wall & exterior.</p>
         </div>
 
         <div class="col-md-3">
-            <i class="fas fa-pencil-ruler vm-step-icon"></i>
+           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/design-icon.png" class="mb-3" alt="icon" width="40px" height="40px">
             <h5 class="fw-bold mt-2">Design</h5>
             <p>Customize paper size, paper type, finishing and much more.</p>
         </div>
 
         <div class="col-md-3">
-            <i class="far fa-smile vm-step-icon"></i>
+           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/smile-icon.png" class="mb-3" alt="icon" width="40px" height="40px">
             <h5 class="fw-bold mt-2">Enjoy</h5>
             <p>Get stunning, high-quality prints delivered to your door on same day.</p>
         </div>
