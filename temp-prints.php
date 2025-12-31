@@ -13,67 +13,16 @@ $categories = [
 <!-- Categories -->
 <section class="categories-section">
     <div class="container">
-        <h2 class="categories-title gradient-title">
-            Explore our World of Print
+        <h2 class="categories-title gradient-title col-md-7 mx-auto">
+            What You Would like to Print today?
         </h2>
-        <p class="categories-subtitle">
-            Explore a wide range of high-quality printing categories, including posters,
-            photographic prints, wall photos, wall art, and exterior displays. Each product
-            is crafted with premium materials and precise printing to deliver outstanding
-            visual impact for every space.
+        <p class="categories-subtitle col-md-7 mx-auto">
+            Turn your favorite photos into beautifully printed Wall Art designed to elevate your space. Start by
+            choosing the size that fits your wall.
         </p>
-        <div class="row g-4">
+        <div class="cat_grid">
             <!-- Posters -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="category-box">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/category1.png" alt="Posters">
-                    <a href="<?php echo home_url('/wall-art'); ?>" class="view-btn"><span>View Details <i class="fa-solid fa-arrow-down"
-                                style="transform: rotate(-130deg);"></i></span></a>
-                </div>
-                <h6 class="category-name">Posters</h6>
-            </div>
-
-            <!-- Photographic Prints -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="category-box">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/category2.png"
-                        alt="Photographic Prints">
-                    <a href="<?php echo home_url('/wall-art'); ?>" class="view-btn"><span>View Details <i class="fa-solid fa-arrow-down"
-                                style="transform: rotate(-130deg);"></i></span></a>
-                </div>
-                <h6 class="category-name">Photographic Prints</h6>
-            </div>
-
-            <!-- Wall Tiles -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="category-box">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/category3.png" alt="Wall Tiles">
-                    <a href="<?php echo home_url('/wall-art'); ?>" class="view-btn"><span>View Details <i class="fa-solid fa-arrow-down"
-                                style="transform: rotate(-130deg);"></i></span></a>
-                </div>
-                <h6 class="category-name">Wall Tiles</h6>
-            </div>
-
-            <!-- Wall Art -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="category-box">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/category4.png" alt="Wall Art">
-                    <a href="<?php echo home_url('/wall-art'); ?>" class="view-btn"><span>View Details <i class="fa-solid fa-arrow-down"
-                                style="transform: rotate(-130deg);"></i></span></a>
-                </div>
-                <h6 class="category-name">Wall Art</h6>
-            </div>
-
-            <!-- Exterior -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="category-box">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/category5.png" alt="Exterior">
-                    <a href="<?php echo home_url('/wall-art'); ?>" class="view-btn"><span>View Details <i class="fa-solid fa-arrow-down"
-                                style="transform: rotate(-130deg);"></i></span></a>
-                </div>
-                <h6 class="category-name">Exterior</h6>
-            </div>
-
+            <?php get_template_part('template-parts/cat-box'); ?>
         </div>
     </div>
 </section>

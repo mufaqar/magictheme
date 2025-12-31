@@ -1,6 +1,6 @@
 <section class="testimonial-section py-5">
   <div class="container">
-    <h2 class="text-center fw-bold mb-5 gradient-title">Testimonial</h2>
+    <h2 class="text-center fw-bold mb-5 gradient-title">Moments, Beautifully Preserved</h2>
     <div class="row">
       <div class="col-md-3 testimonial-header justify-content-between align-items-center mb-4">
         <div class="testimonial-text">
