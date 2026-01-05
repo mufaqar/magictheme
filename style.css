@@ -194,7 +194,7 @@ textarea {
 
 /* MAIN HERO */
 .vm-hero-title {
-  font-size: 70px;
+  font-size: 56px;
   font-weight: 600;
   line-height: 100%;
   color: black;
@@ -296,7 +296,7 @@ textarea {
 
 .immortalize-title,
 .vm_artist_title {
-  font-size: 70px;
+  font-size: 56px;
   font-weight: 700;
   line-height: 100%;
   color: black;
@@ -371,7 +371,7 @@ textarea {
 }
 
 .vm_inspiring_title {
-  font-size: 70px;
+  font-size: 56px;
   font-weight: 700;
   line-height: 100%;
   color: #fff;
@@ -397,7 +397,7 @@ textarea {
 }
 
 .vm_print_title {
-  font-size: 70px;
+  font-size: 56px;
   font-weight: 700;
   line-height: 100%;
   color: #000;
@@ -416,7 +416,7 @@ textarea {
 
 /* Gradient Main Heading */
 .gradient-title {
-  font-size: 70px;
+  font-size: 56px;
   background: linear-gradient(90deg, #2EB2FA, #8078D1, #3DAFED);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -889,7 +889,7 @@ textarea {
 
 /* Heading big on desktop */
 .Categories-flex h2 {
-  font-size: 70px;
+  font-size: 56px;
   font-weight: 700;
   margin: 0;
 }
@@ -919,7 +919,7 @@ textarea {
 
 .breadcrumb-wrapper h1 {
   font-weight: 600;
-  font-size: 70px;
+  font-size: 56px;
   line-height: 100%;
   color: #fff;
   margin-bottom: 20px;
@@ -940,7 +940,7 @@ textarea {
 }
 
 .categories-title {
-  font-size: 70px;
+  font-size: 56px;
   line-height: 70px;
   font-weight: 700;
   margin-bottom: 15px;
@@ -1188,7 +1188,7 @@ textarea {
 
 .sale-section .sale_title {
   font-weight: 600;
-  font-size: 70px;
+  font-size: 56px;
   line-height: 100%;
   letter-spacing: -6%;
   color: #fff;
@@ -1212,7 +1212,7 @@ textarea {
 }
 
 .inspiration-title {
-  font-size: 70px;
+  font-size: 56px;
   font-weight: 700;
   margin-bottom: 15px;
 }
@@ -1569,7 +1569,7 @@ textarea {
 
 .single-pro-size {
   font-weight: 500;
-  font-size: 70px;
+  font-size: 56px;
   line-height: 100%;
   letter-spacing: 0%;
   color: #3DAFED;
@@ -1782,7 +1782,7 @@ textarea {
 .related-pro-title,
 .related-cat-title {
   font-weight: 800;
-  font-size: 70px;
+  font-size: 56px;
   line-height: 1.2;
   letter-spacing: 0px;
   color: #303133;
@@ -2322,7 +2322,7 @@ textarea {
 }
 
 .hero-text h2 {
-  font-size: 70px;
+  font-size: 56px;
   font-weight: 600;
   color: #fff;
 }
