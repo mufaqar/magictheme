@@ -35,7 +35,7 @@
                     'small' => 'Small',
                     'medium' => 'Medium',
                     'large' => 'Large',
-                    'oversized' => 'Oversized',
+                    'oversize' => 'Oversized',
                     'giant' => 'Giant'
                 ];
 
