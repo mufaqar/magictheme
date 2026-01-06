@@ -1,25 +1,24 @@
 <?php get_header(); ?>
-<div class="row">
-    <div class="col-md-8">
-        <?php if (have_posts()) : ?>
+<div class="container my-5">
+    <div class="row ">
+        <div class="vendor_grid">
+            <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
-                <article id="post-<?php the_ID(); ?>" <?php post_class('card mb-4'); ?>>
-                    <div class="card-body">
-                        <h2 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                        <p class="card-text"><?php the_excerpt(); ?></p>
-                        <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More</a>
-                    </div>
-                </article>
+            <article id="post-<?php the_ID(); ?>" <?php post_class('card mb-4'); ?>>
+                <div class="card-body">
+                    <h2 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <p class="card-text"><?php the_excerpt(); ?></p>
+                    <a href="<?php the_permalink(); ?>" class="btn btn-primary">View Gallery</a>
+                </div>
+            </article>
             <?php endwhile; ?>
             <nav class="my-4">
                 <?php the_posts_pagination(); ?>
             </nav>
-        <?php else : ?>
+            <?php else : ?>
             <p><?php esc_html_e('No posts found.', 'my-bootstrap-theme'); ?></p>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
     </div>
-    <aside class="col-md-4">
-        <?php get_sidebar(); ?>
-    </aside>
 </div>
 <?php get_footer(); ?>

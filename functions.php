@@ -12,6 +12,7 @@ function bootstrap_theme_setup() {
 add_action('after_setup_theme', 'bootstrap_theme_setup');
 
 include_once(get_template_directory() . '/inc/walker_nav.php');
+include_once(get_template_directory() . '/inc/woo.php');
 
 
 function bootstrap_theme_files() {
