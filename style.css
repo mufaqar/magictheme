@@ -2490,5 +2490,26 @@ textarea {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  
 }
+
+.wcv-button {
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #2eb2fa, #8078d1, #3dafed);
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+  min-width: 248px;
+  border: none;
+}
+
+.wcv-vendor-list-search input[type="text"] {
+  padding-left: 20px;
+  padding-right: 45px;
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, #42a2d6, #736bc3, #3990bf) border-box;
+  border-radius: 40px;
+}
+
+ ul.wcv_vendorslist  { padding-left: 0;}

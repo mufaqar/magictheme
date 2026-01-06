@@ -27,19 +27,8 @@ $product_count = count( get_posts( array(
             <span class="dashicons dashicons-products"></span>
             <?php echo esc_html( $product_count ); ?> Products
         </small>
-        <br/>
+        <br />
 
-        <small class="vendors_list--shop-phone">
-            <span class="dashicons dashicons-smartphone"></span>
-            <?php echo esc_html( $phone ); ?>
-        </small>
-        <br/>
-
-       
-
-        <p class="vendor_list--shop-description">
-            <?php echo wp_kses_post( wpautop( $shop_description ) ); ?>
-        </p>
 
         <a class="button vendors_list--shop-link" href="<?php echo esc_url( $shop_link ); ?>">
             <?php esc_html_e( 'View All Gallery', 'wc-vendors' ); ?>
