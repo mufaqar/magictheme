@@ -61,7 +61,7 @@
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                     <div class="small ">
-                        Made With <span style="color:#ff5e8e;">❤</span> by ei1 @ 2025
+                        Made With <span style="color:#ff5e8e;">❤</span> by Ei1 @ 2025
                     </div>
                 </div>
             </div>
