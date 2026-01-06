@@ -1,59 +1,64 @@
 <?php get_header(); ?>
 
+<?php
+$vendor_id = get_queried_object_id(); // works on vendor page
+
+print_r($vendor_id);
+?>
+
 <div class="container my-5">
     <h2 class="vm_artist_title text-center mb-4">
         Artist Products
     </h2>
 
-    <div class="row vm_artist_gallery align-items-end">
+    <div class="row vm_artist_gallery">
 
-        <?php if ( have_posts() ) : ?>
-        <?php while ( have_posts() ) : the_post(); ?>
         <?php
-                    global $product;
+        $args = array(
+            'post_type'      => 'product',
+            'post_status'    => 'publish',
+            'posts_per_page' => 12,
+            'author'         => $vendor_id,
+            'paged'          => get_query_var( 'paged' ) ?: 1,
+        );
 
-                    if ( ! is_a( $product, 'WC_Product' ) ) {
-                        continue;
-                    }
-                    ?>
+        $vendor_products = new WP_Query( $args );
+        ?>
 
-        <div class="col-md-3 work_card">
-            <!-- Product Image -->
-            <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
+        <?php if ( $vendor_products->have_posts() ) : ?>
+            <?php while ( $vendor_products->have_posts() ) : $vendor_products->the_post(); ?>
+                <?php global $product; ?>
+
+                <div class="col-md-3 work_card">
+
+                    <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
+                        <?php echo $product->get_image( 'woocommerce_thumbnail', ['class'=>'img-fluid w-100'] ); ?>
+                    </a>
+
+                    <div>
+                        <h6>
+                            <span><?php echo esc_html( $product->get_name() ); ?></span>
+                            <span><?php echo $product->get_price_html(); ?></span>
+                        </h6>
+                    </div>
+
+                </div>
+
+            <?php endwhile; ?>
+
+            <nav class="my-4 w-100">
                 <?php
-                            echo $product->get_image(
-                                'woocommerce_thumbnail',
-                                [ 'class' => 'img-fluid w-100' ]
-                            );
-                            ?>
-            </a>
-
-            <!-- Product Info -->
-            <div>
-                <h6>
-                    <span><?php echo esc_html( $product->get_name() ); ?></span>
-                    <span><?php echo $product->get_price_html(); ?></span>
-                </h6>
-
-                <?php if ( $product->has_weight() ) : ?>
-                <p>
-                    <?php echo esc_html( wc_format_weight( $product->get_weight() ) ); ?>
-                </p>
-                <?php endif; ?>
-            </div>
-
-        </div>
-
-        <?php endwhile; ?>
-
-        <nav class="my-4">
-            <?php the_posts_pagination(); ?>
-        </nav>
+                echo paginate_links( array(
+                    'total' => $vendor_products->max_num_pages,
+                ) );
+                ?>
+            </nav>
 
         <?php else : ?>
-        <p><?php esc_html_e( 'No products found.', 'my-bootstrap-theme' ); ?></p>
+            <p><?php esc_html_e( 'No products found.', 'my-bootstrap-theme' ); ?></p>
         <?php endif; ?>
 
+        <?php wp_reset_postdata(); ?>
 
     </div>
 </div>
