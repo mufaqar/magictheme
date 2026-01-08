@@ -94,3 +94,29 @@ function get_woo_categories_by_user( $user_id ) {
 
 
 
+
+add_filter( 'woocommerce_get_item_data', function ( $item_data, $cart_item ) {
+
+    if ( isset($cart_item['aspect_ratio']) ) {
+        $item_data[] = [
+            'key'   => 'Aspect Ratio',
+            'value' => $cart_item['aspect_ratio']
+        ];
+    }
+
+    return $item_data;
+}, 10, 2 );
+
+add_action(
+    'woocommerce_checkout_create_order_line_item',
+    function ( $item, $cart_item_key, $values ) {
+
+        if ( isset($values['crop_data']) ) {
+            $item->add_meta_data( 'Crop Data', $values['crop_data'] );
+            $item->add_meta_data( 'Aspect Ratio', $values['aspect_ratio'] );
+        }
+
+    },
+    10,
+    3
+);

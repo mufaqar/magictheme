@@ -118,3 +118,27 @@ function add_custom_options_order( $item_id, $values ) {
         wc_add_order_item_meta( $item_id, 'Frame Type', $values['frame_type'] );
     }
 }
+
+
+/*Cropp*/
+
+
+add_action( 'woocommerce_before_add_to_cart_button', function () {
+    ?>
+    <div class="aspect-ratio-panel">
+
+        <h4>Choose Aspect Ratio</h4>
+
+        <div class="aspect-buttons">
+            <button type="button" data-ratio="1.777">Landscape</button>
+            <button type="button" data-ratio="0.5625">Portrait</button>
+            <button type="button" data-ratio="1">Square</button>
+            <button type="button" data-ratio="NaN">Freeform</button>
+        </div>
+
+        <input type="hidden" name="crop_data" id="crop_data">
+        <input type="hidden" name="aspect_ratio" id="aspect_ratio">
+
+    </div>
+    <?php
+});
