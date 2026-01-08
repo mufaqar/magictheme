@@ -42,15 +42,17 @@ $wrapper_classes   = apply_filters(
 	<div class="woocommerce-product-gallery__wrapper" id="cropper-wrapper">
 		<?php
 		if ( $post_thumbnail_id ) {
-			$html = wc_get_gallery_image_html( $post_thumbnail_id, true );
-		} else {
-			$wrapper_classname = $product->is_type( ProductType::VARIABLE ) && ! empty( $product->get_available_variations( 'image' ) ) ?
-				'woocommerce-product-gallery__image woocommerce-product-gallery__image--placeholder' :
-				'woocommerce-product-gallery__image--placeholder';
-			$html              = sprintf( '<div class="%s">', esc_attr( $wrapper_classname ) );
-			$html             .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
-			$html             .= '</div>';
-		}
+    // Get the image HTML without the <a> link
+    $image = wp_get_attachment_image( $post_thumbnail_id, 'woocommerce_single', false, array( 'class' => 'wp-post-image' ) );
+    $html  = sprintf( '<div class="woocommerce-product-gallery__image">%s</div>', $image );
+} else {
+    $wrapper_classname = $product->is_type( ProductType::VARIABLE ) && ! empty( $product->get_available_variations( 'image' ) ) ?
+        'woocommerce-product-gallery__image woocommerce-product-gallery__image--placeholder' :
+        'woocommerce-product-gallery__image--placeholder';
+    $html              = sprintf( '<div class="%s">', esc_attr( $wrapper_classname ) );
+    $html             .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
+    $html             .= '</div>';
+}
 
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 
