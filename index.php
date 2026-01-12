@@ -2,8 +2,6 @@
 
 <?php
 $vendor_id = get_queried_object_id(); // works on vendor page
-
-print_r($vendor_id);
 ?>
 
 <div class="container my-5">

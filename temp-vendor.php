@@ -3,8 +3,6 @@
 <?php
 $vendor_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-echo $vendor_id;
-
 if ( ! $vendor_id ) {
     echo '<p>Vendor not found.</p>';
     return;
