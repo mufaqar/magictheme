@@ -4,8 +4,8 @@
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/cart.png" style="object-fit: cover;">
     </button>
     <!-- MAIN IMAGE -->
-    <img id="mainImage" src="<?php echo get_template_directory_uri(); ?>/assets/images/banner-main.png"
-        class="img-fluid rounded" alt="Print Preview">
+    <img id="mainImage" src="<?php echo get_template_directory_uri(); ?>/assets/images/banner-image.png"
+        class="rounded banner_image"  alt="Print Preview">
 
     <!-- OPTIONS BOX -->
     <div class="vm-option-box">
@@ -24,7 +24,7 @@
             <span class="bold">Premium</span>
         </div>
         <!-- SIZE -->
-        <div class="filter-box mt-3">
+        <div class="filter-box mt-3 border-bottom-0 pb-0 mb-0">
             <h5 class="filter-title">Size</h5>
 
             <div class="size-grid">
