@@ -116,10 +116,11 @@ $vendor_products = get_posts( $args );
         </div>
 
 
-        <!-- Beautiful uploader -->
+
         <p>
-            <label>Product Image</label><br>
-            <input type="file" name="product_image" accept="image/*" required>
+            <label for="product_image" class="upload-box">Product Image
+                <input class="d-none" type="file" id="product_image" name="product_image" accept="image/*" required>
+            </label>
         </p>
 
         <input type="hidden" name="action" value="vendor_ajax_add_product">
@@ -253,13 +254,13 @@ $vendor_products = get_posts( $args );
 
 /* Upload box */
 .upload-box {
-    border: 2px dashed #ccc;
-    padding: 40px;
+    border: 2px dashed #dddd;
+    width: 100%;
+    height: 100%;
     text-align: center;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: .3s;
-    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+   
 }
 
 .upload-box:hover {
@@ -273,9 +274,9 @@ $vendor_products = get_posts( $args );
 }
 
 .upload-box img {
-    max-width: 180px;
-    margin-top: 15px;
-    border-radius: 12px;
+    height: auto;
+     max-height: 200px;
+     border-radius: 10px;
 }
 
 /* Button */
@@ -308,3 +309,26 @@ $vendor_products = get_posts( $args );
     color: #c62828;
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const input = document.getElementById('product_image');
+    const uploadBox = input.closest('.upload-box');
+
+    input.addEventListener('change', function(event) {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                let img = uploadBox.querySelector('img');
+                if (!img) {
+                    img = document.createElement('img');
+                    uploadBox.appendChild(img);
+                }
+                img.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+});
+</script>

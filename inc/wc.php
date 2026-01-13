@@ -25,6 +25,20 @@ add_action( 'woocommerce_account_add-gallery_endpoint', function () {
 });
 
 
+// Redirect after login for all users (WC Vendors compatible)
+add_filter('woocommerce_login_redirect', 'custom_wc_login_redirect', 10, 2);
+
+function custom_wc_login_redirect($redirect, $user) {
+    // Optional: check user role if you want to redirect only vendors
+    if (in_array('vendor', (array) $user->roles)) {
+        $redirect = wc_get_account_endpoint_url('add-gallery'); // my-account/add-gallery/
+    }
+
+    return $redirect;
+}
+
+
+
 
 
 
