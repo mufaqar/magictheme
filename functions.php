@@ -14,6 +14,8 @@ add_action('after_setup_theme', 'bootstrap_theme_setup');
 include_once(get_template_directory() . '/inc/walker_nav.php');
 include_once(get_template_directory() . '/inc/woo.php');
 include_once(get_template_directory() . '/inc/extra.php');
+include_once(get_template_directory() . '/inc/ajax.php');
+include_once(get_template_directory() . '/inc/wc.php');
 
 
 function bootstrap_theme_files() {
