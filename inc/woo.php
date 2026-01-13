@@ -65,7 +65,7 @@ function custom_wcvendors_vendor_grid() {
 <?php
     return ob_get_clean();
 }
-add_shortcode( 'vendor_grid', 'custom_wcvendors_vendor_grid' );
+add_shortcode( 'all_artists', 'custom_wcvendors_vendor_grid' );
 
 
 

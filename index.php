@@ -6,7 +6,7 @@ $vendor_id = get_queried_object_id(); // works on vendor page
 
 <div class="container my-5">
     <h2 class="vm_artist_title text-center mb-4">
-        Artist Products
+        All Products
     </h2>
 
     <div class="row vm_artist_gallery">

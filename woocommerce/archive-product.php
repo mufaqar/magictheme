@@ -18,7 +18,7 @@ get_template_part(
     'template-parts/breadcrumb',
     null,
     [
-        'title' => 'Gallery of: ' . $vendor_name,
+        'title' => "Shop"
     ]
 );
 ?>
@@ -31,13 +31,13 @@ get_template_part(
             /**
              * Products by vendor
              */
-            if ( $vendor_id ) :
+          
 
                 $args = [
                     'post_type'      => 'product',
                     'post_status'    => 'publish',
                     'posts_per_page' => -1,
-                    'author'         => $vendor_id,
+               //     'author'         => $vendor_id,
                 ];
 
                 $products = new WP_Query( $args );
@@ -48,36 +48,30 @@ get_template_part(
 
                         $product_id = get_the_ID();
                         ?>
-                        <div class="col-md-3 mb-4">
-                            <div class="product-box text-center">
-                                <a href="<?php echo esc_url( get_permalink( $product_id ) ); ?>">
-                                    <?php echo get_the_post_thumbnail( $product_id, 'medium', [ 'class' => 'img-fluid' ] ); ?>
-                                    <h3 class="mt-2">
-                                        <?php echo esc_html( get_the_title( $product_id ) ); ?>
-                                    </h3>
-                                </a>
-                            </div>
-                        </div>
-                        <?php
+            <div class="col-md-3 mb-4">
+                <div class="product-box text-center">
+                    <a href="<?php echo esc_url( get_permalink( $product_id ) ); ?>">
+                        <?php echo get_the_post_thumbnail( $product_id, 'medium', [ 'class' => 'img-fluid' ] ); ?>
+                        <h3 class="mt-2">
+                            <?php echo esc_html( get_the_title( $product_id ) ); ?>
+                        </h3>
+                    </a>
+                </div>
+            </div>
+            <?php
                     endwhile;
 
                     wp_reset_postdata();
 
                 else :
                     ?>
-                    <p class="text-center">
-                        <?php esc_html_e( 'No products found for this vendor.', 'your-theme-textdomain' ); ?>
-                    </p>
-                    <?php
+            <p class="text-center">
+                <?php esc_html_e( 'No products found for this vendor.', 'your-theme-textdomain' ); ?>
+            </p>
+            <?php
                 endif;
 
-            else :
-                ?>
-                <p class="text-center">
-                    <?php esc_html_e( 'Invalid vendor.', 'your-theme-textdomain' ); ?>
-                </p>
-                <?php
-            endif;
+           
             ?>
 
         </div>

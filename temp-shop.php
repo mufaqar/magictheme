@@ -1,4 +1,4 @@
-<?php /*Template Name: Shop */ get_header(); ?>
+<?php /*Template Name: All Artists */ get_header(); ?>
 
 <!-- Breadcrumb -->
 <?php get_template_part(
@@ -11,7 +11,7 @@
 <!-- Categories -->
 <section class="categories-section">
     <div class="container">
-        <?php echo do_shortcode('[vendor_grid]'); ?>
+        <?php echo do_shortcode('[all_artists]'); ?>
     </div>
 
 </section>
