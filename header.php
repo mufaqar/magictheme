@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?php if (is_search()) { ?>
-        <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="noindex, nofollow" />
     <?php } ?>
     <title>
         <?php
@@ -55,9 +55,30 @@
                 <!-- RIGHT MENU -->
                 <div class="d-md-flex d-none align-items-center gap-3 vm-right-menu">
                     <a href="<?php echo home_url('/shop'); ?>" class="vm-link">Shop</a>
-                    <a href="<?php echo home_url('/my-account'); ?>" class="vm-link">Login</a>
-                    <a href="<?php echo home_url('/my-account'); ?>" class="vm-link">Signup</a>
-                    <a href="<?php echo home_url('/shop'); ?>" class="vm-icon icon-gradient"><i class="far fa-heart"></i></a>
+                    <?php if ( is_user_logged_in() ) : ?>
+
+                    <a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="vm-link">
+                        My Account
+                    </a>
+
+                    <a href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>" class="vm-link">
+                        Logout
+                    </a>
+
+                    <?php else : ?>
+
+                    <a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="vm-link">
+                        Login
+                    </a>
+
+                    <a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="vm-link">
+                        Signup
+                    </a>
+
+                    <?php endif; ?>
+
+                    <a href="<?php echo home_url('/shop'); ?>" class="vm-icon icon-gradient"><i
+                            class="far fa-heart"></i></a>
                     <a href="<?php echo home_url('/cart'); ?>" class="vm-icon"><i class="fas fa-shopping-cart"></i></a>
                 </div>
                 <!-- Hamburger Toggler for Mobile -->
@@ -83,9 +104,9 @@
         </div>
     </header>
     <script>
-        document.getElementById("mobileToggle").addEventListener("click", function () {
-            const icon = this.querySelector("i");
-            icon.classList.toggle("fa-bars");
-            icon.classList.toggle("fa-times");
-        });
+    document.getElementById("mobileToggle").addEventListener("click", function() {
+        const icon = this.querySelector("i");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-times");
+    });
     </script>
