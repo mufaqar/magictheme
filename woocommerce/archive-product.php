@@ -94,13 +94,22 @@ get_header('shop');
             <div class="col-lg-9">
                 <!-- SORT BAR -->
                 <div class="sorting-bar align-items-center">
-                    <span>Showing 1–12 of 24 results</span>
+                    <span><?php woocommerce_result_count(); ?></span>
 
                     <span> <span>Sort By: </span>
-                        <select id="sort">
-                            <option value="default">Default Sorting</option>
-                            <option value="latest">Latest</option>
-                            <option value="size">Size</option>
+                        <select id="sort" class="orderby">
+                            <option value="menu_order" <?php selected($_GET['orderby'] ?? '', 'menu_order'); ?>>
+                                Default Sorting
+                            </option>
+                            <option value="date" <?php selected($_GET['orderby'] ?? '', 'date'); ?>>
+                                Latest
+                            </option>
+                            <option value="price" <?php selected($_GET['orderby'] ?? '', 'price'); ?>>
+                                Price: Low to High
+                            </option>
+                            <option value="price-desc" <?php selected($_GET['orderby'] ?? '', 'price-desc'); ?>>
+                                Price: High to Low
+                            </option>
                         </select>
                     </span>
                 </div>
@@ -124,7 +133,7 @@ get_header('shop');
                             ?>
                             <div class="product_box">
                                 <div class="cart_btn position-absolute top-2 end-0 d-flex flex-column gap-2 pt-2 pe-2">
-                                    <button class="btn">
+                                    <button class="btn btn_addtocart">
                                         <i class="fa-regular fa-heart"></i>
                                     </button>
                                     <button class="btn">
@@ -215,5 +224,10 @@ get_footer('shop');
 
             window.location.href = window.location.pathname + '?' + params.toString();
         });
+    });
+    document.getElementById('sort')?.addEventListener('change', function () {
+        const params = new URLSearchParams(window.location.search);
+        params.set('orderby', this.value);
+        window.location.search = params.toString();
     });
 </script>
