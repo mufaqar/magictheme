@@ -1,6 +1,6 @@
 <div class="vm-hero-product">
     <!-- ADD TO CART -->
-    <button id="addToCart" class="border-0 bg-white cart_icon">
+    <button id="addToCart" class="border-0 bg-white p-0 cart_icon">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/cart.png" style="object-fit: cover;">
     </button>
     <!-- MAIN IMAGE -->
@@ -10,7 +10,7 @@
     <!-- OPTIONS BOX -->
     <div class="vm-option-box">
         <h5 class="fw-bold">8 × 10” Frame</h5>
-        <p>Options</p>
+        <p class="option-tag">Options</p>
         <div class="vm-option-item option-select active" data-option="lamination" data-value="No Lamination">
             Unmounted / Lamination / No <br>
             <span class="bold">Lamination</span>
@@ -27,7 +27,7 @@
         <div class="filter-box mt-3 border-bottom-0 pb-0 mb-0">
             <h5 class="filter-title">Size</h5>
 
-            <div class="size-grid">
+            <div class="size-grid gap-1">
 
                 <?php
                 $sizes = [
