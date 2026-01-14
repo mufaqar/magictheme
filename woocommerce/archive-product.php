@@ -123,6 +123,14 @@ get_header('shop');
                             $vendor_name = get_the_author_meta('display_name', $vendor_id);
                             ?>
                             <div class="product_box">
+                                <div class="cart_btn position-absolute top-2 end-0 d-flex flex-column gap-2 pt-2 pe-2">
+                                    <button class="btn">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </button>
+                                    <button class="btn">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
                                 <a href="<?php the_permalink(); ?>">
                                     <?php
                                     if (has_post_thumbnail()) {
@@ -160,8 +168,16 @@ get_header('shop');
         </div>
     </div>
 </section>
-
-
+<!-- Related Authors -->
+<?php get_template_part('template-parts/related-author'); ?>
+<!-- Inspiration-section -->
+<?php get_template_part('template-parts/shop-features'); ?>
+<!-- Sale Section -->
+<?php get_template_part('template-parts/sale'); ?>
+<!-- Testimonials Section -->
+<?php get_template_part('template-parts/testimonials'); ?>
+<!-- FAQs Section -->
+<?php get_template_part('template-parts/faqs'); ?>
 <?php
 /**
  * Required WooCommerce hook
