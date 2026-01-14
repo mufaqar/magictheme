@@ -122,3 +122,43 @@ add_action(
 );
 
 
+
+
+add_action('pre_get_posts', function ($query) {
+
+    if (is_admin() || !$query->is_main_query()) {
+        return;
+    }
+
+    // Run on shop, category, tag, vendor pages
+    if (
+        !is_shop() &&
+        !is_product_category() &&
+        !is_post_type_archive('product')
+    ) {
+        return;
+    }
+
+    /* =====================
+     * CATEGORY FILTER
+     * ===================== */
+    if (!empty($_GET['category'])) {
+
+        $tax_query = (array) $query->get('tax_query');
+
+        $tax_query[] = [
+            'taxonomy' => 'product_cat',
+            'field'    => 'slug',
+            'terms'    => sanitize_text_field($_GET['category']),
+        ];
+
+        $query->set('tax_query', $tax_query);
+    }
+
+    /* =====================
+     * VENDOR FILTER
+     * ===================== */
+    if (!empty($_GET['vendor'])) {
+        $query->set('author', absint($_GET['vendor']));
+    }
+});

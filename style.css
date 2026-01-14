@@ -357,6 +357,32 @@ textarea {
   color: #fff;
 }
 
+/*Shop Product*/
+
+.product_box img {
+  height: 236px;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: height 0.2s ease-in-out;
+}
+
+.product_box h6 {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: #000;
+}
+
+.product_box h6 span small {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .vm_inspiring {
   background-size: cover;
   background-position: right center;

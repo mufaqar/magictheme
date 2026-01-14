@@ -238,12 +238,3 @@
 
 <?php get_footer(); ?>
 
-
-<script>
-    document.querySelectorAll('.filter-title').forEach(title => {
-        title.addEventListener('click', () => {
-            const box = title.closest('.filter-box');
-            box.classList.toggle('active');
-        });
-    });
-</script>
