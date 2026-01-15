@@ -6,13 +6,25 @@ add_action( 'init', function () {
 
 add_filter( 'woocommerce_account_menu_items', function ( $items ) {
 
+    if ( ! is_user_logged_in() ) {
+        return $items;
+    }
+
+    $user = wp_get_current_user();
+
+    // Only vendors
+    if ( ! in_array( 'vendor', (array) $user->roles ) ) {
+        return $items;
+    }
+
     $new_items = [];
 
     foreach ( $items as $key => $label ) {
         $new_items[$key] = $label;
 
+        // Insert after Dashboard
         if ( $key === 'dashboard' ) {
-            $new_items['add-gallery'] = 'Add Gallery';
+            $new_items['add-gallery'] = __( 'Add Gallery', 'textdomain' );
         }
     }
 
