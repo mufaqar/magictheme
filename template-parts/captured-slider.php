@@ -36,7 +36,6 @@
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-
 <section class="capture_sec">
     <div class="container">
         <h2 class="capture_title gradient-title">Captured by You, Enhanced by Visual Magic</h2>
@@ -95,13 +94,11 @@
             slideShadows: false
         },
         loop: true,
-
         // Navigation arrows
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev"
         },
-
         // Pagination
         pagination: {
             el: ".swiper-pagination",
