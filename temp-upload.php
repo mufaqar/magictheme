@@ -371,6 +371,8 @@
     const uploadingScreen = document.getElementById('screen-uploading');
     const customizeScreen = document.getElementById('screen-customize');
 
+    let scale = 0; // ✅ shared scope
+
     document.getElementById('browseBtn').addEventListener('click', function (e) {
         e.preventDefault();
         document.getElementById('fileUpload').click();
@@ -379,7 +381,6 @@
     document.getElementById('fileUpload').addEventListener('change', function () {
         if (!this.files.length) return;
 
-        // Show uploading screen
         uploadScreen.style.display = 'none';
         uploadingScreen.style.display = 'block';
         customizeScreen.style.display = 'none';
@@ -389,7 +390,6 @@
 
     function startUpload() {
         let upload = 0;
-        let scale = 0;
 
         const uploadTimer = setInterval(() => {
             upload += 5;
@@ -404,6 +404,8 @@
     }
 
     function startScaling() {
+        scale = 0; // reset before starting
+
         const scaleTimer = setInterval(() => {
             scale += 5;
             document.getElementById('scaleBar').style.width = scale + '%';
@@ -412,7 +414,6 @@
             if (scale >= 100) {
                 clearInterval(scaleTimer);
 
-                // AUTO SHOW CUSTOMIZE SCREEN
                 setTimeout(() => {
                     uploadingScreen.style.display = 'none';
                     customizeScreen.style.display = 'block';
