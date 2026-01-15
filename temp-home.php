@@ -14,7 +14,7 @@
                     Premium quality, delivered ready to enjoy or gift.
                 </p>
 
-                <a href="<?php echo home_url('/prints'); ?>" class="btn vm-hero-btn mt-3 px-4 py-3">
+                <a href="<?php echo home_url('/customize-upload'); ?>" class="btn vm-hero-btn mt-3 px-4 py-3">
                     Customize Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
                 </a>
             </div>
@@ -78,7 +78,7 @@
                     your doorstep.
                 </p>
 
-                <a href="<?php echo home_url('/prints'); ?>" class="btn vm-hero-btn mt-3 px-4 py-3">
+                <a href="<?php echo home_url('/customize-upload'); ?>" class="btn vm-hero-btn mt-3 px-4 py-3">
                     Customize Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
                 </a>
             </div>
@@ -92,7 +92,7 @@
     <div class=" Categories-flex">
         <h2 class="fw-bold mb-0">Our Categories</h2>
         <div>
-            <a href="<?php echo home_url('/prints'); ?>" class="btn vm-hero-btn px-4 py-3">See All <i
+            <a href="<?php echo home_url('/customize-upload'); ?>" class="btn vm-hero-btn px-4 py-3">See All <i
                     class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i></a>
         </div>
     </div>
