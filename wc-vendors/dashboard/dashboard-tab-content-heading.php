@@ -50,7 +50,7 @@ $completed_steps = count( $completed_steps );
         <?php if ( count( $store_setup_steps ) !== $completed_steps && ! $is_dismissed ) : ?>
         <div class="wcv-store-setup-steps-wrapper wcv-section-bg-light wcv-bottom-space">
             <div class="wcv-store-setup-steps-header wcv-flex">
-                <h3 class="wcv-heading"><?php esc_html_e( 'Complete your setup', 'wc-vendors' ); ?></h3>
+                <h3 class="wcv-heading"><?php esc_html_e( 'Complete your setup 1', 'wc-vendors' ); ?></h3>
                 <a href="#" class="wcv-store-setup-dismiss" title="<?php esc_attr_e( 'Dismiss', 'wc-vendors' ); ?>">
                     <?php echo wp_kses_post( wcv_get_icon( 'wcv-icon wcv-icon-md', 'wcv-icon-times' ) ); ?>
                 </a>

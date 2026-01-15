@@ -38,6 +38,27 @@ function custom_wc_login_redirect($redirect, $user) {
 }
 
 
+// Vendor Dashboard first & remove default dashboard for vendors
+add_filter('woocommerce_account_menu_items', 'vendor_dashboard_first', 99);
+
+function vendor_dashboard_first($items) {
+
+    if (is_user_logged_in() && in_array('vendor', wp_get_current_user()->roles)) {
+
+        // Remove default dashboard
+        unset($items['dashboard']);
+
+        // Create new menu with Vendor Dashboard on top
+        $new_items = [
+            'vendor-dashboard' => __('Dashboard', 'textdomain'),
+        ];
+
+        // Merge remaining items after
+        $items = $new_items + $items;
+    }
+
+    return $items;
+}
 
 
 
