@@ -37,6 +37,8 @@ add_action( 'woocommerce_account_add-gallery_endpoint', function () {
 });
 
 
+
+
 // Redirect after login for all users (WC Vendors compatible)
 add_filter('woocommerce_login_redirect', 'custom_wc_login_redirect', 10, 2);
 
@@ -74,4 +76,24 @@ function vendor_dashboard_first($items) {
 
 
 
+add_filter( 'wcv_dashboard_pages_nav', 'remove_wcv_dashboard_menu_items', 20 );
 
+function remove_wcv_dashboard_menu_items( $pages ) {
+
+    var_dump($pages); // For debugging purposes
+
+    // Commission / Earnings
+    unset( $pages['commission'] );
+    unset( $pages['earnings'] ); // fallback
+
+    // Ratings / Reviews
+    unset( $pages['rating'] );
+    unset( $pages['reviews'] ); // fallback
+
+    // Reports
+    unset( $pages['reports'] );
+
+        unset( $pages['shop_coupon'] );
+
+    return $pages;
+}
