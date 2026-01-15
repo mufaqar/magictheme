@@ -1498,7 +1498,8 @@ textarea {
   justify-content: center;
   padding-left: 0;
 }
-.ra-slider .ra-box ul li a{
+
+.ra-slider .ra-box ul li a {
   color: #fff;
   font-size: 16px;
 }
@@ -1762,8 +1763,16 @@ textarea {
   padding: 60px 0;
 }
 
+.upload-art-section {
+  background-size: cover;
+  background-position: center 60px;
+  background-repeat: no-repeat;
+}
+
 /* Upload Box */
 .upload-art-section .upload-box {
+  max-width: 1037px;
+  margin: auto;
   border: 1.56px dashed #454545;
   border-radius: 16px;
   padding: 70px 30px;
@@ -1771,14 +1780,14 @@ textarea {
 }
 
 .upload-box .upload-icon img {
-  width: auto;
+  max-width: 177px;
+  width: 100%;
 }
 
 .upload-art-section .upload-box h4 {
   font-weight: 500;
-  font-size: 62.26px;
-  line-height: 100%;
-  letter-spacing: -1%;
+  font-size: 50px;
+  line-height: 1;
   text-align: center;
   color: #828282;
   margin-bottom: 20px;
@@ -1786,9 +1795,8 @@ textarea {
 
 .upload-art-section .upload-box p {
   font-weight: 500;
-  font-size: 31.13px;
-  line-height: 100%;
-  letter-spacing: -1%;
+  font-size: 25px;
+  line-height: 1;
   text-align: center;
   color: #828282;
 }
@@ -1801,9 +1809,8 @@ textarea {
 
 .upload-art-section .upload-box p.upload-info {
   font-weight: 500;
-  font-size: 24.21px;
+  font-size: 19px;
   line-height: 1.1;
-  letter-spacing: -1%;
   text-align: center;
   color: #82828280;
 }
