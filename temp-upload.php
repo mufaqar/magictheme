@@ -23,6 +23,7 @@
     }
 
     .uploading_bars ul {
+        margin-top: 50px;
         padding-left: 0;
         font-weight: 500;
         font-size: 16px;
@@ -35,6 +36,7 @@
         width: 100%;
         background-color: #fff;
         margin-bottom: 20px;
+        margin-top: 20px;
         box-shadow: 0px 1px 4px 0px #0000001A;
     }
 
@@ -47,6 +49,7 @@
     }
 
     .step-indicator .step {
+        cursor: pointer;
         padding: 24px;
         text-align: center;
         position: relative;
@@ -188,13 +191,30 @@
         color: #000;
     }
 
+    .pro_options {
+        margin-bottom: 40px;
+    }
+
     .pro_options label {
         font-size: 24px;
         background: linear-gradient(90deg, #2eb2fa, #8078d1, #3dafed);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 700;
+        border-bottom: 1px solid #000;
+        padding-bottom: 3x;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
 
+    .pro_options label span {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 1;
+        color: #808080 !important;
     }
 
     .pro_options .opt_list {
@@ -202,20 +222,85 @@
         gap: 12px;
     }
 
-    .size-btn,
-    .category-btn {
+    .opt_list .scale-btn {
         font-weight: 400;
         font-size: 15px;
+        background: transparent;
+        padding: 5px 27px;
+        border-radius: 11px;
+        text-decoration: none;
+        color: #000;
+        z-index: 2;
+        border: 1px solid #000000;
+        transform: translatey(0);
+        transition: all 0.3s ease-in-out;
+        width: 100%;
+    }
+
+    .opt_list .scale-btn.active {
         background: linear-gradient(90deg, #2eb2fa, #8078d1, #3dafed);
+        color: #fff;
+        border: 1px solid #2eb2fa;
+    }
+
+    .btn.upscale {
+        margin: 10px 0;
+        font-weight: 400;
+        font-size: 16px;
+        background: linear-gradient(90deg, #3483AE 0%, #6059A1 100%);
         padding: 5px 27px;
         border-radius: 11px;
         text-decoration: none;
         color: #fff;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         z-index: 2;
-        border: none;
+        border: 1px solid #3483AE;
         transform: translatey(0);
         transition: all 0.3s ease-in-out;
+        width: 100%;
+    }
+
+    .scale_tip {
+        background-color: #D9D9D94D;
+        font-weight: 400;
+        font-size: 12px;
+        padding: 5px 20px;
+        line-height: 1;
+        border-radius: 7px;
+        text-align: center;
+        color: #808080;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .opt_list .img-btn {
+        background-color: transparent;
+        border-radius: 3.77px;
+        padding: 4px;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+    }
+
+    .opt_list .img-btn.active {
+        background-color: #D9D9D947;
+    }
+
+    .opt_list .img-btn span {
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 1.1;
+        text-align: center;
+        color: #000000;
+    }
+
+    .opt_list .img-btn img {
+        max-height: 31px;
+        height: 100%;
     }
 </style>
 <section class="upload-art-section"
@@ -224,20 +309,20 @@
         <div class="row align-items-start g-4">
             <div id="screen-upload">
                 <div class="col-lg-12">
-                    <div class="upload-box text-center">
+                    <label class="upload-box text-center w-full  mt-5" id="browseBtn">
                         <div class="upload-icon mb-3">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/upload.png" />
                         </div>
                         <h4>Drag & Upload</h4>
-                        <p>
-                            or <a href="#" id="browseBtn">browse files</a>
+                        <p class="mb-3">
+                            or <span class="browse-link">browse files</span> on your computer
                         </p>
                         <p class="upload-info">
                             Maximum file size limit: 25MB <br>
                             Supported Files: JPG, PNG, PDF
                         </p>
                         <input type="file" class="d-none" id="fileUpload">
-                    </div>
+                    </label>
                 </div>
             </div>
 
@@ -262,6 +347,15 @@
                     <div class="progress mb-2">
                         <div class="progress-bar scale-bar" id="scaleBar" style="width:0%"></div>
                     </div>
+
+                    <ul class="note">
+                        <li><img src="<?php echo get_template_directory_uri(); ?>/assets/images/exclam.png"
+                                alt="icon" />
+                            Original resolution: 1500 × 1000px,</li>
+                        <li><img src="<?php echo get_template_directory_uri(); ?>/assets/images/exclam.png"
+                                alt="icon" /> Visual
+                            Magic recommendation: Upscale image to 3000 × 2000px</li>
+                    </ul>
                 </div>
             </div>
 
@@ -280,7 +374,7 @@
                 </div>
             </div>
 
-            <div class="container">
+            <div class="container py-5">
                 <!-- Main Layout -->
                 <div class="row justify-content-between">
                     <!-- Left: Image Preview -->
@@ -318,44 +412,117 @@
                     </div>
 
                     <!-- Right: Control Panel -->
-                    <div class="col-md-5">
-                        <div class="control-panel">
+                    <div class="col-md-4">
+                        <div class="step1 control-panel">
                             <h5 class="title">Resolution & Size</h5>
-                            <p class="subtitle">Upscale your image and choose the right size:</p>
+                            <p class="subtitle">Upscale your image and choose the right size to unlock more options.</p>
                             <hr />
-                            <div class="mb-3 pro_options upscale">
-                                <label class="form-label">Upscale:</label>
+                            <div class="pro_options upscale_options">
+                                <label class="form-label">Upscale:
+                                    <span>2x<i class="fas fa-chevron-up"></i></span></label>
                                 <div class="opt_list">
-                                    <button type="button" class="size-btn" onclick="setUpscale(2)">2x</button>
-                                    <button type="button" class="size-btn" onclick="setUpscale(4)">4x</button>
-                                    <button type="button" class="size-btn" onclick="setUpscale(6)">6x</button>
-                                    <button type="button" class="size-btn" onclick="setUpscale(8)">8x</button>
+                                    <button type="button" class="btn scale-btn active"
+                                        onclick="setUpscale(2)">2x</button>
+                                    <button type="button" class="btn scale-btn" onclick="setUpscale(4)">4x</button>
+                                    <button type="button" class="btn scale-btn" onclick="setUpscale(6)">6x</button>
+                                    <button type="button" class="btn scale-btn" onclick="setUpscale(8)">8x</button>
+                                </div>
+                                <button type="button" class="btn upscale">Upscale</button>
+                                <p class="scale_tip">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/exclam.png"
+                                        alt="icon" /> <span>Upscale your image for higher resolution. This will unlock
+                                        more
+                                        sizes and print categories that aren’t available right now.</span>
+                                </p>
+                            </div>
+
+                            <div class="pro_options">
+                                <label class="form-label">Categories:
+                                    <span>Photographic Prints<i class="fas fa-chevron-up"></i></span></label>
+                                <div class="opt_list">
+                                    <button class="btn img-btn active">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/co1.png"
+                                            alt="Photographic">
+                                        <span>Photographic Prints</span>
+                                    </button>
+                                    <button type="button" class="btn img-btn"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/co2.png"
+                                            alt="Posters"><span>Posters</span></button>
+                                    <button type="button" class="btn img-btn"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/co3.png"
+                                            alt="Wall Tiles"><span>Wall Tiles</span></button>
+                                    <button type="button" class="btn img-btn"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/co4.png"
+                                            alt="Wall Art"><span>Wall Art</span></button>
+                                    <button type="button" class="btn img-btn"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/images/co5.png"
+                                            alt="Exterior"><span>Exterior</span></button>
                                 </div>
                             </div>
 
-                            <div class="mb-3 pro_options">
-                                <label class="form-label">Categories:</label>
+                            <div class="pro_options">
+                                <label class="form-label">Size:
+                                    <span>5” x 7”<i class="fas fa-chevron-up"></i></span></label>
                                 <div class="opt_list">
-                                    <button type="button" class="category-btn">Photographic
-                                        Prints</button>
-                                    <button type="button" class="category-btn">Posters</button>
-                                    <button type="button" class="category-btn">Wall Tiles</button>
-                                    <button type="button" class="category-btn">Wall Art</button>
+                                    <button class="btn img-btn active">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/si1.png"
+                                            alt='5.25” × 5.25”'>
+                                        <span>5.25” × 5.25”</span>
+                                    </button>
+                                    <button class="btn img-btn">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/si2.png"
+                                            alt='5" x 7"'>
+                                        <span>5" x 7"</span>
+                                    </button>
+                                    <button class="btn img-btn">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/si3.png"
+                                            alt='8" x 10"'>
+                                        <span>8" x 10"</span>
+                                    </button>
+                                    <button class="btn img-btn">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/si4.png"
+                                            alt='12" x 16"'>
+                                        <span>12" x 16"</span>
+                                    </button>
+
+                                    <button class="btn img-btn">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/si5.png"
+                                            alt='5" x 7"'>
+                                        <span>5" x 7"</span>
+                                    </button>
                                 </div>
                             </div>
-
-                            <div class="mb-3 pro_options">
-                                <label class="form-label">Size:</label>
-                                <div class="opt_list">
-                                    <button type="button" class="size-btn">5" x 7"</button>
-                                    <button type="button" class="size-btn">8" x 10"</button>
-                                    <button type="button" class="size-btn">12" x 16"</button>
-                                </div>
+                            <!-- Buttons -->
+                            <div class="action-buttons mt-5">
+                                <button class="btn btn-secondary w-100 mb-3"
+                                    onclick="prevStep()"><span>Back</span></button>
+                                <button class="btn btn-primary w-100" onclick="nextStep()"><span>Next</span></button>
                             </div>
-
-                            <div class="d-flex justify-content-between">
-                                <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
-                                <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                        </div>
+                        <div class="step2 control-panel" style="display: none;">
+                            <h5 class="title">Enhance & Adjust</h5>
+                            <!-- Buttons -->
+                            <div class="action-buttons mt-5">
+                                <button class="btn btn-secondary w-100 mb-3"
+                                    onclick="prevStep()"><span>Back</span></button>
+                                <button class="btn btn-primary w-100" onclick="nextStep()"><span>Next</span></button>
+                            </div>
+                        </div>
+                        <div class="step3 control-panel" style="display: none;">
+                            <h5 class="title">Configure</h5>
+                            <!-- Buttons -->
+                            <div class="action-buttons mt-5">
+                                <button class="btn btn-secondary w-100 mb-3"
+                                    onclick="prevStep()"><span>Back</span></button>
+                                <button class="btn btn-primary w-100" onclick="nextStep()"><span>Review</span></button>
+                            </div>
+                        </div>
+                        <div class="step4 control-panel" style="display: none;">
+                            <h5 class="title">Review & Approval</h5>
+                            <!-- Buttons -->
+                            <div class="action-buttons mt-5">
+                                <button class="btn btn-secondary w-100 mb-3"><span>Add to Cart</span></button>
+                                <button class="btn btn-primary w-100"><span>Payment Process</span></button>
                             </div>
                         </div>
                     </div>
@@ -365,6 +532,61 @@
     </div>
 </section>
 
+<script>
+    const fileInput = document.getElementById('fileUpload');
+    const previewImg = document.querySelector('.image-preview img');
+    const resolutionText = document.querySelector('.image_resolution');
+    const noteList = document.querySelector('.note');
+
+    fileInput.addEventListener('change', function () {
+        if (!this.files || !this.files[0]) return;
+
+        const file = this.files[0];
+
+        // Only allow images
+        if (!file.type.startsWith('image/')) {
+            alert('Please upload an image file');
+            return;
+        }
+
+        // Preview image
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            previewImg.src = e.target.result;
+
+            // Get image dimensions
+            const img = new Image();
+            img.onload = function () {
+                const originalWidth = img.naturalWidth;
+                const originalHeight = img.naturalHeight;
+
+                // Example upscale (2x)
+                const upscaleFactor = 2;
+                const newWidth = originalWidth * upscaleFactor;
+                const newHeight = originalHeight * upscaleFactor;
+
+                // Update resolution text
+                resolutionText.innerText =
+                    `Image Resolution: ${newWidth} x ${newHeight} px`;
+
+                // Update notes
+                noteList.innerHTML = `
+                <li>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/exclam.png" />
+                    Original resolution: ${originalWidth} × ${originalHeight}px
+                </li>
+                <li>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/exclam.png" />
+                    New Resolution: ${newWidth} × ${newHeight}px for perfect print quality.
+                </li>
+            `;
+            };
+            img.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    });
+</script>
 
 <script>
     const uploadScreen = document.getElementById('screen-upload');
@@ -373,15 +595,9 @@
 
     let scale = 0; // ✅ shared scope
 
-    document.getElementById('browseBtn').addEventListener('click', function (e) {
-        e.preventDefault();
-        document.getElementById('fileUpload').click();
-    });
-
     document.getElementById('fileUpload').addEventListener('change', function () {
         if (!this.files.length) return;
 
-        uploadScreen.style.display = 'none';
         uploadingScreen.style.display = 'block';
         customizeScreen.style.display = 'none';
 
@@ -394,6 +610,7 @@
         const uploadTimer = setInterval(() => {
             upload += 5;
             document.getElementById('uploadBar').style.width = upload + '%';
+            document.getElementById('uploadBar').className = 'progress-bar upload-bar theme-primary';
             document.getElementById('uploadPercent').innerText = upload + '%';
 
             if (upload >= 100) {
@@ -410,15 +627,121 @@
             scale += 5;
             document.getElementById('scaleBar').style.width = scale + '%';
             document.getElementById('scalePercent').innerText = scale + '%';
+            document.getElementById('scaleBar').className = 'progress-bar upload-bar theme-secondary';
 
             if (scale >= 100) {
                 clearInterval(scaleTimer);
 
                 setTimeout(() => {
+                    uploadScreen.style.display = 'none';
                     uploadingScreen.style.display = 'none';
                     customizeScreen.style.display = 'block';
                 }, 300);
             }
         }, 120);
     }
+</script>
+<script>
+    let currentStep = 1;
+    const totalSteps = 4;
+
+    const stepIndicators = document.querySelectorAll('.step-indicator .step');
+    const stepPanels = {
+        1: document.querySelector('.step1'),
+        2: document.querySelector('.step2'),
+        3: document.querySelector('.step3'),
+        4: document.querySelector('.step4'),
+    };
+
+    function showStep(step) {
+        // Hide all panels
+        Object.values(stepPanels).forEach(panel => {
+            panel.style.display = 'none';
+        });
+
+        // Remove active from all indicators
+        stepIndicators.forEach(indicator => {
+            indicator.classList.remove('active');
+        });
+
+        // Show current panel
+        stepPanels[step].style.display = 'block';
+
+        // Activate indicator
+        stepIndicators[step - 1].classList.add('active');
+
+        currentStep = step;
+    }
+
+    function nextStep() {
+        if (currentStep < totalSteps) {
+            showStep(currentStep + 1);
+        }
+    }
+
+    function prevStep() {
+        if (currentStep > 1) {
+            showStep(currentStep - 1);
+        }
+    }
+
+    // Optional: click on step indicator
+    stepIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showStep(index + 1);
+        });
+    });
+
+    // Initialize
+    showStep(1);
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        /* =========================
+           SCALE (2x, 4x, 6x, 8x)
+        ========================== */
+        document.querySelectorAll('.upscale_options .scale-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const wrapper = this.closest('.upscale_options');
+                wrapper.querySelectorAll('.scale-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Update label value
+                wrapper.querySelector('label span').innerHTML =
+                    this.innerText + '<i class="fas fa-chevron-up"></i>';
+            });
+        });
+
+        /* =========================
+           CATEGORY OPTIONS
+        ========================== */
+        document.querySelectorAll('.pro_options:nth-of-type(2) .img-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const wrapper = this.closest('.pro_options');
+                wrapper.querySelectorAll('.img-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const text = this.querySelector('span').innerText;
+                wrapper.querySelector('label span').innerHTML =
+                    text + '<i class="fas fa-chevron-up"></i>';
+            });
+        });
+
+        /* =========================
+           SIZE OPTIONS
+        ========================== */
+        document.querySelectorAll('.pro_options:nth-of-type(3) .img-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const wrapper = this.closest('.pro_options');
+                wrapper.querySelectorAll('.img-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const text = this.querySelector('span').innerText;
+                wrapper.querySelector('label span').innerHTML =
+                    text + '<i class="fas fa-chevron-up"></i>';
+            });
+        });
+
+    });
 </script>
