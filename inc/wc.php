@@ -73,27 +73,50 @@ function vendor_dashboard_first($items) {
 
     return $items;
 }
+add_filter( 'wcv_dashboard_pages_nav', 'custom_wcv_dashboard_menu', 20 );
 
+function custom_wcv_dashboard_menu( $pages ) {
 
-
-add_filter( 'wcv_dashboard_pages_nav', 'remove_wcv_dashboard_menu_items', 20 );
-
-function remove_wcv_dashboard_menu_items( $pages ) {
-
-    var_dump($pages); // For debugging purposes
-
-    // Commission / Earnings
+    // Remove unwanted items
+    unset( $pages['dashboard_home'] );
     unset( $pages['commission'] );
-    unset( $pages['earnings'] ); // fallback
-
-    // Ratings / Reviews
+    unset( $pages['earnings'] );
     unset( $pages['rating'] );
-    unset( $pages['reviews'] ); // fallback
-
-    // Reports
+    unset( $pages['reviews'] );
     unset( $pages['reports'] );
+    unset( $pages['shop_coupon'] );
+    unset( $pages['product'] );
 
-        unset( $pages['shop_coupon'] );
+    // Rename Settings to Profile
+    if ( isset( $pages['settings'] ) ) {
+        $pages['settings']['label'] = __( 'Profile', 'your-textdomain' );
+    }
 
     return $pages;
+}
+
+
+
+add_filter( 'woocommerce_account_menu_items', 'remove_woo_account_items_for_vendors', 99 );
+
+function remove_woo_account_items_for_vendors( $items ) {
+
+    // Only for logged-in users
+    if ( ! is_user_logged_in() ) {
+        return $items;
+    }
+
+    $user = wp_get_current_user();
+
+    // WC Vendors vendor role
+    if ( in_array( 'vendor', (array) $user->roles, true ) ) {
+
+        unset( $items['orders'] );          // Orders
+        unset( $items['edit-address'] );    // Addresses
+        unset( $items['edit-account'] );    // Account details
+        // unset( $items['downloads'] );     // Optional
+        // unset( $items['payment-methods'] ); // Optional
+    }
+
+    return $items;
 }
