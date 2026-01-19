@@ -1635,7 +1635,7 @@ textarea {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
 }
 
@@ -1645,7 +1645,7 @@ textarea {
   border-radius: 22px;
   overflow: hidden;
   height: 364px;
-  width: fit-content;
+  width: 100%;
   margin: 0 auto;
   transition: all 0.3s ease;
 }
@@ -1665,7 +1665,7 @@ textarea {
 }
 
 .product-card img {
-  width: auto;
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
@@ -1703,6 +1703,7 @@ textarea {
 .upload_span {
   display: none;
   font-size: 16px;
+  width: 140px;
 }
 
 .product-card:hover .upload_span {
@@ -1728,7 +1729,8 @@ textarea {
   border: none;
 }
 
-.woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span {
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
   border-right: 0;
   border: none;
   background: #fff;
