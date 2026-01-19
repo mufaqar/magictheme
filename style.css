@@ -1728,8 +1728,13 @@ textarea {
   border: none;
 }
 
+.woocommerce nav.woocommerce-pagination ul li {
+    border-right: 0 !important;
+
+}
+
 .woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span {
-  border-right: 0;
+
   border: none;
   background: #fff;
   width: 71px;
