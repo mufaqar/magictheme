@@ -163,9 +163,7 @@ add_action('pre_get_posts', function ($query) {
     }
 });
 
-
 add_action( 'template_redirect', 'wc_force_login_cart_checkout' );
-
 function wc_force_login_cart_checkout() {
     if (
         ! is_user_logged_in() &&
