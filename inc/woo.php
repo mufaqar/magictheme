@@ -162,3 +162,16 @@ add_action('pre_get_posts', function ($query) {
         $query->set('author', absint($_GET['vendor']));
     }
 });
+
+
+add_action( 'template_redirect', 'wc_force_login_cart_checkout' );
+
+function wc_force_login_cart_checkout() {
+    if (
+        ! is_user_logged_in() &&
+        ( is_cart() || is_checkout() )
+    ) {
+        wp_safe_redirect( wc_get_page_permalink( 'myaccount' ) );
+        exit;
+    }
+}
