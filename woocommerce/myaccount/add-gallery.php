@@ -52,7 +52,7 @@ $vendor_products = get_posts( $args );
             );
         ?>
 
-    <div class="vendor-product-row">
+    <div class="vendor-product-row" data-product-id="<?php echo $product_post->ID; ?>">
 
         <div class="product-thumb">
             <?php echo $product->get_image( 'thumbnail' ); ?>
@@ -60,11 +60,7 @@ $vendor_products = get_posts( $args );
 
         <div class="product-info">
             <strong><?php echo esc_html( $product->get_name() ); ?></strong>
-            <?php if ( $categories ) : ?>
-            <span class="category">
-                <?php echo implode(', ', $categories); ?>
-            </span>
-            <?php endif; ?>
+            <span class="category"><?php echo implode(', ', $categories); ?></span>
         </div>
 
         <div class="product-price">
@@ -77,7 +73,16 @@ $vendor_products = get_posts( $args );
             </span>
         </div>
 
+      <div class="product_actions">
+            <button type="button" class="edit-product" data-id="<?php echo $product_post->ID; ?>">Edit</button>
+            <button type="button" class="unpublish-product" data-id="<?php echo $product_post->ID; ?>">Unpublish</button>
+        </div>
+
+
     </div>
+
+
+
 
     <?php endforeach; ?>
 
@@ -105,8 +110,6 @@ $vendor_products = get_posts( $args );
             ?>
             </select>
         </div>
-
-
         <div class="field">
             <input type="text" name="product_title" placeholder="Product Title" required>
         </div>
@@ -122,9 +125,12 @@ $vendor_products = get_posts( $args );
                 <input class="d-none" type="file" id="product_image" name="product_image" accept="image/*" required>
             </label>
         </p>
+        <input type="hidden" name="product_id" value="">
 
         <input type="hidden" name="action" value="vendor_ajax_add_product">
         <?php wp_nonce_field( 'vendor_ajax_product', 'vendor_nonce' ); ?>
+
+
 
         <button type="submit">Add Product</button>
 
@@ -146,9 +152,9 @@ $vendor_products = get_posts( $args );
 }
 
 .vendor-product-row {
-    display: grid;
-    grid-template-columns: 70px 1fr 120px 120px;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 15px;
     padding: 15px 20px;
     border-bottom: 1px solid #eee;
@@ -156,6 +162,15 @@ $vendor_products = get_posts( $args );
 
 .vendor-product-row:last-child {
     border-bottom: none;
+}
+
+.product-info {
+    width: 300px;
+}
+
+.product-thumb {
+    width: 80px;
+
 }
 
 .product-thumb img {
@@ -189,6 +204,13 @@ $vendor_products = get_posts( $args );
 .status.publish {
     background: #e6f9ee;
     color: #1a7f37;
+}
+
+.product_actions button {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    cursor: pointer;
 }
 
 .status.pending {
@@ -260,7 +282,7 @@ $vendor_products = get_posts( $args );
     text-align: center;
     padding: 20px;
     border-radius: 10px;
-   
+
 }
 
 .upload-box:hover {
@@ -275,8 +297,8 @@ $vendor_products = get_posts( $args );
 
 .upload-box img {
     height: auto;
-     max-height: 200px;
-     border-radius: 10px;
+    max-height: 200px;
+    border-radius: 10px;
 }
 
 /* Button */
@@ -331,4 +353,66 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+
+document.addEventListener('click', function(e){
+
+    if(e.target.classList.contains('edit-product')){
+        e.preventDefault();
+
+        const productId = e.target.dataset.id;
+
+        fetch(vendorAjax.ajaxurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type':'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                action: 'vendor_get_product',
+                product_id: productId,
+                vendor_nonce: vendorAjax.nonce
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            if(res.success){
+                const p = res.data;
+                document.querySelector('[name="product_id"]').value = p.id;
+                document.querySelector('[name="product_title"]').value = p.title;
+                document.querySelector('[name="product_price"]').value = p.price;
+                document.querySelector('[name="product_category"]').value = p.category;
+            } else {
+                alert(res.data);
+            }
+        });
+    }
+
+});
+
+
+
+
+
+jQuery(document).on('click', '.unpublish-product', function(e){
+
+    e.preventDefault();
+
+    if (!confirm('Unpublish this product?')) return;
+
+    jQuery.post(vendorAjax.ajaxurl, {
+        action: 'vendor_unpublish_product',
+        product_id: jQuery(this).data('id'),
+        vendor_nonce: vendorAjax.nonce
+    }, function(res) {
+
+        if (res.success) {
+            location.reload();
+        } else {
+            alert(res.data);
+        }
+
+    });
+});
 </script>
+
