@@ -531,13 +531,11 @@
         </div>
     </div>
 </section>
-
 <script>
     const fileInput = document.getElementById('fileUpload');
     const previewImg = document.querySelector('.image-preview img');
     const resolutionText = document.querySelector('.image_resolution');
     const noteList = document.querySelector('.note');
-
     fileInput.addEventListener('change', function () {
         if (!this.files || !this.files[0]) return;
 
