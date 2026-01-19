@@ -1034,7 +1034,7 @@ textarea {
 
 .categories-title {
   font-size: 56px;
-  line-height: 70px;
+  line-height: 1;
   font-weight: 700;
   margin-bottom: 15px;
 }
@@ -1635,7 +1635,7 @@ textarea {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
 }
 
@@ -1645,7 +1645,7 @@ textarea {
   border-radius: 22px;
   overflow: hidden;
   height: 364px;
-  width: fit-content;
+  width: 100%;
   margin: 0 auto;
   transition: all 0.3s ease;
 }
@@ -1665,7 +1665,7 @@ textarea {
 }
 
 .product-card img {
-  width: auto;
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
@@ -1703,10 +1703,55 @@ textarea {
 .upload_span {
   display: none;
   font-size: 16px;
+  width: 140px;
 }
 
 .product-card:hover .upload_span {
   display: block;
+}
+
+.cat_faq .cat_faq_title {
+  border-radius: 22px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, #42a2d6, #736bc3, #3990bf) border-box;
+  margin-bottom: 30px;
+}
+
+.cat_faq .cat_faq_title span {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.3;
+  background: linear-gradient(90deg, #2eb2fa, #8078d1, #3dafed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.cat_faq.active .cat_faq_title {
+  background: linear-gradient(45deg, #42a2d6, #736bc3, #3990bf) padding-box, linear-gradient(45deg, #42a2d6, #736bc3, #3990bf) border-box;
+}
+
+.cat_faq.active .cat_faq_title span {
+  -webkit-text-fill-color: #fff;
+}
+
+.cat_faq .cat_faq_title i {
+  font-size: 30px;
+  transition: transform 0.3s ease;
+}
+
+.cat_faq.active .cat_faq_title i {
+  transform: rotate(180deg);
+}
+
+.cat_faq.active .cat_faq_item {
+  padding: 30px 0 60px;
 }
 
 .badge {
@@ -1729,11 +1774,12 @@ textarea {
 }
 
 .woocommerce nav.woocommerce-pagination ul li {
-    border-right: 0 !important;
+  border-right: 0 !important;
 
 }
 
-.woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span {
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
 
   border: none;
   background: #fff;
@@ -1742,6 +1788,11 @@ textarea {
   height: 71px;
   border-radius: 100px;
   color: #616161;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a:hover {
+  background: #3dafed;
+  color: #fff;
 }
 
 .woocommerce nav.woocommerce-pagination ul li span.current {
