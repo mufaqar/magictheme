@@ -1725,10 +1725,18 @@ textarea {
   justify-content: center;
   margin-top: 40px;
   align-items: center;
+  border: none;
 }
 
-.woocommerce nav.woocommerce-pagination ul li {
+.woocommerce nav.woocommerce-pagination ul li a {
   border-right: 0;
+  border: none;
+  background: #fff;
+  width: 71px;
+  font-size: 32px;
+  height: 71px;
+  border-radius: 100px;
+  color: #616161;
 }
 
 .woocommerce nav.woocommerce-pagination ul li span.current {
