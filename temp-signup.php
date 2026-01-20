@@ -263,7 +263,6 @@
                 <input type="email" placeholder="Email" required />
                 <input type="text" placeholder="Username" required />
                 <input type="password" placeholder="Password" required />
-
                 <label class="checkbox">
                     <input type="checkbox" /> Email me special offers and artist news
                 </label>
