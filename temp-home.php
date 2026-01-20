@@ -27,31 +27,37 @@
     </div>
 </section>
 <!-- STEPS SECTION -->
-<div class="container my-md-5 py-md-4">
-    <div class="row">
-
-        <div class="col-md-3">
+<div class="container my-md-5 py-md-4 px-0">
+    <div class="home_steps">
+        <div class="">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/upload-icon.png" class="mb-3" alt="icon"
                 width="40px" height="40px">
             <h5 class="fw-bold mt-2">Upload</h5>
             <p>Add your photos or artwork fast, simple, seamless.</p>
         </div>
 
-        <div class="col-md-3">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/check-icon.png" class="mb-3" alt="icon"
+        <div class="">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ups.png" class="mb-3" alt="icon"
                 width="40px" height="40px">
-            <h5 class="fw-bold mt-2">Select</h5>
+            <h5 class="fw-bold mt-2">Upscale</h5>
             <p>Choose from posters, prints, wall tiles, or wall & exterior.</p>
         </div>
 
-        <div class="col-md-3">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/design-icon.png" class="mb-3" alt="icon"
+        <div class="">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/enh.png" class="mb-3" alt="icon"
                 width="40px" height="40px">
-            <h5 class="fw-bold mt-2">Design</h5>
+            <h5 class="fw-bold mt-2">Enhance </h5>
+            <p>Choose from posters, prints, wall tiles, or wall & exterior.</p>
+        </div>
+
+        <div class="">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/conf.png" class="mb-3" alt="icon"
+                width="40px" height="40px">
+            <h5 class="fw-bold mt-2">Configure </h5>
             <p>Customize paper size, paper type, finishing and much more.</p>
         </div>
 
-        <div class="col-md-3">
+        <div class="">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/smile-icon.png" class="mb-3" alt="icon"
                 width="40px" height="40px">
             <h5 class="fw-bold mt-2">Enjoy</h5>
@@ -67,22 +73,21 @@
         <div class="row align-items-center">
             <div class="col-md-9 mb-4 mb-md-0 text-center mx-auto">
                 <h4>
-                    Same Day Print
+                    Enhance Today
                 </h4>
                 <h2 class="immortalize-title gradient-title">
-                    Same Day Delivery
+                    Print Today
                 </h2>
-                <h4>Same Day Installation</h4>
+                <h4>Deliver Today</h4>
                 <p class="vm-hero-text mt-3">
-                    Upload your photo or artwork, choose your print style, and get premium-quality prints delivered to
-                    your doorstep.
+                    Visual Magic is the only image printing platform that combines AI upscaling and guided enhancement
+                    with same-day printing, delivery, and installation.
                 </p>
 
                 <a href="<?php echo home_url('/customize-upload'); ?>" class="btn vm-hero-btn mt-3 px-4 py-3">
                     Customize Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
                 </a>
             </div>
-
         </div>
     </div>
 </section>
@@ -98,11 +103,26 @@
     </div>
     <div class="col-lg-16 mt-5">
         <div class="categories-grid">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Posters.png" alt="">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Photographic Prints.png" alt="">      
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Wall Photos.png" alt="">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Wall Art.png" alt="">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Exterior.png" alt="">
+            <div class="cat_home">
+                <div> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/photo.png" alt=""></div>
+                <h5>Photographic Prints</h5>
+            </div>
+            <div class="cat_home">
+                <div> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pos.png" alt=""></div>
+                <h5>Posters</h5>
+            </div>
+            <div class="cat_home">
+                <div> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/wal.png" alt=""></div>
+                <h5>Wall Tiles</h5>
+            </div>
+            <div class="cat_home">
+                <div> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/wal-art.png" alt=""></div>
+                <h5>Wall Art</h5>
+            </div>
+            <div class="cat_home">
+                <div> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ext.png" alt=""></div>
+                <h5>Exterior</h5>
+            </div>
         </div>
     </div>
 </div>
@@ -206,6 +226,32 @@
     </div>
 </div> -->
 
+<section class="video_sec">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5 gradient-title" style="max-width: 630px; margin: auto;">
+            See How Easy It Is to Enhance Images with AI
+        </h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <video autoplay muted loop playsinline
+                    poster="<?php echo get_template_directory_uri(); ?>/assets/images/video.png">
+                    <source src="video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="col-md-6">
+                <div class="vid_content">
+                    <h6>Step 1</h6>
+                    <h3>Upload</h3>
+                    <p>Add your photos or artwork fast, simple, seamless.</p>
+                    <a href="#" class="btn vm-hero-btn mt-3 px-4 py-3">
+                        Try Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- card  -->
 <div class="features-section container">
     <div class="feature-box">
