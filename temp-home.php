@@ -228,7 +228,7 @@
 
 <section class="video_sec">
     <div class="container">
-        <h2 class="text-center fw-bold mb-5 gradient-title" style="max-width: 630px; margin: auto;">
+        <h2 class="text-center fw-bold mb-5 gradient-title" style="max-width: 716px; margin: auto;">
             See How Easy It Is to Enhance Images with AI
         </h2>
         <div class="row align-items-center">
