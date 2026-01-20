@@ -13,59 +13,72 @@ get_template_part('template-parts/breadcrumb');
             What You Would like to Print today?
         </h2>
         <p class="categories-subtitle text-center">
-            Turn your favorite photos into beautifully printed Wall Art designed to elevate your space. Start by
-            choosing the size that fits your wall.
+            Turn your favorite photos into beautifully printed Wall Art designed to elevate your space.
+            Start by choosing the size that fits your wall.
         </p>
     </div>
 
     <div class="container">
 
         <?php
-        // Get WooCommerce Categories
+        // Get Parent Print Types
         $terms = get_terms( array(
-            'taxonomy'   => 'product_cat',
+            'taxonomy'   => 'print_types',
             'hide_empty' => true,
             'parent'     => 0,
         ) );
 
-        if ( $terms && ! is_wp_error( $terms ) ) :
-            foreach ( $terms as $category ) :
+        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
+            foreach ( $terms as $term ) :
 
-                // Get products from category
-                $products = wc_get_products( array(
-                    'limit'        => 3,
-                    'status'       => 'publish',
-                    'category'     => array( $category->slug ),
-                    'orderby'      => 'date',
-                    'order'        => 'DESC',
+                // Query Prints under this Print Type
+                $prints = new WP_Query( array(
+                    'post_type'      => 'prints',
+                    'posts_per_page' => 3,
+                    'post_status'    => 'publish',
+                    'tax_query'      => array(
+                        array(
+                            'taxonomy' => 'print_types',
+                            'field'    => 'slug',
+                            'terms'    => $term->slug,
+                        ),
+                    ),
+                    'orderby' => 'date',
+                    'order'   => 'DESC',
                 ) );
         ?>
 
         <div class="cat_faq">
             <h2 class="cat_faq_title">
-                <span class="w-100"><?php echo esc_html( $category->name ); ?></span>
+                <span class="w-100"><?php echo esc_html( $term->name ); ?></span>
                 <span><i class="fas fa-chevron-down"></i></span>
             </h2>
 
             <div class="cat_faq_item">
                 <div class="product-grid">
 
-                    <?php foreach ( $products as $product ) : ?>
-                        <div class="product-card">
-                            <img src="<?php echo esc_url( wp_get_attachment_url( $product->get_image_id() ) ); ?>"
-                                alt="<?php echo esc_attr( $product->get_name() ); ?>">
+                    <?php if ( $prints->have_posts() ) : ?>
+                        <?php while ( $prints->have_posts() ) : $prints->the_post(); ?>
 
-                            <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="view-btn">
-                                <span>
-                                    <?php echo esc_html( $product->get_name() ); ?><br />
-                                    <span class="upload_span">
-                                        Upload Image
-                                        <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
+                            <div class="product-card">
+                                <?php if ( has_post_thumbnail() ) : ?>
+                                    <img src="<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'medium' ) ); ?>"
+                                         alt="<?php echo esc_attr( get_the_title() ); ?>">
+                                <?php endif; ?>
+
+                                <a href="<?php the_permalink(); ?>" class="view-btn">
+                                    <span>
+                                        <?php the_title(); ?><br />
+                                        <span class="upload_span">
+                                            Upload Image
+                                            <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
+                                        </span>
                                     </span>
-                                </span>
-                            </a>
-                        </div>
-                    <?php endforeach; ?>
+                                </a>
+                            </div>
+
+                        <?php endwhile; wp_reset_postdata(); ?>
+                    <?php endif; ?>
 
                 </div>
             </div>
