@@ -355,7 +355,7 @@
     </div>
 </section>
 <!-- Captured Slider -->
-<?php get_template_part('template-parts/captured-slider'); ?>
+<?php //get_template_part('template-parts/captured-slider'); ?>
 
 <!-- Testimonial Slider -->
 <?php get_template_part('template-parts/testimonials'); ?>
