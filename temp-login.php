@@ -115,6 +115,28 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    @media (max-width: 768px) {
+        .login_title {
+            font-size: 28px;
+        }
+
+        .login_sub,
+        .login_form input,
+        .login_form .forget_pass,
+        .login_form p,
+        .login_form .login_btns .btn span {
+            font-size: 16px;
+        }
+
+        .login_form .login_btns .btn {
+            padding: 10px 10px;
+        }
+
+        .login_form {
+            gap: 29px;
+        }
+    }
 </style>
 <section class="login_wrapper" style="
     background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/right_bg.png'), url('<?php echo get_template_directory_uri(); ?>/assets/images/left_bg.png');
