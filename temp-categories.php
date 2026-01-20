@@ -34,7 +34,7 @@ get_template_part('template-parts/breadcrumb');
                 // Query Prints under this Print Type
                 $prints = new WP_Query( array(
                     'post_type'      => 'prints',
-                    'posts_per_page' => 3,
+                    'posts_per_page' => 10,
                     'post_status'    => 'publish',
                     'tax_query'      => array(
                         array(
@@ -55,7 +55,7 @@ get_template_part('template-parts/breadcrumb');
             </h2>
 
             <div class="cat_faq_item">
-                <div class="product-grid">
+                <div class="grid_5">
 
                     <?php if ( $prints->have_posts() ) : ?>
                         <?php while ( $prints->have_posts() ) : $prints->the_post(); ?>

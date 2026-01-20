@@ -417,7 +417,7 @@
                             <h5 class="title">Resolution & Size</h5>
                             <p class="subtitle">Upscale your image and choose the right size to unlock more options.</p>
                             <hr />
-                            <div class="pro_options upscale_options">
+                            <!-- <div class="pro_options upscale_options">
                                 <label class="form-label">Upscale:
                                     <span>2x<i class="fas fa-chevron-up"></i></span></label>
                                 <div class="opt_list">
@@ -434,9 +434,9 @@
                                         more
                                         sizes and print categories that aren’t available right now.</span>
                                 </p>
-                            </div>
+                            </div> -->
 
-                            <div class="pro_options">
+                            <div class="pro_options cat_options">
                                 <label class="form-label">Categories:
                                     <span>Photographic Prints<i class="fas fa-chevron-up"></i></span></label>
                                 <div class="opt_list">
@@ -460,7 +460,7 @@
                                 </div>
                             </div>
 
-                            <div class="pro_options">
+                            <div class="pro_options size_options">
                                 <label class="form-label">Size:
                                     <span>5” x 7”<i class="fas fa-chevron-up"></i></span></label>
                                 <div class="opt_list">
@@ -710,36 +710,27 @@
                     this.innerText + '<i class="fas fa-chevron-up"></i>';
             });
         });
-
         /* =========================
-           CATEGORY OPTIONS
+          CATEGORY + SIZE OPTIONS
         ========================== */
-        document.querySelectorAll('.pro_options:nth-of-type(2) .img-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const wrapper = this.closest('.pro_options');
-                wrapper.querySelectorAll('.img-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
+        document.querySelectorAll('.cat_options .img-btn, .size_options .img-btn')
+            .forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const wrapper = this.closest('.cat_options, .size_options');
 
-                const text = this.querySelector('span').innerText;
-                wrapper.querySelector('label span').innerHTML =
-                    text + '<i class="fas fa-chevron-up"></i>';
+                    wrapper.querySelectorAll('.img-btn')
+                        .forEach(b => b.classList.remove('active'));
+
+                    this.classList.add('active');
+
+                    const text = this.querySelector('span')?.innerText || '';
+                    const labelSpan = wrapper.querySelector('label span');
+
+                    if (labelSpan) {
+                        labelSpan.innerHTML =
+                            text + '<i class="fas fa-chevron-up"></i>';
+                    }
+                });
             });
-        });
-
-        /* =========================
-           SIZE OPTIONS
-        ========================== */
-        document.querySelectorAll('.pro_options:nth-of-type(3) .img-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const wrapper = this.closest('.pro_options');
-                wrapper.querySelectorAll('.img-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-
-                const text = this.querySelector('span').innerText;
-                wrapper.querySelector('label span').innerHTML =
-                    text + '<i class="fas fa-chevron-up"></i>';
-            });
-        });
-
-    });
+    })
 </script>

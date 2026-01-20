@@ -114,7 +114,7 @@ get_header('shop');
                     </span>
                 </div>
                 <!-- PRODUCT GRID -->
-                <div class="product-grid">
+                <div class="grid_3">
                     <!-- PRODUCT -->
                     <?php
                     /**

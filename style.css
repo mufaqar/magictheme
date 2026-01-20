@@ -1633,12 +1633,16 @@ textarea {
   padding: 6px 16px;
 }
 
-.product-grid {
+.grid_3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.grid_5{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
 }
-
 /* Category Card */
 .product-card {
   position: relative;
@@ -2535,7 +2539,7 @@ textarea {
     padding: 50px 0;
   }
 
-  .product-grid {
+  .grid_3, .grid_5 {
     grid-template-columns: repeat(1, 1fr);
   }
 
