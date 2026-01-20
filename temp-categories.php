@@ -66,7 +66,7 @@ get_template_part('template-parts/breadcrumb');
                                          alt="<?php echo esc_attr( get_the_title() ); ?>">
                                 <?php endif; ?>
 
-                                <a href="<?php the_permalink(); ?>" class="view-btn">
+                                <a href="<?php echo home_url('/customize-upload'); ?>?id=<?php echo get_the_ID(); ?>" class="view-btn">
                                     <span>
                                         <?php the_title(); ?><br />
                                         <span class="upload_span">
