@@ -66,6 +66,9 @@ get_template_part('template-parts/breadcrumb');
                                         <?php if (has_post_thumbnail()): ?>
                                             <img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'medium')); ?>"
                                                 alt="<?php echo esc_attr(get_the_title()); ?>">
+                                        <?php else: ?>
+                                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/category2.png'); ?>"
+                                                alt="Default Image">
                                         <?php endif; ?>
 
                                         <a href="<?php echo home_url('/customize-upload'); ?>?id=<?php echo get_the_ID(); ?>"
