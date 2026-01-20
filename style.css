@@ -4,7 +4,7 @@ Theme URI: https://magic.com
 Author: Mufaqar Islam
 Author URI: https://mufaqar.com
 Description: Visual Magic Theme
-Version: 1.0.7
+Version: 1.0.8
 Text Domain: viual-magic
 */
 
@@ -437,7 +437,7 @@ textarea {
 }
 
 .product_box h6 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   display: flex;
   justify-content: space-between;
