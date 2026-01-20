@@ -1,225 +1,225 @@
 <?php /*Template Name: SignUp */ get_header(); ?>
 <style>
-    .signup_wrapper {
-        padding: 60px 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    }
+.signup_wrapper {
+    padding: 60px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
-    .signup_container {
-        width: 889px;
-        margin: auto;
-        text-align: center;
-    }
+.signup_container {
+    width: 889px;
+    margin: auto;
+    text-align: center;
+}
 
+.signup_title {
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 1.2;
+    color: #3B3B3B;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup_sub {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1;
+    text-align: center;
+    color: #3B3B3B;
+    max-width: 663px;
+    width: 100%;
+    margin: 0 auto 50px;
+}
+
+.signup_tabs {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+    gap: 2px;
+}
+
+.tabs_wrapper {
+    max-width: 652px;
+    width: 100%;
+    margin: auto;
+}
+
+.tab_btn {
+    background: none;
+    border: none;
+    padding: 31px 29px;
+    cursor: pointer;
+    position: relative;
+    text-align: left;
+    border: 3px solid #D9D9D9;
+    border-radius: 6.44px;
+}
+
+.tab_btn img {
+    max-width: 80px;
+    width: 100%;
+}
+
+.tab_btn h3 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.1;
+    color: #616161;
+}
+
+.tab_btn p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.1;
+    color: #616161;
+    margin-bottom: 0;
+}
+
+.tab_btn.active {
+    border: 3px solid #3B3B3B
+}
+
+.tab_btn.active::after {
+    content: "✓";
+    position: absolute;
+    top: -20px;
+    width: 36px;
+    height: 36px;
+    left: 20px;
+    display: flex;
+    color: #3B3B3B;
+    align-items: center;
+    background: #ECECEC;
+    font-size: 24px;
+    justify-content: center;
+    border-radius: 100px;
+}
+
+.signup_form input {
+    display: block;
+    width: 100%;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #616161CC;
+    padding: 8px 0;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, #6161618A, #6161618A, #6161618A) border-box;
+}
+
+.signup_form input:hover,
+.signup_form input:focus {
+    background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, #42a2d6, #736bc3, #3990bf) border-box;
+}
+
+.tab_content {
+    display: none;
+}
+
+.tab_content.active {
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    color: #3B3B3B;
+}
+
+.checkbox input {
+    width: fit-content;
+}
+
+.signup_container .login_btns {
+    max-width: 614px;
+    width: 100%;
+    margin: 29px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.signup_container .login_btns .btn {
+    background: linear-gradient(#fff, #fff) padding-box, linear-gradient(90deg, #2EB2FA 0%, #8078D1 57.55%, #3DAFED 113.18%) border-box;
+    padding: 24px 10px;
+    width: 100%;
+    border-radius: 100px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 400;
+    z-index: 2;
+    border: 2px solid transparent;
+    transform: translatey(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.signup_container .login_btns .btn span {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.1;
+    background: linear-gradient(90deg, #2EB2FA 0%, #8078D1 57.55%, #3DAFED 113.18%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.signup_container .login_btns .btn:hover {
+    background: linear-gradient(90deg, #3483AE 0%, #6059A1 100%);
+}
+
+.signup_container .login_btns .btn:hover span {
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.terms {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.1;
+    color: #616161CC;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
     .signup_title {
-        font-weight: 600;
-        font-size: 42px;
-        line-height: 1.2;
-        color: #3B3B3B;
-        text-align: center;
-        margin-bottom: 20px;
+        font-size: 28px;
     }
 
-    .signup_sub {
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 1;
-        text-align: center;
-        color: #3B3B3B;
-        max-width: 663px;
-        width: 100%;
-        margin: 0 auto 50px;
-    }
-
-    .signup_tabs {
-        display: flex;
-        justify-content: center;
-        margin: 50px 0;
-        gap: 2px;
-    }
-
-    .tabs_wrapper {
-        max-width: 652px;
-        width: 100%;
-        margin: auto;
+    .signup_sub,
+    .tab_btn h3,
+    .signup_form input,
+    .signup_container .login_btns .btn span,
+    .terms {
+        font-size: 16px;
     }
 
     .tab_btn {
-        background: none;
-        border: none;
-        padding: 31px 29px;
-        cursor: pointer;
-        position: relative;
-        text-align: left;
-        border: 3px solid #D9D9D9;
-        border-radius: 6.44px;
+        padding: 20px 10px;
     }
 
     .tab_btn img {
-        max-width: 80px;
-        width: 100%;
-    }
-
-    .tab_btn h3 {
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 1.1;
-        color: #616161;
-    }
-
-    .tab_btn p {
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 1.1;
-        color: #616161;
-        margin-bottom: 0;
-    }
-
-    .tab_btn.active {
-        border: 3px solid #3B3B3B
-    }
-
-    .tab_btn.active::after {
-        content: "✓";
-        position: absolute;
-        top: -20px;
-        width: 36px;
-        height: 36px;
-        left: 20px;
-        display: flex;
-        color: #3B3B3B;
-        align-items: center;
-        background: #ECECEC;
-        font-size: 24px;
-        justify-content: center;
-        border-radius: 100px;
-    }
-
-    .signup_form input {
-        display: block;
-        width: 100%;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 1.5;
-        color: #616161CC;
-        padding: 8px 0;
-        outline: none;
-        border: none;
-        border-bottom: 2px solid transparent;
-        background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, #6161618A, #6161618A, #6161618A) border-box;
-    }
-
-    .signup_form input:hover,
-    .signup_form input:focus {
-        background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, #42a2d6, #736bc3, #3990bf) border-box;
-    }
-
-    .tab_content {
-        display: none;
-    }
-
-    .tab_content.active {
-        display: flex;
-        flex-direction: column;
-        gap: 29px;
-    }
-
-    .checkbox {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 10px;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 1.2;
-        color: #3B3B3B;
-    }
-
-    .checkbox input {
-        width: fit-content;
-    }
-
-    .signup_container .login_btns {
-        max-width: 614px;
-        width: 100%;
-        margin: 29px auto;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+        max-width: 60px;
+        width: auto;
     }
 
     .signup_container .login_btns .btn {
-        background: linear-gradient(#fff, #fff) padding-box, linear-gradient(90deg, #2EB2FA 0%, #8078D1 57.55%, #3DAFED 113.18%) border-box;
-        padding: 24px 10px;
-        width: 100%;
-        border-radius: 100px;
-        font-size: 16px;
-        text-decoration: none;
-        font-weight: 400;
-        z-index: 2;
-        border: 2px solid transparent;
-        transform: translatey(0);
-        transition: all 0.3s ease-in-out;
+        padding: 10px 10px;
     }
-
-    .signup_container .login_btns .btn span {
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 1.1;
-        background: linear-gradient(90deg, #2EB2FA 0%, #8078D1 57.55%, #3DAFED 113.18%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-
-    }
-
-    .signup_container .login_btns .btn:hover {
-        background: linear-gradient(90deg, #3483AE 0%, #6059A1 100%);
-    }
-
-    .signup_container .login_btns .btn:hover span {
-        background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .terms {
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 1.1;
-        color: #616161CC;
-        text-align: center;
-    }
-
-    @media (max-width: 768px) {
-        .signup_title {
-            font-size: 28px;
-        }
-
-        .signup_sub,
-        .tab_btn h3,
-        .signup_form input,
-        .signup_container .login_btns .btn span,
-        .terms {
-            font-size: 16px;
-        }
-
-        .tab_btn {
-            padding: 20px 10px;
-        }
-
-        .tab_btn img {
-            max-width: 60px;
-            width: auto;
-        }
-
-        .signup_container .login_btns .btn {
-            padding: 10px 10px;
-        }
-    }
+}
 </style>
 <section class="signup_wrapper" style="
     background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/right_bg.png'), url('<?php echo get_template_directory_uri(); ?>/assets/images/left_bg.png');
@@ -274,28 +274,33 @@
             <button class="btn"><span><i class="fa-brands fa-google"></i> Continue with Google</span></button>
             <button class="btn"><span><i class="fa-brands fa-apple"></i> Continue with Apple</span></button>
         </div>
-        <p class="terms">Already have an account? <strong><a href="#">Log In</a></strong></p>
-        <p class="terms">By clicking Sign Up, you agree to our <strong><a href="#">User Agreement</a></strong> and
-            <strong><a href="#">Privacy Policy</a></strong>, and to receive our promotional emails (opt out any time).
+        <p class="terms">Already have an account? <strong><a href="<?php echo home_url('/login'); ?>">Log
+                    In</a></strong></p>
+        <p class="terms">By clicking Sign Up, you agree to our <strong><a
+                    href="<?php echo home_url('/user-agreement'); ?>">User Agreement</a></strong> and
+            <strong><a href="<?php echo home_url('/privacy-policy'); ?>">Privacy Policy</a></strong>, and to receive our
+            promotional emails (opt out any time).
         </p>
-        <p class="terms">This site is protected by reCAPTCHA and the Google <strong><a href="#">Privacy
-                    Policy</a></strong> and <strong><a href="#">Terms of Service</a></strong> apply.</p>
+        <p class="terms">This site is protected by reCAPTCHA and the Google <strong><a
+                    href="<?php echo home_url('/privacy-policy'); ?>">Privacy
+                    Policy</a></strong> and <strong><a href="<?php echo home_url('/terms-of-service'); ?>">Terms of
+                    Service</a></strong> apply.</p>
     </div>
 </section>
 
 <?php get_footer(); ?>
 
 <script>
-    const tabs = document.querySelectorAll(".tab_btn");
-    const contents = document.querySelectorAll(".tab_content");
+const tabs = document.querySelectorAll(".tab_btn");
+const contents = document.querySelectorAll(".tab_content");
 
-    tabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-            tabs.forEach(t => t.classList.remove("active"));
-            contents.forEach(c => c.classList.remove("active"));
+tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
 
-            tab.classList.add("active");
-            document.getElementById(tab.dataset.tab).classList.add("active");
-        });
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
     });
+});
 </script>
