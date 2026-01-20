@@ -1,10 +1,11 @@
 <?php /*Template Name: Categories */ get_header(); ?>
 
 <?php
-if ( ! defined( 'ABSPATH' ) ) exit;
+if (!defined('ABSPATH'))
+    exit;
 
 // Breadcrumb
-get_template_part('template-parts/breadcrumb'); 
+get_template_part('template-parts/breadcrumb');
 ?>
 
 <section class="filter-wrapper">
@@ -22,69 +23,72 @@ get_template_part('template-parts/breadcrumb');
 
         <?php
         // Get Parent Print Types
-        $terms = get_terms( array(
-            'taxonomy'   => 'print_types',
+        $terms = get_terms(array(
+            'taxonomy' => 'print_types',
             'hide_empty' => true,
-            'parent'     => 0,
-        ) );
+            'parent' => 0,
+        ));
 
-        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
-            foreach ( $terms as $term ) :
+        if (!empty($terms) && !is_wp_error($terms)):
+            foreach ($terms as $term):
 
                 // Query Prints under this Print Type
-                $prints = new WP_Query( array(
-                    'post_type'      => 'prints',
+                $prints = new WP_Query(array(
+                    'post_type' => 'prints',
                     'posts_per_page' => 10,
-                    'post_status'    => 'publish',
-                    'tax_query'      => array(
+                    'post_status' => 'publish',
+                    'tax_query' => array(
                         array(
                             'taxonomy' => 'print_types',
-                            'field'    => 'slug',
-                            'terms'    => $term->slug,
+                            'field' => 'slug',
+                            'terms' => $term->slug,
                         ),
                     ),
                     'orderby' => 'date',
-                    'order'   => 'DESC',
-                ) );
-        ?>
+                    'order' => 'DESC',
+                ));
+                ?>
 
-        <div class="cat_faq">
-            <h2 class="cat_faq_title">
-                <span class="w-100"><?php echo esc_html( $term->name ); ?></span>
-                <span><i class="fas fa-chevron-down"></i></span>
-            </h2>
+                <div class="cat_faq">
+                    <h2 class="cat_faq_title">
+                        <span class="w-100"><?php echo esc_html($term->name); ?></span>
+                        <span><i class="fas fa-chevron-down"></i></span>
+                    </h2>
 
-            <div class="cat_faq_item">
-                <div class="grid_5">
+                    <div class="cat_faq_item">
+                        <div class="grid_5">
 
-                    <?php if ( $prints->have_posts() ) : ?>
-                        <?php while ( $prints->have_posts() ) : $prints->the_post(); ?>
+                            <?php if ($prints->have_posts()): ?>
+                                <?php while ($prints->have_posts()):
+                                    $prints->the_post(); ?>
 
-                            <div class="product-card">
-                                <?php if ( has_post_thumbnail() ) : ?>
-                                    <img src="<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'medium' ) ); ?>"
-                                         alt="<?php echo esc_attr( get_the_title() ); ?>">
-                                <?php endif; ?>
+                                    <div class="product-card">
+                                        <?php if (has_post_thumbnail()): ?>
+                                            <img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'medium')); ?>"
+                                                alt="<?php echo esc_attr(get_the_title()); ?>">
+                                        <?php endif; ?>
 
-                                <a href="<?php echo home_url('/customize-upload'); ?>?id=<?php echo get_the_ID(); ?>" class="view-btn">
-                                    <span>
-                                        <?php the_title(); ?><br />
-                                        <span class="upload_span">
-                                            Upload Image
-                                            <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
-                                        </span>
-                                    </span>
-                                </a>
-                            </div>
+                                        <a href="<?php echo home_url('/customize-upload'); ?>?id=<?php echo get_the_ID(); ?>"
+                                            class="view-btn">
+                                            <span>
+                                                <?php the_title(); ?><br />
+                                                <span class="upload_span">
+                                                    Upload Image
+                                                    <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
 
-                        <?php endwhile; wp_reset_postdata(); ?>
-                    <?php endif; ?>
+                                <?php endwhile;
+                                wp_reset_postdata(); ?>
+                            <?php endif; ?>
 
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <?php endforeach; endif; ?>
+            <?php endforeach; endif; ?>
 
     </div>
 </section>

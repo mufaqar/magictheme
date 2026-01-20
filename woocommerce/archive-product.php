@@ -197,7 +197,6 @@ get_footer('shop');
 
 ?>
 
-
 <script>
     document.querySelectorAll('.filter-title').forEach(title => {
         title.addEventListener('click', () => {
