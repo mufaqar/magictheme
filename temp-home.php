@@ -99,9 +99,9 @@
     <div class="col-lg-16 mt-5">
         <div class="categories-grid">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Posters.png" alt="">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Photographic Prints.png" alt="">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Wall Art.png" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Photographic Prints.png" alt="">      
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Wall Photos.png" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Wall Art.png" alt="">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Exterior.png" alt="">
         </div>
     </div>
