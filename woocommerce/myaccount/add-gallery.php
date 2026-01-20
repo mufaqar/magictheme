@@ -117,6 +117,25 @@ $vendor_products = get_posts( $args );
         <div class="field">
             <input type="number" name="product_price" placeholder="Price" step="0.01" required>
         </div>
+      <div class="field">
+        <label>Shape</label>
+        <select name="product_attributes[pa_shape]" required>
+            <option value="">Select Shape</option>
+            <?php
+            $shapes = get_terms([
+                'taxonomy'   => 'pa_shape',
+                'hide_empty' => false,
+            ]);
+
+            if ( ! empty( $shapes ) && ! is_wp_error( $shapes ) ) {
+                foreach ( $shapes as $shape ) {
+                    echo '<option value="' . esc_attr( $shape->term_id ) . '">' . esc_html( $shape->name ) . '</option>';
+                }
+            }
+            ?>
+        </select>
+    </div>
+
 
 
 
@@ -382,6 +401,7 @@ document.addEventListener('click', function(e){
                 document.querySelector('[name="product_title"]').value = p.title;
                 document.querySelector('[name="product_price"]').value = p.price;
                 document.querySelector('[name="product_category"]').value = p.category;
+                document.querySelector('[name="product_attributes[pa_shape]"]').value = p.shape;
             } else {
                 alert(res.data);
             }
