@@ -222,5 +222,8 @@ function toggle_wishlist()
     wp_send_json_success([
         'status' => $status,
         'count' => count($favorites),
+       // 'favorites' => $favorites,
     ]);
 }
+
+
