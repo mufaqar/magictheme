@@ -99,7 +99,6 @@
 
     .profile-tab-content {
         display: none;
-        padding: 130px 0;
     }
 
     .profile-tab-content.active {
@@ -111,6 +110,7 @@
         flex-direction: row;
         gap: 20px;
         align-items: center;
+        padding: 130px 0;
     }
 
     .pers_imgs {
@@ -147,18 +147,109 @@
 
     }
 
+    .Pro-slider .slick-prev:before,
+    .Pro-slider .slick-next:before,
+    .cat-slider .slick-prev:before,
+    .cat-slider .slick-next:before {
+        color: #000000 !important;
+    }
+
+    .rounded-cat {
+        border-radius: 85px;
+        width: fit-content;
+        margin: auto;
+    }
+
+    .rounded-cat img {
+        height: 325px;
+        border-radius: 85px;
+        max-width: 205px;
+        width: 100%;
+    }
+
+    .rounded-cat h6 {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1.1;
+        color: #000;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .rounded-cat h6 small {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1;
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .Pro-slider .slick-next,
+    .cat-slider .slick-next {
+        right: 0px;
+    }
+
+    .Pro-slider .slick-prev,
+    .cat-slider .slick-prev {
+        left: 0;
+        z-index: 2;
+    }
+
+    .side_cta {
+        padding: 89px 15px;
+        border-radius: 61.99px;
+    }
+
+    .side_cta h6 {
+        font-weight: 500;
+        font-size: 25.23px;
+        line-height: 1.1;
+        text-align: center;
+        color: #000;
+    }
+
+    .side_cta h3 {
+        font-weight: 700;
+        font-size: 46.34px;
+        line-height: 1.1;
+        text-align: center;
+        color: #000;
+    }
+
+    .side_cta .sign_btn {
+        background: linear-gradient(90deg, #3483AE 0%, #6059A1 100%);
+        color: #fff;
+        padding: 19px 10px;
+        width: 100%;
+        border-radius: 100px;
+        font-size: 16px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 400;
+        z-index: 2;
+        border: 2px solid transparent;
+        margin-top: 50px;
+        transform: translatey(0);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .side_cta .sign_btn:hover {
+        transform: translatey(-15px);
+    }
+
     @media (max-width: 768px) {
-        .profile_banner {
+            .profile_banner {
             flex-direction: column;
             padding: 25px;
         }
 
         .auth_about {
+            padding: 130px 15px 40px;
             flex-direction: column;
         }
 
         .pers_imgs img {
-            width: 65%;
+            width: 63%;
         }
 
         .pers_about h2 {
@@ -168,13 +259,9 @@
         .pers_about p {
             font-size: 16px;
         }
-
-        .profile-tab-content {
-            padding-bottom: 40px;
-        }
     }
 </style>
-<section class="proile_wrapper"
+<section class="proile_wrapper px-md-0 px-3"
     style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/profile-bg.png');">
     <div class="container profile_banner">
         <div>
@@ -218,32 +305,74 @@
             </div>
         </div>
         <div class="profile-tabs__content">
-            <div id="profile-tab" class="profile-tab-content active" style="background-color: #98F1FF1A;">
-                <div class="auth_about container">
-                    <div class="pers_imgs col-md-6">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/auth1.png" alt="Author" />
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/auth2.png" alt="Author" />
+            <div id="profile-tab" class="profile-tab-content active">
+                <div class="" style="background-color: #98F1FF1A;">
+                    <div class="auth_about container">
+                        <div class="pers_imgs col-md-6">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/auth1.png"
+                                alt="Author" />
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/auth2.png"
+                                alt="Author" />
+                        </div>
+                        <div class="pers_about col-md-6">
+                            <h2>Hi! My name is Viet</h2>
+                            <hr />
+                            <p>
+                                Viet Chu is an artist who chose photography as one of the mediums for his exploration
+                                and
+                                expression of esoteric beauty. In his dedication of that pursuit, he infuses intuitive
+                                sensibility and emotional intelligence to stop and capture a moment of time, that tells
+                                a
+                                story for the rest of time.
+                            </p>
+                            <p>“The relationship between a photographer and his/her image is a very fluid dynamic that
+                                continuously shifts and expands. It is within these moments of transition and
+                                transformation...the flux of inter-spatial time within and between creativity and
+                                creation
+                                where I find my passion.”
+                            </p>
+                        </div>
                     </div>
-                    <div class="pers_about col-md-6">
-                        <h2>Hi! My name is Viet</h2>
-                        <hr />
-                        <p>
-                            Viet Chu is an artist who chose photography as one of the mediums for his exploration and
-                            expression of esoteric beauty. In his dedication of that pursuit, he infuses intuitive
-                            sensibility and emotional intelligence to stop and capture a moment of time, that tells a
-                            story for the rest of time.
-                        </p>
-                        <p>“The relationship between a photographer and his/her image is a very fluid dynamic that
-                            continuously shifts and expands. It is within these moments of transition and
-                            transformation...the flux of inter-spatial time within and between creativity and creation
-                            where I find my passion.”
-                        </p>
+                </div>
+
+                <?php get_template_part('template-parts/author-pro-slider'); ?>
+                <?php get_template_part('template-parts/author-cat-slider'); ?>
+
+                <!-- Testimonial Slider -->
+                <?php get_template_part('template-parts/testimonials'); ?>
+
+                <div class="features-section container-fluid">
+                    <div class="stats_box">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gal.png"
+                            class="feature-icon" alt="">
+                        <div>
+                            <h4>Weirdly Meaningful Art</h4>
+                            <p>Millions of designs on over 70 high quality Products.</p>
+                        </div>
+                    </div>
+
+                    <div class="stats_box">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/thu.png"
+                            class="feature-icon" alt="">
+                        <div>
+                            <h4>Purchases Pay Artists</h4>
+                            <p>Money goes directly into a creative person’s pocket.</p>
+                        </div>
+                    </div>
+
+                    <div class="stats_box">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lef.png"
+                            class="feature-icon" alt="">
+                        <div>
+                            <h4>Socially Responsible Production</h4>
+                            <p>We’re investing in programs to offset all carbon emissions</p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div id="artworks-tab" class="profile-tab-content">
                 <!-- ARTWORKS CONTENT -->
-                <p>Artworks grid goes here…</p>
+                <?php get_template_part('template-parts/auth-work'); ?>
             </div>
         </div>
     </div>

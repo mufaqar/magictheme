@@ -290,46 +290,6 @@
     </div>
 </div>
 
-<!-- card  -->
-<!-- <div class="features-section container">
-    <div class="stats_box">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stats1.png" class="feature-icon" alt="">
-        <div>
-            <h4>Worldwide Shipping</h4>
-            <p>Available as standard on express delivery</p>
-            <a href="#">Learn More</a>
-        </div>
-    </div>
-
-    <div class="stats_box">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stats2.png" class="feature-icon" alt="">
-        <div>
-            <h4>Secure Payments </h4>
-            <p>100% Secure payment with 256-bit SSL encryption
-            </p>
-            <a href="#">Learn More</a>
-        </div>
-    </div>
-
-    <div class="stats_box">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stats3.png" class="feature-icon" alt="">
-        <div>
-            <h4>Free Return</h4>
-            <p>Exchange or money back guarantee for all orders</p>
-            <a href="#">Learn More</a>
-        </div>
-    </div>
-
-    <div class="stats_box">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stats4.png" class="feature-icon" alt="">
-        <div>
-            <h4>Local Support</h4>
-            <p>24/7 Dedicated support</p>
-            <a href="#">Learn More</a>
-        </div>
-    </div>
-</div> -->
-
 <!-- Click -->
 <section class="vm-cta vm_inspiring container" style="
     background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/click-bg.png');">
