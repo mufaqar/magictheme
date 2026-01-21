@@ -132,14 +132,7 @@ get_header('shop');
                             $vendor_name = get_the_author_meta('display_name', $vendor_id);
                             ?>
                             <div class="product_box">
-                                <div class="cart_btn position-absolute top-2 end-0 d-flex flex-column gap-2 pt-2 pe-2">
-                                    <button class="btn btn_addtocart">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </button>
-                                    <button class="btn">
-                                        <i class="fa-regular fa-eye"></i>
-                                    </button>
-                                </div>
+                                <?php get_template_part('template-parts/cart-btns'); ?>
                                 <a href="<?php the_permalink(); ?>">
                                     <?php
                                     if (has_post_thumbnail()) {

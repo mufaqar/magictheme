@@ -362,14 +362,17 @@ textarea {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.vm_artist_gallery{
+
+.vm_artist_gallery {
   display: flex;
   flex-direction: row;
   gap: 20px;
 }
+
 .work_card {
   position: relative;
 }
+
 .work_card img {
   height: 236px;
   object-fit: cover;
@@ -426,6 +429,7 @@ textarea {
   justify-content: center;
   width: 35px;
   height: 35px;
+  border: none;
   background-color: #fff;
   border-radius: 100px;
 }
@@ -433,6 +437,10 @@ textarea {
 .cart_btn .btn:active,
 .cart_btn .btn:hover {
   background-color: #fff;
+}
+
+.cart_btn .btn.active {
+  color: #FF0000;
 }
 
 .product_box img {
@@ -1646,6 +1654,12 @@ textarea {
   gap: 20px;
 }
 
+.grid_4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
 .grid_5 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -2549,6 +2563,7 @@ textarea {
   }
 
   .grid_3,
+  .grid_4,
   .grid_5 {
     grid-template-columns: repeat(1, 1fr);
   }
