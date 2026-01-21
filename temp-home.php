@@ -130,6 +130,7 @@
 <section class="vm-cta vm_artist" style="
     background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bwp.png');">
     <div class="container">
+        <h2 class="text-center fw-bold mb-5 gradient-title">Body of Work</h2>
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
             <div class="col-md-6 mb-4 mb-md-0">
@@ -160,40 +161,49 @@
         <h2 class="vm_artist_title text-center mb-4">
             Artist Products
         </h2>
-        <div class="row vm_artist_gallery align-items-end">
+        <div class="d-flex vm_artist_gallery align-items-end">
             <div class="col-md-3 work_card">
+                <div class="cart_btn position-absolute top-2 end-0 d-flex flex-column gap-2 pt-2 pe-2">
+                    <button class="btn btn_addtocart">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/work1.png" width="418" height="574">
                 <div>
                     <h6><span>Dune</span> <span>$38.50</span></h6>
-                    <p>16” - 20” <span>Multiple Size</span></p>
                 </div>
             </div>
-            <div class="col-md-9">
-                <div class="row align-items-end">
-                    <div class="col-md-4 work_card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/work2.png" width="418"
-                            height="574">
-                        <div>
-                            <h6><span>Dune</span> <span>$38.50</span></h6>
-                            <p>16” - 20” <span>Multiple Size</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 work_card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/work3.png" width="418"
-                            height="574">
-                        <div>
-                            <h6><span>Dune</span> <span>$38.50</span></h6>
-                            <p>16” - 20” <span>Multiple Size</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 work_card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/work4.png" width="418"
-                            height="574">
-                        <div>
-                            <h6><span>Dune</span> <span>$38.50</span></h6>
-                            <p>16” - 20” <span>Multiple Size</span></p>
-                        </div>
-                    </div>
+            <div class="col-md-3 work_card">
+                <div class="cart_btn position-absolute top-2 end-0 d-flex flex-column gap-2 pt-2 pe-2">
+                    <button class="btn btn_addtocart">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/work2.png" width="418" height="574">
+                <div>
+                    <h6><span>Dune</span> <span>$38.50</span></h6>
+                </div>
+            </div>
+            <div class="col-md-3 work_card">
+                <div class="cart_btn position-absolute top-2 end-0 d-flex flex-column gap-2 pt-2 pe-2">
+                    <button class="btn btn_addtocart">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/work3.png" width="418" height="574">
+                <div>
+                    <h6><span>Dune</span> <span>$38.50</span></h6>
+                </div>
+            </div>
+            <div class="col-md-3 work_card">
+                <div class="cart_btn position-absolute top-2 end-0 d-flex flex-column gap-2 pt-2 pe-2">
+                    <button class="btn btn_addtocart">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/work4.png" width="418" height="574">
+                <div>
+                    <h6><span>Dune</span> <span>$38.50</span></h6>
                 </div>
             </div>
         </div>
@@ -255,35 +265,33 @@
 <!-- card  -->
 <div class="features-section container">
     <div class="feature-box">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Delivery 2.png" class="feature-icon" alt="">
-        <h4>Same Day Deliver</h4>
-        <p>Get your favorite photos printed and delivered to your doorstep on the very same day. Fast, easy &
-            hassle-free.</p>
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lock.png" class="feature-icon" alt="">
+        <h4>Secure Payments </h4>
+        <p>100% Secure payment with
+            256-bit SSL encryption</p>
     </div>
 
     <div class="feature-box">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Group.png" class="feature-icon" alt="">
         <h4>Custom Sizes & Materials</h4>
-        <p>Go beyond standard posters with custom dimensions, premium finishes, mountings for high-impact displays.
-        </p>
+        <p>Custom-sized posters with premium finishes and mounting options. </p>
     </div>
 
     <div class="feature-box">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector.png" class="feature-icon" alt="">
-        <h4>Same Day Print</h4>
-        <p>High-quality printing without the waiting. Quick setup, premium results, same-day pickup or delivery.</p>
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/thu.png" class="feature-icon" alt="">
+        <h4>Local Support</h4>
+        <p>24/7 Dedicated support</p>
     </div>
 
     <div class="feature-box">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Print.png" class="feature-icon" alt="">
         <h4>Flexible Quantities Options</h4>
-        <p>From single event posters to 1000-unit rollouts, we scale with you and offer agency-friendly reorders.
-        </p>
+        <p>From one poster to bulk rollouts, with easy reorders.</p>
     </div>
 </div>
 
 <!-- card  -->
-<div class="features-section container">
+<!-- <div class="features-section container">
     <div class="stats_box">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stats1.png" class="feature-icon" alt="">
         <div>
@@ -320,7 +328,7 @@
             <a href="#">Learn More</a>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Click -->
 <section class="vm-cta vm_inspiring container" style="
@@ -362,7 +370,7 @@
     </div>
 </section>
 <!-- Enhance. -->
-<section class="vm-cta vm_inspiring click_section container">
+<section class="vm-cta vm_inspiring click_section container" style="background-color: #17A2B814;">
     <div class="container">
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
@@ -376,14 +384,13 @@
                 </p>
             </div>
             <div class="col-md-6 text-md-end text-center">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/enhance.png" alt="Enhance" />
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/enhan.png" alt="enhan" />
             </div>
         </div>
     </div>
 </section>
 <!-- Print -->
-<section class="vm-cta vm_print container" style="
-    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/print-bg.png');">
+<section class="vm-cta vm_print container" style="background-color: #C774E926;">
     <div class="container">
         <div class="row align-items-center">
             <!-- LEFT SIDE -->
@@ -397,7 +404,17 @@
                     with premium prints
                 </p>
             </div>
+            <div class="col-md-6 text-md-end text-center">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pri.png" alt="pri" />
+            </div>
         </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container text-center">
+        <a href="/shop" class="btn vm-hero-btn mt-3 px-4 py-3 " style="min-width: 347px;">
+            Try It For Free Now <i class="fa-solid fa-arrow-down" style="transform: rotate(-130deg);"></i>
+        </a>
     </div>
 </section>
 <!-- Captured Slider -->

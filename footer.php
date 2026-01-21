@@ -61,7 +61,8 @@
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                     <div class="small ">
-                        Made With <span style="color:#ff5e8e;">❤</span> by Ei1 @ 2025
+                        Made With <img src="<?php echo get_template_directory_uri(); ?>/assets/images/heart.png"
+                            alt="icon" /> by Ei1 @ 2025
                     </div>
                 </div>
             </div>
