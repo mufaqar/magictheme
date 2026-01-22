@@ -216,13 +216,11 @@ function toggle_wishlist()
         $favorites[] = $product_id;
         $status = 'added';
     }
-
     update_user_meta($user_id, 'favorite_products', array_values($favorites));
 
     wp_send_json_success([
         'status' => $status,
-        'count' => count($favorites),
-       // 'favorites' => $favorites,
+        'count' => count($favorites),       
     ]);
 }
 
