@@ -33,6 +33,7 @@
     <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
+    <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/artist.css" />
 
     <?php wp_head(); ?>
 </head>
