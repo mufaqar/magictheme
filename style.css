@@ -1862,7 +1862,7 @@ textarea {
 }
 
 /* Upload Box */
-.upload-art-section .upload-box {
+.upload-box {
   max-width: 1037px;
   margin: auto;
   border: 1.56px dashed #454545;
@@ -1877,7 +1877,7 @@ textarea {
   width: 100%;
 }
 
-.upload-art-section .upload-box h4 {
+.upload-box h4 {
   font-weight: 500;
   font-size: 50px;
   line-height: 1;
@@ -1886,7 +1886,7 @@ textarea {
   margin-bottom: 20px;
 }
 
-.upload-art-section .upload-box p {
+.upload-box p {
   font-weight: 500;
   font-size: 25px;
   line-height: 1;
@@ -1894,13 +1894,13 @@ textarea {
   color: #828282;
 }
 
-.upload-art-section .upload-box .browse-link {
+.upload-box .browse-link {
   color: #2eb2fa;
   font-weight: 500;
   text-decoration: none;
 }
 
-.upload-art-section .upload-box p.upload-info {
+.upload-box p.upload-info {
   font-weight: 500;
   font-size: 19px;
   line-height: 1.1;
@@ -2586,15 +2586,15 @@ textarea {
     width: 120px;
   }
 
-  .upload-art-section .upload-box h4 {
+  .upload-box h4 {
     font-size: 36px;
   }
 
-  .upload-art-section .upload-box p {
+  .upload-box p {
     font-size: 20.13px;
   }
 
-  .upload-art-section .upload-box p.upload-info {
+  .upload-box p.upload-info {
     font-size: 18.21px;
   }
 
@@ -3221,11 +3221,13 @@ ul.wcv_vendorslist {
 }
 
 .personal_detail .form_row input,
-.personal_detail .form_row textarea {
+.personal_detail .form_row textarea,
+.personal_detail .form_row select {
   display: block;
   width: 100%;
   padding: 6px 15px;
   border: 2px solid #D9D9D9;
+  color: rgba(14, 14, 14, 0.5);
   border-radius: 5px;
   outline: none;
 }
@@ -3233,7 +3235,9 @@ ul.wcv_vendorslist {
 .personal_detail .form_row input:hover,
 .personal_detail .form_row input:focus,
 .personal_detail .form_row textarea:hover,
-.personal_detail .form_row textarea:focus {
+.personal_detail .form_row textarea:focus,
+.personal_detail .form_row select:focus,
+.personal_detail .form_row select:hover {
   border: 2px solid transparent;
   background: linear-gradient(#fff, #fff) padding-box, linear-gradient(45deg, #42a2d6, #736bc3, #3990bf) border-box;
 }
@@ -3313,7 +3317,7 @@ ul.wcv_vendorslist {
   color: #000;
 }
 
-.personal_detail .action-buttons {
+.profile_box .action-buttons {
   display: flex;
   justify-content: end;
   margin-left: auto;
