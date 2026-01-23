@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Edit Profile */
+/* Template Name: Shop Setting */
 get_header();
 ?>
 
@@ -10,13 +10,13 @@ get_header();
         </div>
         <div class="col-md-9 profile_content">
             <div class="profile_box">
-                <h3>Avatar</h3>
+                <h3>Choose Shop Profile Image</h3>
                 <hr />
                 <div class="profile_img">
                     <!-- Avatar Preview -->
                     <div class="avt_pic">
-                        <img id="avatarPreview" src="<?php echo get_template_directory_uri(); ?>/assets/images/avt.png"
-                            alt="Avatar">
+                        <img id="avatarPreview"
+                            src="<?php echo get_template_directory_uri(); ?>/assets/images/aut_feat.png" alt="aut_feat">
                     </div>
                     <!-- Upload Controls -->
                     <div class="avatar_upload">
@@ -33,7 +33,7 @@ get_header();
                     Visual Magic by Uploading an avatar (an image, photo or other graphic icon of “you”).</p>
             </div>
             <div class="profile_box">
-                <h3>Cover image</h3>
+                <h3>Shop Cover image</h3>
                 <hr />
                 <div class="profile_img">
                     <!-- Upload Controls -->
@@ -51,32 +51,13 @@ get_header();
                     designing eye catching cover photos.</p>
             </div>
             <div class="profile_box">
-                <h3>Profile</h3>
+                <h3>Shop Name</h3>
                 <hr />
                 <form class="personal_detail">
                     <div class="form_row">
-                        <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="fname" placeholder="First Name" />
+                        <label for="shopname">Shop Name</label>
+                        <input type="text" id="shopname" name="shopname" placeholder="Shop Name" />
                         <p>This will only be used for verification and notification Purposes</p>
-                    </div>
-                    <div class="form_row">
-                        <label for="lname">Last Name</label>
-                        <input type="text" id="lname" name="lname" placeholder="Last Name" />
-                        <p>This will only be used for verification and notification Purposes</p>
-                    </div>
-                    <div class="form_row">
-                        <label for="email">*Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Email Address" required />
-                    </div>
-                    <div class="col-md-9 row">
-                        <div class="form_row col-md-6">
-                            <label for="tax_id">Tax ID</label>
-                            <input type="tax_id" id="tax_id" name="tax_id" placeholder="" />
-                        </div>
-                        <div class="form_row col-md-6">
-                            <label for="tax_id">Tax ID</label>
-                            <input type="tax_id" id="tax_id" name="tax_id" placeholder="" />
-                        </div>
                     </div>
                     <div class="form_row">
                         <h6>Allow users to </h6>
@@ -94,54 +75,38 @@ get_header();
                             </label>
                         </div>
                     </div>
-                    <h3 class="mt-4">Notifications</h3>
+                    <div class="form_row">
+                        <label for="bio">Bio</label>
+                        <textarea type="text" id="bio" name="bio" rows="7"></textarea>
+                        <p>Describe your design style and storefront in 500 characters or less. include a little about
+                            who you are, where you live, what inspires your work, some achievements, and a nudge to
+                            follow you a social media. Need some help?</p>
+                    </div>
+                    <h3 class="mt-4 mb-0">Social Links</h3>
                     <hr>
                     <div class="form_row">
-                        <h6>Email Subscriptions</h6>
-
-                        <div class="checkbox_group">
-                            <label class="checkbox_item">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                                Artist Newsletters (includes design tips, sale trends, and special events)
-                            </label>
-
-                            <label class="checkbox_item">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                                Customer Newsletters (includes marketplace deals, discounts, and important updates)
-                            </label>
-
-                            <label class="checkbox_item">
-                                <input type="checkbox" checked>
-                                <span class="checkmark"></span>
-                                Comment/reply notifications
-                            </label>
-
-                            <label class="checkbox_item">
-                                <input type="checkbox" checked>
-                                <span class="checkmark"></span>
-                                New followers notifications
-                            </label>
-
-                            <label class="checkbox_item">
-                                <input type="checkbox" checked>
-                                <span class="checkmark"></span>
-                                Product Reminders & Suggestions
-                            </label>
-
-                            <label class="checkbox_item">
-                                <input type="checkbox" checked>
-                                <span class="checkmark"></span>
-                                Invitations to surveys, beta groups, and interviews
-                            </label>
-
-                            <label class="checkbox_item">
-                                <input type="checkbox" checked>
-                                <span class="checkmark"></span>
-                                Your Magic Mail Messages
-                            </label>
-                        </div>
+                        <label for="fb">Facebook</label>
+                        <input type="text" id="fb" name="fb" placeholder="Your Facebook URL" />
+                    </div>
+                    <div class="form_row">
+                        <label for="insta">Instagram</label>
+                        <input type="text" id="insta" name="insta" placeholder="Your Instagram URL" />
+                    </div>
+                    <div class="form_row">
+                        <label for="twitter">Twitter</label>
+                        <input type="text" id="twitter" name="twitter" placeholder="Your Twitter URL" />
+                    </div>
+                    <div class="form_row">
+                        <label for="tiktok">Tiktok</label>
+                        <input type="text" id="tiktok" name="tiktok" placeholder="Your Tiktok URL" />
+                    </div>
+                    <div class="form_row">
+                        <label for="youtube">Youtube</label>
+                        <input type="text" id="youtube" name="youtube" placeholder="Your Youtube URL" />
+                    </div>
+                    <div class="form_row">
+                        <label for="website">Personal Website</label>
+                        <input type="text" id="website" name="website" placeholder="Your Personal Website URL" />
                     </div>
                     <!-- Buttons -->
                     <div class="action-buttons mt-5 col-md-6">

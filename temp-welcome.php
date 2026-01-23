@@ -1,139 +1,5 @@
 <?php /*Template Name: Welcome Page */ get_header(); ?>
 
-<style>
-    .welcome_main {
-        min-height: 100vh;
-        background-repeat: no-repeat;
-        background-position: left top;
-        background-size: contain;
-        padding: 40px 0;
-    }
-
-    .wel_title {
-        font-weight: 700;
-        font-size: 42px;
-        line-height: 1.1;
-        color: #000;
-    }
-
-    .wel_sub {
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 1.1;
-        color: #000;
-    }
-
-    .wel_banner {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 10px;
-        padding: 30px 33px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .wel_banner ul {
-        padding-left: 0;
-        padding-right: 30px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .wel_banner ul li a {
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 1.1;
-        color: #fff;
-        display: flex;
-        gap: 10px;
-        width: fit-content;
-    }
-
-    .wel_board {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 10px;
-        padding: 30px 33px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 23px;
-    }
-
-    .wel_col {
-        background-color: #fff;
-        padding: 21px 15px;
-        border-radius: 5px;
-    }
-
-    .wel_col h3 {
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 1.1;
-        color: #000;
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
-
-    .wel_col p {
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 1.1;
-        color: #000;
-    }
-
-    .wel_col ul {
-        padding-left: 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .wel_col ul li {
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 1.1;
-        color: #000000;
-        display: flex;
-        gap: 10px;
-        width: fit-content;
-    }
-
-    .wel_col:last-child {
-        grid-column: span 3;
-    }
-
-    .wel_col:last-child ul {
-        list-style-type: square;
-        list-style: inside;
-    }
-
-    @media (max-width: 768px) {
-        .wel_banner {
-            flex-direction: column;
-            align-items: start;
-            padding: 30px 20px;
-        }
-
-        .wel_title {
-            font-size: 28px;
-        }
-
-        .wel_board {
-            grid-template-columns: repeat(1, 1fr);
-            padding: 30px 20px;
-        }
-
-        .wel_col:last-child {
-            grid-column: span 1;
-        }
-    }
-</style>
-
 <main class="welcome_main"
     style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/right_bg.png');">
     <section>
@@ -147,16 +13,20 @@
                 <h2 class="wel_title text-white mb-4">Edit Profile</h2>
                 <ul class="">
                     <li>
-                        <a href="#"><i class="fa-solid fa-chevron-right"></i> Add a avatar</a>
+                        <a href="<?php echo home_url('/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add
+                            a avatar</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa-solid fa-chevron-right"></i> Add a cover image</a>
+                        <a href="<?php echo home_url('/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add
+                            a cover image</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa-solid fa-chevron-right"></i> User profile </a>
+                        <a href="<?php echo home_url('/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i>
+                            User profile </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa-solid fa-chevron-right"></i> Notification Settings</a>
+                        <a href="<?php echo home_url('/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i>
+                            Notification Settings</a>
                     </li>
                 </ul>
             </div>
