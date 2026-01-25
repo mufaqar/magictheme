@@ -75,9 +75,7 @@
                     <a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="vm-link">
                         Signup
                     </a>
-
                     <?php endif; ?>
-
                     <a href="<?php echo home_url('/shop'); ?>" class="vm-icon icon-gradient"><i
                             class="far fa-heart"></i></a>
                     <a href="<?php echo home_url('/cart'); ?>" class="vm-icon"><i class="fas fa-shopping-cart"></i></a>
