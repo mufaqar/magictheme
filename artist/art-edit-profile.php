@@ -1,10 +1,20 @@
 <?php
 /* Template Name: Art Edit Profile */
 get_header();
+$user_id = get_current_user_id();
+$first_name = get_user_meta( $user_id, 'first_name', true );
+$last_name  = get_user_meta( $user_id, 'last_name', true );
+$email      = wp_get_current_user()->user_email;
+$tax_id     = get_user_meta( $user_id, 'tax_id', true );
+$avatar_id  = get_user_meta( $user_id, 'profile_avatar', true );
+$avatar_url = $avatar_id ? wp_get_attachment_url( $avatar_id ) : get_template_directory_uri() . '/assets/images/avt.png';
+
 ?>
+
 
 <main class="profile_edit_main container mt-5">
     <div class="row">
+       
         <div class="col-md-3">
             <?php get_template_part('template-parts/profile-edit-side'); ?>
         </div>
@@ -14,9 +24,8 @@ get_header();
                 <hr />
                 <div class="profile_img">
                     <!-- Avatar Preview -->
-                    <div class="avt_pic">
-                        <img id="avatarPreview" src="<?php echo get_template_directory_uri(); ?>/assets/images/avt.png"
-                            alt="Avatar">
+                    <div class="avt_pic">                       
+                            <img id="coverPreview" src="<?php echo esc_url($avatar_url); ?>" alt="Cover">
                     </div>
                     <!-- Upload Controls -->
                     <div class="avatar_upload">
@@ -53,30 +62,27 @@ get_header();
             <div class="profile_box">
                 <h3>Profile</h3>
                 <hr />
-                <form class="personal_detail">
+             <form class="personal_detail" id="vendor-profile-form">
                     <div class="form_row">
                         <label for="fname">First Name</label>
-                        <input type="text" id="fname" name="fname" placeholder="First Name" />
+                         <input type="text" id="fname" name="fname" value="<?php echo esc_attr($first_name); ?>" />
                         <p>This will only be used for verification and notification Purposes</p>
                     </div>
                     <div class="form_row">
                         <label for="lname">Last Name</label>
-                        <input type="text" id="lname" name="lname" placeholder="Last Name" />
+                        <input type="text" id="lname" name="lname" value="<?php echo esc_attr($last_name); ?>" />
                         <p>This will only be used for verification and notification Purposes</p>
                     </div>
                     <div class="form_row">
                         <label for="email">*Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Email Address" required />
+                         <input type="email" id="email" name="email" value="<?php echo esc_attr($email); ?>"  required/>
                     </div>
                     <div class="col-md-9 row">
                         <div class="form_row col-md-6">
                             <label for="tax_id">Tax ID</label>
-                            <input type="tax_id" id="tax_id" name="tax_id" placeholder="" />
+                            <input type="tax_id" id="tax_id" name="tax_id" value="<?php echo esc_attr($tax_id); ?>" />
                         </div>
-                        <div class="form_row col-md-6">
-                            <label for="tax_id">Tax ID</label>
-                            <input type="tax_id" id="tax_id" name="tax_id" placeholder="" />
-                        </div>
+                       
                     </div>
                     <div class="form_row">
                         <h6>Allow users to </h6>
@@ -145,9 +151,11 @@ get_header();
                     </div>
                     <!-- Buttons -->
                     <div class="action-buttons mt-5 col-md-6">
+                        
                         <button class="btn btn-secondary w-100"><span>Back</span></button>
-                        <button class="btn btn-primary w-100"><span>Save Changes</span></button>
+                        <button type="submit" class="btn btn-primary w-100"><span>Save Changes</span></button>
                     </div>
+                     <div class="profile-message mt-3"></div>
                 </form>
             </div>
         </div>

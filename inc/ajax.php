@@ -41,6 +41,24 @@ add_action('wp_enqueue_scripts', function () {
         'ajax_url' => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('wishlist_nonce'),
     ]);
+
+    wp_enqueue_script(
+    'vendor-profile',
+    get_template_directory_uri() . '/assets/js/profile.js',
+    ['jquery'],
+    null,
+    true
+);
+
+
+
+wp_localize_script( 'vendor-profile', 'magicProfile', [
+    'ajax_url' => admin_url( 'admin-ajax.php' ),
+    'nonce'    => wp_create_nonce( 'vendor_profile_nonce' ),
+]);
+
+
+
 });
 
 
@@ -270,5 +288,79 @@ function magic_ajax_login() {
     // Normal users
     wp_send_json_success([
         'redirect' => home_url( '/`my-account`/' )
+    ]);
+}
+
+
+// Profile Update AJAX
+
+
+add_action( 'wp_ajax_update_vendor_profile', 'magic_update_vendor_profile' );
+
+function magic_update_vendor_profile() {
+
+    if ( ! is_user_logged_in() ) {
+        wp_send_json_error(['message' => 'Unauthorized']);
+    }
+
+    $user_id = get_current_user_id();
+    $user    = wp_get_current_user();
+
+    if ( ! in_array( 'vendor', (array) $user->roles ) ) {
+        wp_send_json_error(['message' => 'Not allowed']);
+    }
+
+    // Basic fields
+    update_user_meta( $user_id, 'first_name', sanitize_text_field($_POST['fname']) );
+    update_user_meta( $user_id, 'last_name', sanitize_text_field($_POST['lname']) );
+    update_user_meta( $user_id, 'tax_id', sanitize_text_field($_POST['tax_id']) );
+
+    // Email update
+    if ( is_email( $_POST['email'] ) ) {
+        wp_update_user([
+            'ID'         => $user_id,
+            'user_email' => sanitize_email($_POST['email']),
+        ]);
+    }
+
+    wp_send_json_success([
+        'message' => 'Profile updated successfully'
+    ]);
+}
+
+
+
+
+add_action( 'wp_ajax_upload_vendor_image', 'magic_upload_vendor_image' );
+
+function magic_upload_vendor_image() {
+
+    check_ajax_referer( 'vendor_profile_nonce', 'nonce' );
+
+    if ( ! is_user_logged_in() ) {
+        wp_send_json_error(['message' => 'Not logged in']);
+    }
+
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    require_once ABSPATH . 'wp-admin/includes/media.php';
+    require_once ABSPATH . 'wp-admin/includes/image.php';
+
+    if ( empty( $_FILES['file'] ) ) {
+        wp_send_json_error(['message' => 'No file']);
+    }
+
+    $user_id = get_current_user_id();
+    $type    = sanitize_text_field( $_POST['type'] );
+
+    $attachment_id = media_handle_upload( 'file', 0 );
+
+    if ( is_wp_error( $attachment_id ) ) {
+        wp_send_json_error(['message' => $attachment_id->get_error_message()]);
+    }
+
+    update_user_meta( $user_id, 'profile_' . $type, $attachment_id );
+
+    wp_send_json_success([
+        'url' => wp_get_attachment_url( $attachment_id )
     ]);
 }
