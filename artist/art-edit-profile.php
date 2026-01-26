@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Edit Profile */
+/* Template Name: Art Edit Profile */
 get_header();
 ?>
 
