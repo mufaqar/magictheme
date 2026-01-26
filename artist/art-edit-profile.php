@@ -8,8 +8,12 @@ $email      = wp_get_current_user()->user_email;
 $tax_id     = get_user_meta( $user_id, 'tax_id', true );
 $avatar_id  = get_user_meta( $user_id, 'profile_avatar', true );
 $avatar_url = $avatar_id ? wp_get_attachment_url( $avatar_id ) : get_template_directory_uri() . '/assets/images/avt.png';
-
+$cover_id  = get_user_meta( $user_id, 'profile_cover', true );
+$cover_url = $cover_id ? wp_get_attachment_url( $cover_id ) : get_template_directory_uri() . '/assets/images/cover-placeholder.jpg';
 ?>
+
+
+
 
 
 <main class="profile_edit_main container mt-5">
@@ -25,7 +29,7 @@ $avatar_url = $avatar_id ? wp_get_attachment_url( $avatar_id ) : get_template_di
                 <div class="profile_img">
                     <!-- Avatar Preview -->
                     <div class="avt_pic">                       
-                            <img id="coverPreview" src="<?php echo esc_url($avatar_url); ?>" alt="Cover">
+                            <img id="avatarPreview" src="<?php echo esc_url($avatar_url); ?>" alt="Cover">
                     </div>
                     <!-- Upload Controls -->
                     <div class="avatar_upload">
@@ -44,18 +48,23 @@ $avatar_url = $avatar_id ? wp_get_attachment_url( $avatar_id ) : get_template_di
             <div class="profile_box">
                 <h3>Cover image</h3>
                 <hr />
-                <div class="profile_img">
-                    <!-- Upload Controls -->
-                    <div class="avatar_upload">
+              <div class="profile_img">
+                    <div class="avt_pic">
+                        <img id="coverPreview"
+                            src="<?php echo esc_url($cover_url); ?>"
+                            alt="Cover Image"
+                            >
+                    </div>
+
+                    <div class="profile_upload">
                         <label>
                             <p>Choose image</p>
                             <input type="file" id="coverInput" accept="image/*">
                         </label>
-                        <button type="button" class="upload_btn">
-                            Upload Design
-                        </button>
+                        <button type="button" class="upload_btn">Upload Design</button>
                     </div>
                 </div>
+
                 <p>Images must be 2400px wide by 600px high and in JPEG or Png format. See our blog post for tips on
                     designing eye catching cover photos.</p>
             </div>
@@ -162,17 +171,6 @@ $avatar_url = $avatar_id ? wp_get_attachment_url( $avatar_id ) : get_template_di
     </div>
 </main>
 
-<script>
-    document.getElementById('avatarInput').addEventListener('change', function (e) {
-        const file = e.target.files[0];
-        if (!file) return;
 
-        const reader = new FileReader();
-        reader.onload = function (event) {
-            document.getElementById('avatarPreview').src = event.target.result;
-        };
-        reader.readAsDataURL(file);
-    });
-</script>
 
 <?php get_footer(); ?>
