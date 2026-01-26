@@ -68,7 +68,7 @@
 
                     <?php else : ?>
 
-                    <a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="vm-link">
+                    <a href="<?php echo home_url('/login'); ?>" class="vm-link">
                         Login
                     </a>
 

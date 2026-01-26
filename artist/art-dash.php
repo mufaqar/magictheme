@@ -1,4 +1,27 @@
-<?php /*Template Name: Welcome Page */ get_header(); ?>
+<?php /*Template Name: Art Dashboard */ get_header();
+
+
+if ( ! is_user_logged_in() ) {
+    wp_redirect( wc_get_page_permalink( 'myaccount' ) );
+    exit;
+}
+
+$user_id = get_current_user_id();
+
+// WC Vendors capability check
+if ( ! user_can( $user_id, 'vendor' ) && ! user_can( $user_id, 'manage_vendor' ) ) {
+    wp_redirect( home_url() ); // or any custom page
+    exit;
+}
+
+
+
+
+
+
+
+
+?>
 
 <main class="welcome_main"
     style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/right_bg.png');">
@@ -13,7 +36,7 @@
                 <h2 class="wel_title text-white mb-4">Edit Profile</h2>
                 <ul class="">
                     <li>
-                        <a href="<?php echo home_url('/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add
+                        <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add
                             a avatar</a>
                     </li>
                     <li>
@@ -21,11 +44,11 @@
                             a cover image</a>
                     </li>
                     <li>
-                        <a href="<?php echo home_url('/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i>
+                        <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i>
                             User profile </a>
                     </li>
                     <li>
-                        <a href="<?php echo home_url('/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i>
+                        <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i>
                             Notification Settings</a>
                     </li>
                 </ul>
@@ -42,16 +65,16 @@
                         at least one social link.</p>
                     <ul class="">
                         <li>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i> Add a profile picture</a>
+                            <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add a profile picture</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i> Add a cover image</a>
+                            <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add a cover image</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i> Add social links </a>
+                            <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add social links </a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i> Add a bio</a>
+                            <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add a bio</a>
                         </li>
                     </ul>
                 </div>

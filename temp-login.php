@@ -148,7 +148,34 @@
         <h3 class="login_title">Log In</h3>
         <p class="login_sub">Need an account? <strong><a href="<?php echo home_url('/sign-up'); ?>">Sign up</a></strong>
         </p>
-        <form class="login_form">
+
+        <form class="login_form" id="magic-login-form">
+            <div>
+                <label for="email" class="d-none">Email or Username</label>
+                <input id="email" name="username" placeholder="Email or Username" required />
+            </div>
+
+            <div>
+                <label for="password" class="d-none">Password</label>
+                <input id="password" name="password" type="password" placeholder="Password" required />
+            </div>
+
+            <a href="<?php echo wp_lostpassword_url(); ?>" class="forget_pass">Lost Password?</a>
+
+            <p>
+                By clicking Log In, you agree to our <strong>User Agreement</strong>
+            </p>
+
+            <div class="login_btns">
+                <button type="submit" class="btn">
+                    <span>Login</span>
+                </button>
+            </div>
+
+            <div class="login-message"></div>
+        </form>
+
+        <!-- <form class="login_form">
             <div>
                 <label for="email" class="d-none">Email or Username</label>
                 <input id="email" name="email" placeholder="Email or Username" />
@@ -162,7 +189,7 @@
                 By clicking Log In, you agree to our <strong>User Agreement</strong>
             </p>
             <div class="login_btns">
-                <a href="<?php echo home_url('/sign-up'); ?>" class="btn"><span>Sign up</span></a>
+                <a href="<?php echo home_url('/sign-up'); ?>" class="btn"><span>Login</span></a>
                 <button class="btn"><span><i class="fa-brands fa-google"></i> Continue with Google</span></button>
                 <button class="btn"><span><i class="fa-brands fa-apple"></i> Continue with Apple</span></button>
             </div>
@@ -170,7 +197,7 @@
                         href="<?php echo home_url('/privacy-policy'); ?>">Privacy
                         Policy</a></strong> and <strong><a href="<?php echo home_url('/terms-of-service'); ?>">Terms of
                         Service</a></strong> apply. </p>
-        </form>
+        </form> -->
     </div>
 </section>
 

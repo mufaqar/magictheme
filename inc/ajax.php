@@ -5,6 +5,19 @@
 add_action('wp_enqueue_scripts', function () {
 
     wp_enqueue_script(
+            'magic-login',
+            get_template_directory_uri() . '/assets/js/login.js',
+            ['jquery'],
+            null,
+            true
+        );
+
+    wp_localize_script( 'magic-login', 'magicLogin', [
+        'ajax_url' => admin_url( 'admin-ajax.php' ),
+        'nonce'    => wp_create_nonce( 'magic_login_nonce' ),
+    ]);
+
+    wp_enqueue_script(
         'vendor-product-js',
         get_template_directory_uri() . '/assets/js/vendor-product.js',
         ['jquery'],
@@ -225,3 +238,37 @@ function toggle_wishlist()
 }
 
 
+
+
+add_action( 'wp_ajax_magic_ajax_login', 'magic_ajax_login' );
+add_action( 'wp_ajax_nopriv_magic_ajax_login', 'magic_ajax_login' );
+
+function magic_ajax_login() {
+
+    check_ajax_referer( 'magic_login_nonce', 'nonce' );
+
+    $creds = [
+        'user_login'    => sanitize_text_field( $_POST['username'] ),
+        'user_password' => $_POST['password'],
+        'remember'      => true,
+    ];
+
+    $user = wp_signon( $creds, false );
+
+    if ( is_wp_error( $user ) ) {
+        wp_send_json_error([
+            'message' => $user->get_error_message()
+        ]);
+    }
+
+   if ( in_array( 'vendor', (array) $user->roles ) ) {
+    wp_send_json_success([
+        'redirect' => home_url( '/artist-dashboard/' )
+    ]);
+}
+
+    // Normal users
+    wp_send_json_success([
+        'redirect' => home_url( '/`my-account`/' )
+    ]);
+}
