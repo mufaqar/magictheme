@@ -59,7 +59,7 @@
     <h4>Artist Tools</h4>
     <ul>
         <li>
-            <a href="<?php echo site_url('/dashboard'); ?>" class="<?php echo is_page('dashboard') ? 'active' : ''; ?>">
+            <a href="<?php echo site_url('/artist-dashboard'); ?>" class="<?php echo is_page('dashboard') ? 'active' : ''; ?>">
                 Dashboard
             </a>
         </li>

@@ -16,11 +16,6 @@ if ( ! user_can( $user_id, 'vendor' ) && ! user_can( $user_id, 'manage_vendor' )
 
 
 
-
-
-
-
-
 ?>
 
 <main class="welcome_main"
