@@ -56,9 +56,20 @@
                 <!-- RIGHT MENU -->
                 <div class="d-md-flex d-none align-items-center gap-3 vm-right-menu">
                     <a href="<?php echo home_url('/shop'); ?>" class="vm-link">Shop</a>
-                    <?php if ( is_user_logged_in() ) : ?>
+                   <?php if ( is_user_logged_in() ) : ?>
+                    <?php
+                    $user = wp_get_current_user();
 
-                    <a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="vm-link">
+                    // Default My Account URL
+                    $account_url = wc_get_page_permalink( 'myaccount' );
+
+                    // If user is vendor, redirect to artist dashboard
+                    if ( in_array( 'vendor', (array) $user->roles, true ) ) {
+                        $account_url = home_url( '/artist-dashboard/' );
+                    }
+                    ?>
+
+                    <a href="<?php echo esc_url( $account_url ); ?>" class="vm-link">
                         My Account
                     </a>
 
@@ -66,16 +77,18 @@
                         Logout
                     </a>
 
-                    <?php else : ?>
+                <?php else : ?>
 
-                    <a href="<?php echo home_url('/login'); ?>" class="vm-link">
+                    <a href="<?php echo esc_url( home_url('/login') ); ?>" class="vm-link">
                         Login
                     </a>
 
-                    <a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="vm-link">
+                    <a href="<?php echo esc_url( home_url('/sign-up/') ); ?>" class="vm-link">
                         Signup
                     </a>
-                    <?php endif; ?>
+
+                <?php endif; ?>
+
                     <a href="<?php echo home_url('/shop'); ?>" class="vm-icon icon-gradient"><i
                             class="far fa-heart"></i></a>
                     <a href="<?php echo home_url('/cart'); ?>" class="vm-icon"><i class="fas fa-shopping-cart"></i></a>
