@@ -54,6 +54,11 @@ get_header();
     align-items: center;
     gap: 15px;
 }
+.table_pro img.attachment-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+}
 
 .table_pro .table_pro_info h6 {
     font-weight: 400;
