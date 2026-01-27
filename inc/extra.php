@@ -2,7 +2,7 @@
 // -----------------------------
 // 1. Display Custom Options on Product Page
 // -----------------------------
-add_action( 'woocommerce_before_add_to_cart_button', 'custom_product_options', 20 );
+//add_action( 'woocommerce_before_add_to_cart_button', 'custom_product_options', 20 );
 function custom_product_options() {
     global $product;
 

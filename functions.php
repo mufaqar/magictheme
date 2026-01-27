@@ -96,3 +96,14 @@ function mytheme_add_woocommerce_support() {
 }
 add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
 
+
+
+// use simple
+
+add_action( 'woocommerce_single_product_summary', 'custom_after_short_info', 25 );
+function custom_after_short_info() {
+
+     //global $product;
+   // var_dump($product);
+   //echo "test";
+}
