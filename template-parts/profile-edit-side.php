@@ -65,8 +65,8 @@
         </li>
 
         <li>
-            <a href="<?php echo site_url('/shop-setting'); ?>"
-                class="<?php echo is_page('shop-setting') ? 'active' : ''; ?>">
+            <a href="<?php echo site_url('/shop-settings'); ?>"
+                class="<?php echo is_page('shop-settings') ? 'active' : ''; ?>">
                 Shop Setting
             </a>
         </li>
@@ -79,7 +79,7 @@
         </li>
 
         <li>
-            <a href="<?php echo site_url('/manage-portfolio'); ?>"
+            <a href="<?php echo site_url('artist-dashboard/manage-portfolio/'); ?>"
                 class="<?php echo is_page('manage-portfolio') ? 'active' : ''; ?>">
                 Manage Portfolio
             </a>

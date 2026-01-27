@@ -70,7 +70,7 @@
                     ?>
 
                     <a href="<?php echo esc_url( $account_url ); ?>" class="vm-link">
-                        My Account
+                       Dashboard
                     </a>
 
                     <a href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>" class="vm-link">

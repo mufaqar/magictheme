@@ -174,3 +174,23 @@ $cover_url = $cover_id ? wp_get_attachment_url( $cover_id ) : get_template_direc
 
 
 <?php get_footer(); ?>
+<script>
+jQuery(function ($) {
+    $('#vendor-shop-form').on('submit', function (e) {
+        e.preventDefault();
+        $.post('<?php echo admin_url('admin-ajax.php'); ?>', {
+            action: 'save_vendor_shop_settings',
+            shopname: $('#shopname').val(),
+            bio: $('#bio').val(),
+            fb: $('#fb').val(),
+            insta: $('#insta').val(),
+            twitter: $('#twitter').val(),
+            tiktok: $('#tiktok').val(),
+            youtube: $('#youtube').val(),
+            website: $('#website').val(),
+        }, function (response) {
+            $('.shop-message').html(response.data);
+        });
+    });
+});
+</script>

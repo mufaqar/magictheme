@@ -1,139 +1,139 @@
 <?php
-/* Template Name: Manage Portfolio */
+/* Template Name: Art Manage Portfolio */
 get_header();
 ?>
 <style>
+.pro_table {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.pro_table .pro_table_list {
+    display: flex;
+    gap: 23px;
+    box-shadow: 0px -0.58px 3.09px 0px #00000040;
+    padding: 10px 23px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6.42px
+}
+
+.pro_table .pro_table_list li:first-child {
+    width: 70%;
+}
+
+.pro_table .pro_table_list li span {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.1;
+    color: #000;
+}
+
+.pro_table .pro_table_list li button {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.1;
+    border: none;
+    background: none;
+    outline: none;
+    color: #000;
+}
+
+.pro_table .pro_table_list li button i {
+    font-size: 14px;
+    color: #000;
+}
+
+.pro_table .pro_table_list li button:hover i {
+    color: #8078D1;
+}
+
+.table_pro {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.table_pro .table_pro_info h6 {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.1;
+    color: #000;
+    margin-bottom: 4px;
+}
+
+.table_pro .table_pro_info p {
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 1.1;
+    color: #000000;
+    margin-bottom: 0;
+}
+
+.upload_product {
+    padding: 60px 0;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.upload_product h2 {
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 1.1;
+    color: #000;
+    text-align: center;
+    margin-bottom: 61px;
+}
+
+.pro_img_preview img {
+    width: 100%;
+    border-radius: 24.6px;
+}
+
+.prod_detail {
+    background: #fff;
+    border-radius: 15px;
+    padding: 36px 16px 21px;
+    box-shadow: -2px 0px 4px 0px #0000000D;
+}
+
+.prod_detail h3 {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 1.1;
+    color: #000;
+}
+
+@media (max-width: 768px) {
     .pro_table {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
+        max-width: 100%;
+        overflow-x: scroll;
     }
 
     .pro_table .pro_table_list {
-        display: flex;
-        gap: 23px;
-        box-shadow: 0px -0.58px 3.09px 0px #00000040;
-        padding: 10px 23px;
-        align-items: center;
-        justify-content: space-between;
-        border-radius: 6.42px
+        gap: 9px;
+        padding: 10px 5px;
     }
 
     .pro_table .pro_table_list li:first-child {
-        width: 70%;
-    }
-
-    .pro_table .pro_table_list li span {
-        font-weight: 400;
-        font-size: 10px;
-        line-height: 1.1;
-        color: #000;
-    }
-
-    .pro_table .pro_table_list li button {
-        font-weight: 400;
-        font-size: 10px;
-        line-height: 1.1;
-        border: none;
-        background: none;
-        outline: none;
-        color: #000;
-    }
-
-    .pro_table .pro_table_list li button i {
-        font-size: 14px;
-        color: #000;
-    }
-
-    .pro_table .pro_table_list li button:hover i {
-        color: #8078D1;
-    }
-
-    .table_pro {
-        display: flex;
-        align-items: center;
-        gap: 15px;
+        width: 35%;
     }
 
     .table_pro .table_pro_info h6 {
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 1.1;
-        color: #000;
-        margin-bottom: 4px;
+        font-size: 12px;
     }
-
-    .table_pro .table_pro_info p {
-        font-weight: 400;
-        font-size: 9px;
-        line-height: 1.1;
-        color: #000000;
-        margin-bottom: 0;
-    }
-
-    .upload_product {
-        padding: 60px 0;
-        background-position: top;
-        background-repeat: no-repeat;
-        background-size: cover;
-        min-height: 100vh;
-    }
-
-    .upload_product h2 {
-        font-weight: 600;
-        font-size: 42px;
-        line-height: 1.1;
-        color: #000;
-        text-align: center;
-        margin-bottom: 61px;
-    }
-
-    .pro_img_preview img {
-        width: 100%;
-        border-radius: 24.6px;
-    }
-
-    .prod_detail {
-        background: #fff;
-        border-radius: 15px;
-        padding: 36px 16px 21px;
-        box-shadow: -2px 0px 4px 0px #0000000D;
-    }
-
-    .prod_detail h3 {
-        font-weight: 700;
-        font-size: 25px;
-        line-height: 1.1;
-        color: #000;
-    }
-
-    @media (max-width: 768px) {
-        .pro_table {
-            max-width: 100%;
-            overflow-x: scroll;
-        }
-
-        .pro_table .pro_table_list {
-            gap: 9px;
-            padding: 10px 5px;
-        }
-
-        .pro_table .pro_table_list li:first-child {
-            width: 35%;
-        }
-
-        .table_pro .table_pro_info h6 {
-            font-size: 12px;
-        }
-    }
+}
 </style>
 
-<main class="profile_edit_main container">
+<main class="profile_edit_main container mt-5">
     <div class="row">
         <div class="col-md-3">
             <?php get_template_part('template-parts/profile-edit-side'); ?>
         </div>
-        <div class="col-md-9 profile_content">
+        <div class="col-md-9 profile_content ">
             <div class="profile_box">
                 <label class="upload-box text-center w-full mt-5" id="browseBtn">
                     <div class="upload-icon mb-3">
@@ -195,16 +195,16 @@ get_header();
 
 
 <script>
-    document.getElementById('avatarInput').addEventListener('change', function (e) {
-        const file = e.target.files[0];
-        if (!file) return;
+document.getElementById('avatarInput').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
 
-        const reader = new FileReader();
-        reader.onload = function (event) {
-            document.getElementById('avatarPreview').src = event.target.result;
-        };
-        reader.readAsDataURL(file);
-    });
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        document.getElementById('avatarPreview').src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+});
 </script>
 
 <?php get_footer(); ?>

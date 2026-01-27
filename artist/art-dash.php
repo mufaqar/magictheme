@@ -60,16 +60,14 @@ if ( ! user_can( $user_id, 'vendor' ) && ! user_can( $user_id, 'manage_vendor' )
                         at least one social link.</p>
                     <ul class="">
                         <li>
-                            <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add a profile picture</a>
+                            <a href="<?php echo home_url('/artist-dashboard/shop-settings'); ?>"><i class="fa-solid fa-chevron-right"></i> Shop Settings</a>
+                        </li>
+                       
+                        <li>
+                            <a href="<?php echo home_url('/artist-dashboard/shop-settings'); ?>"><i class="fa-solid fa-chevron-right"></i> Add social links </a>
                         </li>
                         <li>
-                            <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add a cover image</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add social links </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add a bio</a>
+                            <a href="<?php echo home_url('/artist-dashboard/shop-settings'); ?>"><i class="fa-solid fa-chevron-right"></i> Add a bio</a>
                         </li>
                     </ul>
                 </div>
