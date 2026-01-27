@@ -1,56 +1,133 @@
 <div class="row gap-md-0 gap-3">
     <div class="pro_img_preview col-md-6">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/produc.png" alt="img" />
+        <img id="productImagePreview"
+             src="<?php echo get_template_directory_uri(); ?>/assets/images/produc.png"
+             alt="Product Preview" />
     </div>
+
     <div class="col-md-6">
         <div class="prod_detail">
             <h3>Product Details</h3>
             <hr />
-            <form class="personal_detail">
+
+            <form class="personal_detail" id="vendor-add-product-form" enctype="multipart/form-data">
+
+                <!-- attachment ID -->
+                <input type="text" id="global_product_image_id" name="global_product_image_id" hidden />
+
+               
                 <div class="form_row">
-                    <label for="p_title" class="d-none">Product Title</label>
-                    <input type="text" id="p_title" name="p_title" placeholder="Product Title" />
-                </div>
-                <div class="form_row">
-                    <label for="img_bio" class="d-none">Add Image Bio</label>
-                    <textarea type="text" id="img_bio" name="img_bio" rows="7" placeholder="Add Image Bio"></textarea>
-                </div>
-                <div class="form_row">
-                    <label for="p_feature" class="d-none">Key Features</label>
-                    <textarea type="text" id="p_feature" name="p_feature" rows="7"
-                        placeholder="Key Features"></textarea>
-                </div>
-                <div class="form_row">
-                    <label for="category" class="d-none">Select Category</label>
-                    <select id="category" name="category">
-                        <option value="">Select Category</option>
-                        <option value="poster">Poster</option>
-                        <option value="wall-tiles">Wall Tiles</option>
-                        <option value="large-wall-art">Large Wall Art</option>
-                        <option value="exterior">Exterior</option>
-                    </select>
-                </div>
-                <div class="form_row">
-                    <label for="orientation" class="d-none">Orientation</label>
-                    <select id="orientation" name="orientation">
-                        <option value="">Orientation</option>
-                        <option value="landscape">Landscape</option>
-                        <option value="portrait">Portrait</option>
-                        <option value="square">Square</option>
-                        <option value="freeform">Freeform</option>
-                    </select>
-                </div>
-                <div class="form_row">
-                    <label for="price" class="d-none">Price</label>
-                    <input type="text" id="price" name="price" placeholder="Price" />
+                    <input type="text" name="product_title" placeholder="Product Title" required>
                 </div>
 
-                <!-- Buttons -->
-                <div class="action-buttons mt-5">
-                    <button class="btn btn-secondary w-100"><span>Back</span></button>
-                    <button class="btn btn-primary w-100 mt-3"><span>Save</span></button>
+
+                <div class="form_row">
+                    <textarea name="img_bio" rows="5" placeholder="Add Image Bio"></textarea>
                 </div>
+
+                <div class="form_row">
+                    <textarea name="p_feature" rows="5" placeholder="Key Features"></textarea>
+                </div>
+
+                <div class="form_row">
+                    <select name="category">
+                        <option value="">Select Category</option>
+                        <?php
+                        $cats = get_terms(['taxonomy' => 'product_cat','hide_empty' => false]);
+                        foreach ($cats as $cat) {
+                            echo '<option value="'.$cat->term_id.'">'.$cat->name.'</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="form_row">
+                    <select name="product_attributes[pa_shape]" required>
+                        <option value="">Orientation</option>
+                        <?php
+                        $shapes = get_terms(['taxonomy'=>'pa_shape','hide_empty'=>false]);
+                        foreach ($shapes as $shape) {
+                            echo '<option value="'.$shape->term_id.'">'.$shape->name.'</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="form_row">
+                    <input type="number" name="product_price" step="0.01" placeholder="Price" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+
+                <div class="product-message mt-3"></div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+jQuery(function ($) {
+
+    // IMAGE UPLOAD
+    $('#product_image').on('change', function () {
+
+    alert("TEst");
+
+        let file = this.files[0];
+        if (!file) return;
+
+        let formData = new FormData();
+        formData.append('action', 'wcv_ajax_upload_product_image');
+        formData.append('product_image', file);
+
+        $.ajax({
+            url: '<?php echo admin_url("admin-ajax.php"); ?>',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                if (res.success) {
+                    $('#productImagePreview').attr('src', res.data.url);
+                    $('#product_image_id').val(res.data.id);
+                } else {
+                    alert(res.data);
+                }
+            }
+        });
+    });
+
+    // PRODUCT SUBMIT
+    $('#vendor-add-product-form').on('submit', function (e) {
+        e.preventDefault();
+
+        let formData = new FormData(this);
+        formData.append('action', 'wcv_ajax_add_product');
+
+       $.ajax({
+            url: '<?php echo admin_url("admin-ajax.php"); ?>',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                if (response.success) {
+                    $('.product-message').html(
+                        '<div class="alert alert-success">' + response.data.message + '</div>'
+                    );                    
+                    setTimeout(function () {
+                        window.location.href = response.data.redirect;
+                    }, 2000);
+
+                } else {
+                    $('.product-message').html(
+                        '<div class="alert alert-danger">' + response.data + '</div>'
+                    );
+                }
+            }
+        });
+
+    });
+
+});
+</script>

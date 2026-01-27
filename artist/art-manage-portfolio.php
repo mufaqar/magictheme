@@ -194,17 +194,66 @@ get_header();
 </section>
 
 
-<script>
-document.getElementById('avatarInput').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function(event) {
-        document.getElementById('avatarPreview').src = event.target.result;
-    };
-    reader.readAsDataURL(file);
-});
-</script>
 
 <?php get_footer(); ?>
+
+<style>
+    .upload_product {
+    display: none;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const fileInput = document.getElementById('fileUpload');
+    const profileSection = document.querySelector('.profile_edit_main');
+    const uploadSection = document.querySelector('.upload_product');
+    const previewImage = document.getElementById('productImagePreview');
+    const hiddenImageId = document.getElementById('global_product_image_id');
+
+    if (!fileInput) return;
+
+    fileInput.addEventListener('change', function () {
+
+        const file = this.files[0];
+        if (!file) return;
+
+        if (!file.type.startsWith('image/')) {
+            alert('Please upload an image');
+            return;
+        }
+
+        let formData = new FormData();
+        formData.append('action', 'wcv_ajax_upload_product_image');
+        formData.append('product_image', file);
+
+        fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(res => {
+
+            if (!res.success) {
+                alert(res.data);
+                return;
+            }
+
+            // ✅ Save attachment ID globally
+            hiddenImageId.value = res.data.id;
+
+            // ✅ Update preview in add-product template
+            if (previewImage) {
+                previewImage.src = res.data.url;
+            }
+
+            // Toggle sections
+            profileSection.style.display = 'none';
+            uploadSection.style.display = 'block';
+            uploadSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+    });
+
+});
+</script>

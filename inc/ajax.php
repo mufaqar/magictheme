@@ -329,80 +329,104 @@ function magic_update_vendor_profile() {
 }
 
 
+add_action('wp_ajax_wcv_ajax_add_product', 'wcv_ajax_add_product');
 
-
-add_action( 'wp_ajax_upload_vendor_image', 'magic_upload_vendor_image' );
-
-function magic_upload_vendor_image() {
-
-    check_ajax_referer( 'vendor_profile_nonce', 'nonce' );
-
-    if ( ! is_user_logged_in() ) {
-        wp_send_json_error(['message' => 'Not logged in']);
-    }
-
-    require_once ABSPATH . 'wp-admin/includes/file.php';
-    require_once ABSPATH . 'wp-admin/includes/media.php';
-    require_once ABSPATH . 'wp-admin/includes/image.php';
-
-    if ( empty( $_FILES['file'] ) ) {
-        wp_send_json_error(['message' => 'No file']);
-    }
-
-    $user_id = get_current_user_id();
-    $type    = sanitize_text_field( $_POST['type'] );
-
-    $attachment_id = media_handle_upload( 'file', 0 );
-
-    if ( is_wp_error( $attachment_id ) ) {
-        wp_send_json_error(['message' => $attachment_id->get_error_message()]);
-    }
-
-    update_user_meta( $user_id, 'profile_' . $type, $attachment_id );
-
-    wp_send_json_success([
-        'url' => wp_get_attachment_url( $attachment_id )
-    ]);
-}
-
-
-add_action('wp_ajax_wcv_save_shop_settings', 'wcv_save_shop_settings');
-
-function wcv_save_shop_settings() {
+function wcv_ajax_add_product() {
 
     if (!is_user_logged_in() || !current_user_can('vendor')) {
         wp_send_json_error('Unauthorized');
     }
 
-    $user_id = get_current_user_id();
+    $vendor_id = get_current_user_id();
 
-    // Core shop info
-    update_user_meta($user_id, 'pv_shop_name', sanitize_text_field($_POST['shopname']));
-    update_user_meta($user_id, 'pv_shop_description', sanitize_textarea_field($_POST['bio']));
+    $product_id = wp_insert_post([
+        'post_title'   => sanitize_text_field($_POST['product_title']),
+        'post_content' => wp_kses_post($_POST['img_bio']),
+        'post_excerpt' => sanitize_textarea_field($_POST['p_feature']),
+        'post_status'  => 'publish',
+        'post_type'    => 'product',
+        'post_author'  => $vendor_id,
+    ]);
 
-    // Socials (WC Vendors native keys)
-    update_user_meta($user_id, '_wcv_facebook_url', esc_url_raw($_POST['fb']));
-    update_user_meta($user_id, '_wcv_youtube_url', esc_url_raw($_POST['youtube']));
-    update_user_meta($user_id, '_wcv_company_url', esc_url_raw($_POST['website']));
+    if (is_wp_error($product_id)) {
+        wp_send_json_error('Product creation failed');
+    }
 
-    // Username-based fields
-    update_user_meta(
-        $user_id,
-        '_wcv_instagram_username',
-        sanitize_text_field(ltrim(parse_url($_POST['insta'], PHP_URL_PATH), '/'))
-    );
+    // Product type
+    wp_set_object_terms($product_id, 'simple', 'product_type');
 
-    update_user_meta(
-        $user_id,
-        '_wcv_twitter_username',
-        sanitize_text_field(ltrim(parse_url($_POST['twitter'], PHP_URL_PATH), '/'))
-    );
+    // Price
+    $price = wc_format_decimal($_POST['product_price']);
+    update_post_meta($product_id, '_regular_price', $price);
+    update_post_meta($product_id, '_price', $price);
 
-    /**
-     * TikTok (using LinkedIn key as custom reuse)
-     * Works, but consider creating a new key later
-     */
-    update_user_meta($user_id, '_wcv_linkedin_url', esc_url_raw($_POST['tiktok']));
+    // Category
+    if (!empty($_POST['category'])) {
+        wp_set_post_terms($product_id, [(int)$_POST['category']], 'product_cat');
+    }
 
-    wp_send_json_success('Shop settings saved successfully ✅');
+    // Attribute: Shape
+    if (!empty($_POST['product_attributes']['pa_shape'])) {
+
+        $term_id = (int) $_POST['product_attributes']['pa_shape'];
+        $term    = get_term($term_id, 'pa_shape');
+
+        if ($term && !is_wp_error($term)) {
+
+            wp_set_object_terms($product_id, [$term->slug], 'pa_shape');
+
+            update_post_meta($product_id, '_product_attributes', [
+                'pa_shape' => [
+                    'name'         => 'pa_shape',
+                    'value'        => '',
+                    'position'     => 0,
+                    'is_visible'   => 1,
+                    'is_variation' => 0,
+                    'is_taxonomy'  => 1,
+                ],
+            ]);
+        }
+    }
+
+    // ✅ FEATURED IMAGE FROM AJAX UPLOAD
+    if (!empty($_POST['global_product_image_id'])) {
+        set_post_thumbnail($product_id, (int) $_POST['global_product_image_id']);
+    }
+
+    // WC Vendors ownership
+    update_post_meta($product_id, '_wcv_vendor_id', $vendor_id);
+
+     wp_send_json_success([
+        'message' => 'Product submitted successfully 🎉',
+        'redirect' => site_url('artist-dashboard/manage-portfolio/')
+    ]);
+
+     
+    
+}
+
+
+
+add_action('wp_ajax_wcv_ajax_upload_product_image', 'wcv_ajax_upload_product_image');
+
+function wcv_ajax_upload_product_image() {
+
+    if (!is_user_logged_in() || !current_user_can('vendor')) {
+        wp_send_json_error('Unauthorized');
+    }
+
+    require_once ABSPATH.'wp-admin/includes/file.php';
+    require_once ABSPATH.'wp-admin/includes/media.php';
+    require_once ABSPATH.'wp-admin/includes/image.php';
+
+    $id = media_handle_upload('product_image', 0);
+
+    if (is_wp_error($id)) {
+        wp_send_json_error($id->get_error_message());
+    }
+
+    wp_send_json_success([
+        'id'  => $id,
+        'url' => wp_get_attachment_url($id),
+    ]);
 }
