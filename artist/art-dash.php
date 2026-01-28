@@ -107,7 +107,7 @@ if ( ! user_can( $user_id, 'vendor' ) && ! user_can( $user_id, 'manage_vendor' )
                     <p>Quality is better than quantity, so remember to check your product formatting.</p>
                     <ul class="">
                         <li>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i> Add design 0/5</a>
+                            <a href="<?php echo home_url('/artist-dashboard/manage-portfolio'); ?>"><i class="fa-solid fa-chevron-right"></i> Add design 0/5</a>
                         </li>
                     </ul>
                 </div>
