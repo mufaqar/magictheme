@@ -121,7 +121,6 @@ document.getElementById('avatarInput').addEventListener('change', function(e) {
 jQuery(function ($) {
     $('#vendor-shop-form').on('submit', function (e) {
         e.preventDefault();
-
         $.post('<?php echo admin_url('admin-ajax.php'); ?>', {
             action: 'wcv_save_shop_settings',
             shopname: $('#shopname').val(),

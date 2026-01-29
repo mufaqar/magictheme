@@ -7,6 +7,8 @@ if ( ! is_user_logged_in() ) {
 }
 
 $user_id = get_current_user_id();
+$current_user = wp_get_current_user();
+$display_name = $current_user->display_name;
 
 // WC Vendors capability check
 if ( ! user_can( $user_id, 'vendor' ) && ! user_can( $user_id, 'manage_vendor' ) ) {
@@ -22,7 +24,7 @@ if ( ! user_can( $user_id, 'vendor' ) && ! user_can( $user_id, 'manage_vendor' )
     style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/right_bg.png');">
     <section>
         <div class="container mb-5">
-            <h2 class="wel_title">Hey, Welcome to Visual Magic!</h2>
+            <h2 class="wel_title">Hey <?php echo esc_html( $display_name ); ?>, Welcome to Visual Magic!</h2>
             <p class="wel_sub">Complete these steps to open your shop and start selling your art.</p>
         </div>
         <div class="container">

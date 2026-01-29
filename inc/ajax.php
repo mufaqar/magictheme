@@ -329,6 +329,8 @@ function magic_update_vendor_profile() {
 }
 
 
+// Artist Add Product AJAX
+
 add_action('wp_ajax_wcv_ajax_add_product', 'wcv_ajax_add_product');
 
 function wcv_ajax_add_product() {
@@ -338,7 +340,6 @@ function wcv_ajax_add_product() {
     }
 
     $vendor_id = get_current_user_id();
-
     $product_id = wp_insert_post([
         'post_title'   => sanitize_text_field($_POST['product_title']),
         'post_content' => wp_kses_post($_POST['img_bio']),
@@ -406,7 +407,7 @@ function wcv_ajax_add_product() {
 }
 
 
-
+// Artist Add Product AJAX - IMAGE UPLOAD First Step
 add_action('wp_ajax_wcv_ajax_upload_product_image', 'wcv_ajax_upload_product_image');
 
 function wcv_ajax_upload_product_image() {
