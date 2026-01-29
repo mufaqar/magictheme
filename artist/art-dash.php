@@ -9,6 +9,9 @@ if ( ! is_user_logged_in() ) {
 $user_id = get_current_user_id();
 $current_user = wp_get_current_user();
 $display_name = $current_user->display_name;
+$store_link = $current_user->user_login;
+
+
 
 // WC Vendors capability check
 if ( ! user_can( $user_id, 'vendor' ) && ! user_can( $user_id, 'manage_vendor' ) ) {
@@ -33,9 +36,8 @@ if ( ! user_can( $user_id, 'vendor' ) && ! user_can( $user_id, 'manage_vendor' )
                 <h2 class="wel_title text-white mb-4">Edit Profile</h2>
                 <ul class="">
                     <li>
-                        <a href="<?php echo home_url('/artist-dashboard/edit-profile'); ?>"><i
-                                class="fa-solid fa-chevron-right"></i> Add
-                            a avatar</a>
+                      <a href="<?php echo home_url('/artist/' . $store_link); ?>"><i
+                                class="fa-solid fa-chevron-right"></i> Online Profile</a>
                     </li>
                     <li>
                         <a href="<?php echo home_url('/edit-profile'); ?>"><i class="fa-solid fa-chevron-right"></i> Add
