@@ -26,12 +26,12 @@ if (!current_user_can('vendor')) {
 
 ?>
 
-<main class="profile_edit_main container">
+<main class="profile_edit_main container mt-5">
     <div class="row">
         <div class="col-md-3">
             <?php get_template_part('template-parts/profile-edit-side'); ?>
         </div>
-        <div class="col-md-9 profile_content mt-5">
+        <div class="col-md-9 profile_content">
             <div class="profile_box">
                 <h3>Shop Name</h3>
                 <hr />
