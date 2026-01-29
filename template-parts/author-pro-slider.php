@@ -40,7 +40,7 @@
             'price' => '$180'
           ],
           [
-            'title' => 'Modern Painting #2',
+            'title' => '',
             'permalink' => '#',
             'image' => '/assets/images/work3.png',
             'vendor_name' => 'Jane Smith',
