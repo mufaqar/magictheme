@@ -257,7 +257,9 @@
                 <input type="text" name="shop_name" placeholder="Shop name" required />
                 <input type="password" name="password" placeholder="Password" required />
                 <input type="hidden" name="role" value="vendor" />
-                <button type="submit" class="btn"><span>Sign up</span></button>
+                <div class="login_btns">
+                    <button type="submit" class="btn"><span>Sign up</span></button>
+                </div>
             </form>
 
             <!-- Customer Form -->
@@ -269,13 +271,12 @@
                     <input type="checkbox" name="newsletter" /> Email me special offers and artist news
                 </label>
                 <input type="hidden" name="role" value="customer" />
-                <button type="submit" class="btn"><span>Sign up</span></button>
+                <div class="login_btns">
+                    <button type="submit" class="btn"><span>Sign up</span></button>
+                </div>
             </form>
         </div>
-        <div class="login_btns">
-            <a href="<?php echo home_url('/sign-up'); ?>" class="btn"><span>Sign up</span></a>
 
-        </div>
         <p class="terms">Already have an account? <strong><a href="<?php echo home_url('/login'); ?>">Log
                     In</a></strong></p>
         <p class="terms">By clicking Sign Up, you agree to our <strong><a
@@ -320,18 +321,21 @@ document.addEventListener('DOMContentLoaded', function() {
             formData.append('action', 'vm_signup');
 
             fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
-                method: 'POST',
-                body: formData
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    alert(data.message);
-                    window.location.href = data.redirect;
-                } else {
-                    alert(data.message);
-                }
-            });
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.data.message);
+
+                        setTimeout(() => {
+                            window.location.href = data.data.redirect;
+                        }, 600);
+                    } else {
+                        alert(data.data.message);
+                    }
+                });
         });
     }
 
