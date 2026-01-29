@@ -67,7 +67,7 @@ $cover_url  = $profile_cover ? esc_url($profile_cover) : get_template_directory_
     z-index: 1;
 }
 
-.profile_banner img {
+.profile_banner img.profile_avatar {
    
     width: 70px;
      height: auto;
@@ -317,7 +317,7 @@ $cover_url  = $profile_cover ? esc_url($profile_cover) : get_template_directory_
 <section class="proile_wrapper px-md-0 px-3" style="background-image: url('<?php echo $cover_url; ?>');">
     <div class="container profile_banner">
         <div>
-            <img src="<?php echo $avatar_url; ?>" alt="profile" width="100" height="100" />
+            <img class="profile_avatar" src="<?php echo $avatar_url; ?>" alt="profile" width="100" height="100" />
         </div>
         <div>
             <h3 class="aut_name"><?php echo esc_html($shop_name ? $shop_name : $vendor_user->display_name); ?></h3>
