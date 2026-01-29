@@ -1,3 +1,12 @@
+
+
+<?php
+
+ $current_user = wp_get_current_user();
+    $store_url = site_url('/artist/' . $current_user->user_login . '/'); // dynamic store link
+?>
+
+
 <style>
     .profile_side {
         display: flex;
@@ -72,7 +81,7 @@
         </li>
 
         <li>
-            <a href="<?php echo site_url('/view-store'); ?>"
+            <a href="<?php echo $store_url ?>"
                 class="<?php echo is_page('view-store') ? 'active' : ''; ?>">
                 View Store
             </a>
@@ -86,13 +95,13 @@
         </li>
 
         <li>
-            <a href="<?php echo site_url('/orders'); ?>" class="<?php echo is_page('orders') ? 'active' : ''; ?>">
+            <a href="#" class="<?php echo is_page('orders') ? 'active' : ''; ?>">
                 Order
             </a>
         </li>
 
         <li>
-            <a href="<?php echo site_url('/purchase-history'); ?>"
+            <a href="#"
                 class="<?php echo is_page('purchase-history') ? 'active' : ''; ?>">
                 Purchase History
             </a>
