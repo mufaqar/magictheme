@@ -27,275 +27,276 @@ $shop_location = get_user_meta($vendor_id, 'pv_shop_city', true); // City / loca
 
 
 <style>
-    .proile_wrapper {
-        padding-top: 80px;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        display: flex;
-        flex-direction: column;
-    }
+.proile_wrapper {
+    padding-top: 80px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
 
+.profile_banner {
+    background-color: #FFFFFF;
+    border-radius: 14.14px;
+    padding: 28px 50px;
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: -48px;
+    z-index: 1;
+}
+
+.aut_name {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.1;
+    color: #000;
+}
+
+.aut_locat,
+.profile_banner p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.1;
+    color: #616161;
+    margin-bottom: 10px;
+}
+
+.follow {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+}
+
+.follow p {
+    justify-content: end;
+}
+
+.follow ul {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.follow ul li a .fa-brands {
+    background: linear-gradient(90deg, #2EB2FA 0%, #8078D1 94.71%, #3DAFED 193.17%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.profile-tabs {
+    width: 100%;
+}
+
+.profile-tabs__nav {
+    display: inline-flex;
+    background: #F3F3F3;
+    border-radius: 6.47px;
+    padding: 4px;
+    gap: 4px;
+    margin-bottom: 40px;
+    max-width: 427px;
+    width: 100%;
+}
+
+.profile-tab {
+    background: transparent;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1;
+    border-radius: 4.31px;
+    cursor: pointer;
+    color: #616161;
+    transition: all 0.25s ease;
+}
+
+.profile-tab.active {
+    box-shadow: 0px 0px 4.31px 0px #00000040;
+    background: #fff;
+    color: #616161;
+}
+
+.profile-tab-content {
+    display: none;
+}
+
+.profile-tab-content.active {
+    display: block;
+}
+
+.auth_about {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    padding: 130px 0;
+}
+
+.pers_imgs {
+    display: flex;
+    flex-direction: row;
+}
+
+.pers_imgs img {
+    max-width: 360px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.pers_imgs :last-child {
+    margin-top: -80px;
+    margin-left: -90px;
+    margin-bottom: 80px;
+}
+
+.pers_about h2 {
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.1;
+    background: linear-gradient(90deg, #2eb2fa, #8078d1, #3dafed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pers_about p {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.1;
+    color: #000000;
+
+}
+
+.Pro-slider .slick-prev:before,
+.Pro-slider .slick-next:before,
+.cat-slider .slick-prev:before,
+.cat-slider .slick-next:before {
+    color: #000000 !important;
+}
+
+.rounded-cat {
+    border-radius: 85px;
+    width: fit-content;
+    margin: auto;
+}
+
+.rounded-cat img {
+    height: 325px;
+    border-radius: 85px;
+    max-width: 205px;
+    width: 100%;
+}
+
+.rounded-cat h6 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.1;
+    color: #000;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.rounded-cat h6 small {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.Pro-slider .slick-next,
+.cat-slider .slick-next {
+    right: 0px;
+}
+
+.Pro-slider .slick-prev,
+.cat-slider .slick-prev {
+    left: 0;
+    z-index: 2;
+}
+
+.side_cta {
+    padding: 89px 15px;
+    border-radius: 61.99px;
+}
+
+.side_cta h6 {
+    font-weight: 500;
+    font-size: 25.23px;
+    line-height: 1.1;
+    text-align: center;
+    color: #000;
+}
+
+.side_cta h3 {
+    font-weight: 700;
+    font-size: 46.34px;
+    line-height: 1.1;
+    text-align: center;
+    color: #000;
+}
+
+.side_cta .sign_btn {
+    background: linear-gradient(90deg, #3483AE 0%, #6059A1 100%);
+    color: #fff;
+    padding: 19px 10px;
+    width: 100%;
+    border-radius: 100px;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 400;
+    z-index: 2;
+    border: 2px solid transparent;
+    margin-top: 50px;
+    transform: translatey(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.side_cta .sign_btn:hover {
+    transform: translatey(-15px);
+}
+
+@media (max-width: 768px) {
     .profile_banner {
-        background-color: #FFFFFF;
-        border-radius: 14.14px;
-        padding: 28px 50px;
-        display: flex;
-        gap: 30px;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-bottom: -48px;
-        z-index: 1;
-    }
-
-    .aut_name {
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 1.1;
-        color: #000;
-    }
-
-    .aut_locat,
-    .profile_banner p {
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 1.1;
-        color: #616161;
-        margin-bottom: 10px;
-    }
-
-    .follow {
-        width: fit-content;
-        margin-left: auto;
-        margin-right: 0;
-        text-align: right;
-    }
-
-    .follow p {
-        justify-content: end;
-    }
-
-    .follow ul {
-        display: flex;
-        gap: 5px;
-        align-items: center;
-    }
-
-    .follow ul li a .fa-brands {
-        background: linear-gradient(90deg, #2EB2FA 0%, #8078D1 94.71%, #3DAFED 193.17%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .profile-tabs {
-        width: 100%;
-    }
-
-    .profile-tabs__nav {
-        display: inline-flex;
-        background: #F3F3F3;
-        border-radius: 6.47px;
-        padding: 4px;
-        gap: 4px;
-        margin-bottom: 40px;
-        max-width: 427px;
-        width: 100%;
-    }
-
-    .profile-tab {
-        background: transparent;
-        width: 100%;
-        padding: 7px;
-        border: none;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 1;
-        border-radius: 4.31px;
-        cursor: pointer;
-        color: #616161;
-        transition: all 0.25s ease;
-    }
-
-    .profile-tab.active {
-        box-shadow: 0px 0px 4.31px 0px #00000040;
-        background: #fff;
-        color: #616161;
-    }
-
-    .profile-tab-content {
-        display: none;
-    }
-
-    .profile-tab-content.active {
-        display: block;
+        flex-direction: column;
+        padding: 25px;
     }
 
     .auth_about {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        align-items: center;
-        padding: 130px 0;
-    }
-
-    .pers_imgs {
-        display: flex;
-        flex-direction: row;
+        padding: 130px 15px 40px;
+        flex-direction: column;
     }
 
     .pers_imgs img {
-        max-width: 360px;
-        width: 100%;
-        border-radius: 20px;
-    }
-
-    .pers_imgs :last-child {
-        margin-top: -80px;
-        margin-left: -90px;
-        margin-bottom: 80px;
+        width: 63%;
     }
 
     .pers_about h2 {
-        font-weight: 700;
-        font-size: 42px;
-        line-height: 1.1;
-        background: linear-gradient(90deg, #2eb2fa, #8078d1, #3dafed);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-size: 32px;
     }
 
     .pers_about p {
-        font-weight: 400;
-        font-size: 22px;
-        line-height: 1.1;
-        color: #000000;
-
-    }
-
-    .Pro-slider .slick-prev:before,
-    .Pro-slider .slick-next:before,
-    .cat-slider .slick-prev:before,
-    .cat-slider .slick-next:before {
-        color: #000000 !important;
-    }
-
-    .rounded-cat {
-        border-radius: 85px;
-        width: fit-content;
-        margin: auto;
-    }
-
-    .rounded-cat img {
-        height: 325px;
-        border-radius: 85px;
-        max-width: 205px;
-        width: 100%;
-    }
-
-    .rounded-cat h6 {
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 1.1;
-        color: #000;
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .rounded-cat h6 small {
-        font-weight: 600;
-        font-size: 15px;
-        line-height: 1;
-        color: rgba(0, 0, 0, 0.5);
-    }
-
-    .Pro-slider .slick-next,
-    .cat-slider .slick-next {
-        right: 0px;
-    }
-
-    .Pro-slider .slick-prev,
-    .cat-slider .slick-prev {
-        left: 0;
-        z-index: 2;
-    }
-
-    .side_cta {
-        padding: 89px 15px;
-        border-radius: 61.99px;
-    }
-
-    .side_cta h6 {
-        font-weight: 500;
-        font-size: 25.23px;
-        line-height: 1.1;
-        text-align: center;
-        color: #000;
-    }
-
-    .side_cta h3 {
-        font-weight: 700;
-        font-size: 46.34px;
-        line-height: 1.1;
-        text-align: center;
-        color: #000;
-    }
-
-    .side_cta .sign_btn {
-        background: linear-gradient(90deg, #3483AE 0%, #6059A1 100%);
-        color: #fff;
-        padding: 19px 10px;
-        width: 100%;
-        border-radius: 100px;
         font-size: 16px;
-        display: block;
-        text-align: center;
-        text-decoration: none;
-        font-weight: 400;
-        z-index: 2;
-        border: 2px solid transparent;
-        margin-top: 50px;
-        transform: translatey(0);
-        transition: all 0.3s ease-in-out;
     }
-
-    .side_cta .sign_btn:hover {
-        transform: translatey(-15px);
-    }
-
-    @media (max-width: 768px) {
-            .profile_banner {
-            flex-direction: column;
-            padding: 25px;
-        }
-
-        .auth_about {
-            padding: 130px 15px 40px;
-            flex-direction: column;
-        }
-
-        .pers_imgs img {
-            width: 63%;
-        }
-
-        .pers_about h2 {
-            font-size: 32px;
-        }
-
-        .pers_about p {
-            font-size: 16px;
-        }
-    }
+}
 </style>
 <section class="proile_wrapper px-md-0 px-3"
     style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/profile-bg.png');">
     <div class="container profile_banner">
         <div>
-            <img src="<?php echo $shop_avatar ? esc_url($shop_avatar) : get_template_directory_uri().'/assets/images/aut_feat.png'; ?>" alt="profile" />
+            <img src="<?php echo $shop_avatar ? esc_url($shop_avatar) : get_template_directory_uri().'/assets/images/aut_feat.png'; ?>"
+                alt="profile" />
         </div>
         <div>
             <h3 class="aut_name"><?php echo esc_html($shop_name ? $shop_name : $vendor_user->display_name); ?></h3>
             <p class="aut_locat"><?php echo esc_html($shop_location); ?></p>
-           <p><?php echo esc_html($shop_description); ?></p>
+            <p><?php echo esc_html($shop_description); ?></p>
             <p>Read More <i class="fa-solid fa-chevron-down"></i></p>
         </div>
         <div class="follow">
@@ -415,18 +416,18 @@ echo '</ul>';
 <?php get_footer(); ?>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.profile-tabs').forEach(tabs => {
-            const buttons = tabs.querySelectorAll('.profile-tab');
-            const contents = tabs.querySelectorAll('.profile-tab-content');
-            buttons.forEach(button => {
-                button.addEventListener('click', () => {
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    contents.forEach(content => content.classList.remove('active'));
-                    button.classList.add('active');
-                    tabs.querySelector('#' + button.dataset.tab).classList.add('active');
-                });
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.profile-tabs').forEach(tabs => {
+        const buttons = tabs.querySelectorAll('.profile-tab');
+        const contents = tabs.querySelectorAll('.profile-tab-content');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                contents.forEach(content => content.classList.remove('active'));
+                button.classList.add('active');
+                tabs.querySelector('#' + button.dataset.tab).classList.add('active');
             });
         });
     });
+});
 </script>

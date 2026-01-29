@@ -80,7 +80,7 @@ if (!current_user_can('vendor')) {
                     </div>
                     <div class="form_row">
                         <label for="tiktok">Tiktok</label>
-                        <input type="text" name="tiktok"  value="<?php echo esc_attr($tiktok); ?>" />
+                        <input type="text" name="tiktok" id="tiktok"  value="<?php echo esc_attr($tiktok); ?>" />
                     </div>
                     <div class="form_row">
                         <label for="youtube">Youtube</label>
