@@ -253,25 +253,28 @@
 
             <!-- Artist Form -->
             <form class="signup_form tab_content active" id="artist">
-                <input type="email" placeholder="Email" required />
-                <input type="text" placeholder="Shop name" required />
-                <input type="password" placeholder="Password" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="text" name="shop_name" placeholder="Shop name" required />
+                <input type="password" name="password" placeholder="Password" required />
+                <input type="hidden" name="role" value="vendor" />
+                <button type="submit" class="btn"><span>Sign up</span></button>
             </form>
 
             <!-- Customer Form -->
             <form class="signup_form tab_content" id="customer">
-                <input type="email" placeholder="Email" required />
-                <input type="text" placeholder="Username" required />
-                <input type="password" placeholder="Password" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="text" name="username" placeholder="Username" required />
+                <input type="password" name="password" placeholder="Password" required />
                 <label class="checkbox">
-                    <input type="checkbox" /> Email me special offers and artist news
+                    <input type="checkbox" name="newsletter" /> Email me special offers and artist news
                 </label>
+                <input type="hidden" name="role" value="customer" />
+                <button type="submit" class="btn"><span>Sign up</span></button>
             </form>
         </div>
         <div class="login_btns">
             <a href="<?php echo home_url('/sign-up'); ?>" class="btn"><span>Sign up</span></a>
-            <button class="btn"><span><i class="fa-brands fa-google"></i> Continue with Google</span></button>
-            <button class="btn"><span><i class="fa-brands fa-apple"></i> Continue with Apple</span></button>
+
         </div>
         <p class="terms">Already have an account? <strong><a href="<?php echo home_url('/login'); ?>">Log
                     In</a></strong></p>
@@ -301,5 +304,39 @@ tabs.forEach(tab => {
         tab.classList.add("active");
         document.getElementById(tab.dataset.tab).classList.add("active");
     });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    function signup(formId) {
+        const form = document.getElementById(formId);
+        if (!form) return;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            formData.append('action', 'vm_signup');
+
+            fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);
+                    window.location.href = data.redirect;
+                } else {
+                    alert(data.message);
+                }
+            });
+        });
+    }
+
+    signup('artist');
+    signup('customer');
+
 });
 </script>

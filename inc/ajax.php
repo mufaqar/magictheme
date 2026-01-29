@@ -542,3 +542,53 @@ function wcv_save_shop_settings() {
 
     wp_send_json_success('Shop settings saved successfully ✅');
 }
+
+
+add_action('wp_ajax_nopriv_vm_signup', 'vm_signup_callback');
+function vm_signup_callback() {
+    if(!isset($_POST['email'], $_POST['password'], $_POST['role'])) {
+        wp_send_json_error(['message' => 'Invalid submission']);
+    }
+
+    $email = sanitize_email($_POST['email']);
+    $password = sanitize_text_field($_POST['password']);
+    $role = sanitize_text_field($_POST['role']);
+    $username = isset($_POST['username']) ? sanitize_user($_POST['username']) : sanitize_user(current(explode('@', $email)));
+
+    if(email_exists($email) || username_exists($username)) {
+        wp_send_json_error(['message' => 'Email or username already exists']);
+    }
+
+    // Create user
+    $user_id = wp_create_user($username, $password, $email);
+    if(is_wp_error($user_id)) {
+        wp_send_json_error(['message' => $user_id->get_error_message()]);
+    }
+
+    // Set role
+    $user = new WP_User($user_id);
+    $user->set_role($role);
+
+    // For vendor, set shop name if provided
+    if($role === 'vendor' && !empty($_POST['shop_name'])) {
+        update_user_meta($user_id, 'pv_shop_name', sanitize_text_field($_POST['shop_name']));
+    }
+
+    // Optional: newsletter checkbox
+    if(isset($_POST['newsletter']) && $_POST['newsletter'] === 'on') {
+        update_user_meta($user_id, 'newsletter', 1);
+    }
+
+    // Optional: login user automatically
+    wp_set_current_user($user_id);
+    wp_set_auth_cookie($user_id);
+
+  $redirect = ($role === 'vendor')
+    ? home_url('/artist-dashboard')
+    : wc_get_page_permalink('myaccount');
+
+wp_send_json_success([
+    'message' => 'Signup successful!',
+    'redirect' => $redirect
+]);
+}
