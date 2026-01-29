@@ -350,21 +350,10 @@ echo '</ul>';
                                 alt="Author" />
                         </div>
                         <div class="pers_about col-md-6">
-                            <h2>Hi! My name is Viet</h2>
+                            <h2>Hi! My name <?php echo esc_html($shop_name ? $shop_name : $vendor_user->display_name); ?></h2>
                             <hr />
                             <p>
-                                Viet Chu is an artist who chose photography as one of the mediums for his exploration
-                                and
-                                expression of esoteric beauty. In his dedication of that pursuit, he infuses intuitive
-                                sensibility and emotional intelligence to stop and capture a moment of time, that tells
-                                a
-                                story for the rest of time.
-                            </p>
-                            <p>“The relationship between a photographer and his/her image is a very fluid dynamic that
-                                continuously shifts and expands. It is within these moments of transition and
-                                transformation...the flux of inter-spatial time within and between creativity and
-                                creation
-                                where I find my passion.”
+                                <?php echo esc_html($shop_description); ?>
                             </p>
                         </div>
                     </div>
