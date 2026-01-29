@@ -297,7 +297,7 @@ $shop_location = get_user_meta($vendor_id, 'pv_shop_city', true); // City / loca
             <h3 class="aut_name"><?php echo esc_html($shop_name ? $shop_name : $vendor_user->display_name); ?></h3>
             <p class="aut_locat"><?php echo esc_html($shop_location); ?></p>
             <p><?php echo esc_html($shop_description); ?></p>
-            <p>Read More <i class="fa-solid fa-chevron-down"></i></p>
+            <!-- <p>Read More <i class="fa-solid fa-chevron-down"></i></p> -->
         </div>
         <div class="follow">
             <p class="d-flex">
