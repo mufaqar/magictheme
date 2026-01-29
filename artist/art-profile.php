@@ -1,4 +1,29 @@
-<?php /*Template Name: Vendor Profile */ get_header(); ?>
+<?php  get_header(); ?>
+
+
+<?php
+// Get the vendor username from query var
+$vendor_username = get_query_var('vendor_shop'); // 'softsgens'
+
+// Get the WP_User object
+$vendor_user = get_user_by('login', $vendor_username);
+
+if ( ! $vendor_user || ! in_array('vendor', (array) $vendor_user->roles) ) {
+    echo '<p>Vendor not found</p>';
+    return;
+}
+
+// Vendor ID
+$vendor_id = $vendor_user->ID;
+
+$shop_name = get_user_meta($vendor_id, 'pv_shop_name', true); // Vendor shop name
+$shop_description = get_user_meta($vendor_id, 'pv_shop_description', true); // Description
+$shop_banner = get_user_meta($vendor_id, 'pv_shop_header', true); // Banner
+$shop_avatar = get_user_meta($vendor_id, 'pv_shop_logo', true); // Avatar
+$shop_location = get_user_meta($vendor_id, 'pv_shop_city', true); // City / location
+?>
+
+
 
 
 <style>
@@ -265,30 +290,39 @@
     style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/profile-bg.png');">
     <div class="container profile_banner">
         <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/aut_feat.png" alt="profile" />
+            <img src="<?php echo $shop_avatar ? esc_url($shop_avatar) : get_template_directory_uri().'/assets/images/aut_feat.png'; ?>" alt="profile" />
         </div>
         <div>
-            <h3 class="aut_name">Viet Chu</h3>
-            <p class="aut_locat">New York, USA</p>
-            <p>Viet Chu is an artist who chose photography as one of the mediums for his exploration and expression of
-                esoteric beauty. </p>
+            <h3 class="aut_name"><?php echo esc_html($shop_name ? $shop_name : $vendor_user->display_name); ?></h3>
+            <p class="aut_locat"><?php echo esc_html($shop_location); ?></p>
+           <p><?php echo esc_html($shop_description); ?></p>
             <p>Read More <i class="fa-solid fa-chevron-down"></i></p>
         </div>
         <div class="follow">
             <p class="d-flex">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/user-add.png" alt="icon" /> Follow
             </p>
-            <ul>
-                <li>
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-            </ul>
+            <?php
+$socials = [
+    'facebook' => 'fa-facebook',
+    'instagram' => 'fa-instagram',
+    'twitter' => 'fa-twitter',
+    'linkedin' => 'fa-linkedin'
+];
+
+echo '<ul class="vendor-socials">';
+foreach($socials as $key => $icon) {
+    $url = get_user_meta($vendor_id, $key, true);
+
+  
+
+
+    if($url) {
+        echo '<li><a href="'.esc_url($url).'" target="_blank"><i class="fa-brands '.$icon.'"></i></a></li>';
+    }
+}
+echo '</ul>';
+?>
         </div>
     </div>
 </section>

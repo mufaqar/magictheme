@@ -107,3 +107,7 @@ function custom_after_short_info() {
    // var_dump($product);
    //echo "test";
 }
+
+
+
+

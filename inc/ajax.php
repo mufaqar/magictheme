@@ -464,3 +464,81 @@ function wcv_ajax_upload_product_image() {
         'url' => wp_get_attachment_url($id),
     ]);
 }
+
+
+
+add_action( 'wp_ajax_upload_vendor_image', 'magic_upload_vendor_image' );
+
+function magic_upload_vendor_image() {
+
+    check_ajax_referer( 'vendor_profile_nonce', 'nonce' );
+
+    if ( ! is_user_logged_in() ) {
+        wp_send_json_error(['message' => 'Not logged in']);
+    }
+
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    require_once ABSPATH . 'wp-admin/includes/media.php';
+    require_once ABSPATH . 'wp-admin/includes/image.php';
+
+    if ( empty( $_FILES['file'] ) ) {
+        wp_send_json_error(['message' => 'No file']);
+    }
+
+    $user_id = get_current_user_id();
+    $type    = sanitize_text_field( $_POST['type'] );
+
+    $attachment_id = media_handle_upload( 'file', 0 );
+
+    if ( is_wp_error( $attachment_id ) ) {
+        wp_send_json_error(['message' => $attachment_id->get_error_message()]);
+    }
+
+    update_user_meta( $user_id, 'profile_' . $type, $attachment_id );
+
+    wp_send_json_success([
+        'url' => wp_get_attachment_url( $attachment_id )
+    ]);
+}
+
+
+add_action('wp_ajax_wcv_save_shop_settings', 'wcv_save_shop_settings');
+
+function wcv_save_shop_settings() {
+
+    if (!is_user_logged_in() || !current_user_can('vendor')) {
+        wp_send_json_error('Unauthorized');
+    }
+
+    $user_id = get_current_user_id();
+
+    // Core shop info
+    update_user_meta($user_id, 'pv_shop_name', sanitize_text_field($_POST['shopname']));
+    update_user_meta($user_id, 'pv_shop_description', sanitize_textarea_field($_POST['bio']));
+
+    // Socials (WC Vendors native keys)
+    update_user_meta($user_id, '_wcv_facebook_url', esc_url_raw($_POST['fb']));
+    update_user_meta($user_id, '_wcv_youtube_url', esc_url_raw($_POST['youtube']));
+    update_user_meta($user_id, '_wcv_company_url', esc_url_raw($_POST['website']));
+
+    // Username-based fields
+    update_user_meta(
+        $user_id,
+        '_wcv_instagram_username',
+        sanitize_text_field(ltrim(parse_url($_POST['insta'], PHP_URL_PATH), '/'))
+    );
+
+    update_user_meta(
+        $user_id,
+        '_wcv_twitter_username',
+        sanitize_text_field(ltrim(parse_url($_POST['twitter'], PHP_URL_PATH), '/'))
+    );
+
+    /**
+     * TikTok (using LinkedIn key as custom reuse)
+     * Works, but consider creating a new key later
+     */
+    update_user_meta($user_id, '_wcv_linkedin_url', esc_url_raw($_POST['tiktok']));
+
+    wp_send_json_success('Shop settings saved successfully ✅');
+}

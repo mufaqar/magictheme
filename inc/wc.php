@@ -1,5 +1,21 @@
 <?php
 
+
+add_filter( 'template_include', function ( $template ) {
+
+    if ( get_query_var( 'vendor_shop' ) ) {
+
+        $custom = get_stylesheet_directory() . '/artist/art-profile.php';
+
+        if ( file_exists( $custom ) ) {
+            return $custom;
+        }
+    }
+
+    return $template;
+}, 999 );
+
+
 add_action( 'init', function () {
     add_rewrite_endpoint( 'add-gallery', EP_ROOT | EP_PAGES );
 });
