@@ -67,6 +67,15 @@ $cover_url  = $profile_cover ? esc_url($profile_cover) : get_template_directory_
     z-index: 1;
 }
 
+.profile_banner img {
+   
+    width: 70px;
+     height: auto;
+     max-height: 100px;
+    border-radius:20px;
+ 
+}
+
 .aut_name {
     font-weight: 700;
     font-size: 24px;
@@ -374,8 +383,7 @@ $cover_url  = $profile_cover ? esc_url($profile_cover) : get_template_directory_
 
                         </div>
                         <div class="pers_about col-md-6">
-                            <h2>Hi! My name
-                                <?php echo esc_html($shop_name ? $shop_name : $vendor_user->display_name); ?></h2>
+                            <h2>Hi! <?php echo esc_html($shop_name ? $shop_name : $vendor_user->display_name); ?></h2>
                             <hr />
                             <p>
                                 <?php echo esc_html($shop_description); ?>
