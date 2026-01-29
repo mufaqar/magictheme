@@ -173,21 +173,31 @@ add_action('wp_ajax_vendor_get_product', function () {
     check_ajax_referer('vendor_ajax_product', 'vendor_nonce');
 
     $product_id = absint($_POST['product_id']);
+    // Ensure product exists and belongs to current user
+    $post = get_post($product_id);
     $product = wc_get_product($product_id);
 
-    if (!$product || $product->get_author_id() != get_current_user_id()) {
+    if ( ! $product || ! $post || $post->post_author != get_current_user_id() ) {
         wp_send_json_error('Unauthorized');
     }
 
     $cats = wp_get_post_terms($product_id, 'product_cat', ['fields' => 'ids']);
     $shape = wp_get_post_terms($product_id, 'pa_shape', ['fields' => 'ids']);
 
+    // Get featured image
+    $image_id = get_post_thumbnail_id($product_id);
+    $image_url = $image_id ? wp_get_attachment_url($image_id) : '';
+
     wp_send_json_success([
         'id' => $product_id,
         'title' => $product->get_name(),
         'price' => $product->get_price(),
         'category' => $cats[0] ?? '',
-        'shape' => $shape[0] ?? '', // ✅ SHAPE RETURNED
+        'shape' => $shape[0] ?? '',
+        'image_id' => $image_id,
+        'image_url' => $image_url,
+        'img_bio' => $product->get_description(),
+        'p_feature' => $product->get_short_description(),
     ]);
 });
 
@@ -340,17 +350,40 @@ function wcv_ajax_add_product() {
     }
 
     $vendor_id = get_current_user_id();
-    $product_id = wp_insert_post([
-        'post_title'   => sanitize_text_field($_POST['product_title']),
-        'post_content' => wp_kses_post($_POST['img_bio']),
-        'post_excerpt' => sanitize_textarea_field($_POST['p_feature']),
-        'post_status'  => 'publish',
-        'post_type'    => 'product',
-        'post_author'  => $vendor_id,
-    ]);
 
-    if (is_wp_error($product_id)) {
-        wp_send_json_error('Product creation failed');
+    $product_id = !empty($_POST['product_id']) ? absint($_POST['product_id']) : 0;
+
+    // Update existing product
+    if ($product_id) {
+        $post = get_post($product_id);
+        if (!$post || $post->post_author != $vendor_id || $post->post_type !== 'product') {
+            wp_send_json_error('Unauthorized');
+        }
+
+        wp_update_post([
+            'ID' => $product_id,
+            'post_title'   => sanitize_text_field($_POST['product_title']),
+            'post_content' => wp_kses_post($_POST['img_bio']),
+            'post_excerpt' => sanitize_textarea_field($_POST['p_feature']),
+        ]);
+
+    } else {
+        // Create new product
+        $product_id = wp_insert_post([
+            'post_title'   => sanitize_text_field($_POST['product_title']),
+            'post_content' => wp_kses_post($_POST['img_bio']),
+            'post_excerpt' => sanitize_textarea_field($_POST['p_feature']),
+            'post_status'  => 'publish',
+            'post_type'    => 'product',
+            'post_author'  => $vendor_id,
+        ]);
+
+        if (is_wp_error($product_id)) {
+            wp_send_json_error('Product creation failed');
+        }
+
+        // Product type
+        wp_set_object_terms($product_id, 'simple', 'product_type');
     }
 
     // Product type

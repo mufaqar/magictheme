@@ -14,6 +14,8 @@
 
                 <!-- attachment ID -->
                 <input type="text" id="global_product_image_id" name="global_product_image_id" hidden />
+                <!-- product id for edits -->
+                <input type="hidden" id="product_id" name="product_id" value="" />
 
                
                 <div class="form_row">

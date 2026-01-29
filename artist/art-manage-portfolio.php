@@ -212,7 +212,7 @@ if ( is_user_logged_in() ) {
                     </li>
 
                     <li>
-                        <button onclick="window.location.href='<?php echo get_edit_post_link(get_the_ID()); ?>'">
+                        <button type="button" onclick="openEditProduct(<?php echo get_the_ID(); ?>)">
                             Edit
                         </button>
                     </li>
@@ -324,4 +324,61 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+</script>
+<script>
+function openEditProduct(productId) {
+    const profileSection = document.querySelector('.profile_edit_main');
+    const uploadSection = document.querySelector('.upload_product');
+    profileSection.style.display = 'none';
+    uploadSection.style.display = 'block';
+
+    const ajaxurl = (typeof vendorAjax !== 'undefined' && vendorAjax.ajaxurl) ? vendorAjax.ajaxurl : '<?php echo admin_url("admin-ajax.php"); ?>';
+console.log('AJAX URL:', ajaxurl);
+
+    let fd = new FormData();
+    fd.append('action', 'vendor_get_product');
+    fd.append('product_id', productId);
+    // Always include a valid nonce from server to satisfy check_ajax_referer
+    fd.append('vendor_nonce', '<?php echo wp_create_nonce("vendor_ajax_product"); ?>');
+
+    console.log('Fetching product data for ID:', productId);
+
+    fetch(ajaxurl, { method: 'POST', body: fd })
+        .then(res => {
+            // handle non-JSON responses (e.g., -1 from failed nonce)
+            return res.text().then(text => {
+                try { return JSON.parse(text); } catch (e) { throw new Error(text || 'Invalid response'); }
+            });
+        })
+        .then(res => {
+            if (!res || !res.success) {
+                alert((res && res.data) ? res.data : 'Unable to load product');
+                return;
+            }
+
+            const data = res.data;
+
+            // populate form
+            const form = document.getElementById('vendor-add-product-form');
+            if (!form) return;
+
+            document.getElementById('product_id').value = data.id || '';
+            const preview = document.getElementById('productImagePreview');
+            const hiddenImage = document.getElementById('global_product_image_id');
+            if (preview && data.image_url) preview.src = data.image_url;
+            if (hiddenImage && data.image_id) hiddenImage.value = data.image_id;
+
+            form.querySelector('[name="product_title"]').value = data.title || '';
+            form.querySelector('[name="img_bio"]').value = data.img_bio || '';
+            form.querySelector('[name="p_feature"]').value = data.p_feature || '';
+            const cat = form.querySelector('[name="category"]');
+            if (cat) cat.value = data.category || '';
+            const shape = form.querySelector('[name="product_attributes[pa_shape]"]');
+            if (shape) shape.value = data.shape || '';
+            const price = form.querySelector('[name="product_price"]');
+            if (price) price.value = data.price || '';
+
+            uploadSection.scrollIntoView({ behavior: 'smooth' });
+        });
+}
 </script>

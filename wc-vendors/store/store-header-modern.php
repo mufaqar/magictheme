@@ -1,4 +1,6 @@
 <?php
+
+exit("asdf");
 /**
  * The Template for displaying the modern store header
  *
