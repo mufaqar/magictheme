@@ -68,12 +68,12 @@ $cover_url  = $profile_cover ? esc_url($profile_cover) : get_template_directory_
 }
 
 .profile_banner img.profile_avatar {
-   
+
     width: 70px;
-     height: auto;
-     max-height: 100px;
-    border-radius:20px;
- 
+    height: auto;
+    max-height: 100px;
+    border-radius: 20px;
+
 }
 
 .aut_name {

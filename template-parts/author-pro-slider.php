@@ -9,70 +9,54 @@
       <div class="Pro-slider p-0">
 
         <?php
-        // Static array of products
-        $products = [
-          [
-            'title' => 'Abstract Art #1',
-            'permalink' => '#',
-            'image' => '/assets/images/work2.png',
-            'vendor_name' => 'John Doe',
-            'price' => '$120'
-          ],
-          [
-            'title' => 'Modern Painting #2',
-            'permalink' => '#',
-            'image' => '/assets/images/work3.png',
-            'vendor_name' => 'Jane Smith',
-            'price' => '$200'
-          ],
-          [
-            'title' => 'Sculpture #3',
-            'permalink' => '#',
-            'image' => '/assets/images/work4.png',
-            'vendor_name' => 'Alex Brown',
-            'price' => '$350'
-          ],
-          [
-            'title' => 'Street Art #4',
-            'permalink' => '#',
-            'image' => '/assets/images/work2.png',
-            'vendor_name' => 'Emma White',
-            'price' => '$180'
-          ],
-          [
-            'title' => '',
-            'permalink' => '#',
-            'image' => '/assets/images/work3.png',
-            'vendor_name' => 'Jane Smith',
-            'price' => '$200'
-          ],
+        // WooCommerce query for best-selling products
+        $args = [
+          'post_type' => 'product',
+          'posts_per_page' => 12, // Adjust number of products
+          'meta_key' => 'total_sales',
+          'orderby' => 'meta_value_num',
+          'order' => 'DESC',
         ];
 
-        // Loop through products
-        foreach ($products as $product): ?>
-          <div class="px-2">
-            <div class="product_box">
-              <?php get_template_part('template-parts/cart-btns'); ?>
-              <a href="<?php echo esc_url($product['permalink']); ?>">
-                <img src="<?php echo get_template_directory_uri() . $product['image']; ?>" class="img-fluid"
-                  alt="<?php echo esc_attr($product['title']); ?>">
-              </a>
-              <div>
-                <h6>
-                  <span>
-                    <a href="<?php echo esc_url($product['permalink']); ?>"><?php echo esc_html($product['title']); ?></a>
-                    <br>
-                    <small>by <?php echo esc_html($product['vendor_name']); ?></small>
-                  </span>
-                  <span>
-                    <small>from</small><br>
-                    <?php echo esc_html($product['price']); ?>
-                  </span>
-                </h6>
+        $loop = new WP_Query($args);
+
+        if ($loop->have_posts()) :
+          while ($loop->have_posts()) : $loop->the_post();
+            global $product; // WooCommerce product object
+        ?>
+            <div class="px-2">
+              <div class="product_box">
+                <?php get_template_part('template-parts/cart-btns'); ?>
+                <a href="<?php the_permalink(); ?>">
+                  <?php
+                  if (has_post_thumbnail()) {
+                    the_post_thumbnail('full', ['class' => 'img-fluid', 'alt' => get_the_title()]);
+                  } else {
+                    echo '<img src="' . wc_placeholder_img_src() . '" class="img-fluid" alt="No image">';
+                  }
+                  ?>
+                </a>
+                <div>
+                  <h6>
+                    <span>
+                      <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br>
+                      <small>by <?php echo get_the_author(); ?></small>
+                    </span>
+                    <span>
+                      <small>from</small><br>
+                      <?php echo $product->get_price_html(); ?>
+                    </span>
+                  </h6>
+                </div>
               </div>
             </div>
-          </div>
-        <?php endforeach; ?>
+        <?php
+          endwhile;
+          wp_reset_postdata();
+        else :
+          echo '<p>No products found</p>';
+        endif;
+        ?>
 
       </div>
     </div>

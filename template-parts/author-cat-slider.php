@@ -9,58 +9,37 @@
       <div class="cat-slider p-0">
 
         <?php
-        // Static array of products
-        $products = [
-          [
-            'title' => 'Best Sellers',
-            'permalink' => '#',
-            'image' => '/assets/images/work2.png',
-            'vendor_name' => 'by Viet Chu',
-          ],
-          [
-            'title' => 'Featured',
-            'permalink' => '#',
-            'image' => '/assets/images/work3.png',
-            'vendor_name' => 'Jane Smith',
-          ],
-          [
-            'title' => 'Themes',
-            'permalink' => '#',
-            'image' => '/assets/images/work4.png',
-            'vendor_name' => 'Alex Brown',
-          ],
-          [
-            'title' => 'Destinations',
-            'permalink' => '#',
-            'image' => '/assets/images/work2.png',
-            'vendor_name' => 'Emma White',
-          ],
-          [
-            'title' => 'Featured',
-            'permalink' => '#',
-            'image' => '/assets/images/work3.png',
-            'vendor_name' => 'Jane Smith',
-          ],
-        ];
+        // Get all WooCommerce product categories
+        $product_categories = get_terms([
+          'taxonomy' => 'product_cat',
+          'hide_empty' => true, // only show categories with products
+        ]);
 
-        // Loop through products
-        foreach ($products as $product): ?>
-          <div class="px-2">
-            <div class="rounded-cat">
-              <a href="<?php echo esc_url($product['permalink']); ?>">
-                <img src="<?php echo get_template_directory_uri() . $product['image']; ?>" class="img-fluid"
-                  alt="<?php echo esc_attr($product['title']); ?>">
-              </a>
-              <div>
-                <h6>
-                  <a href="<?php echo esc_url($product['permalink']); ?>"><?php echo esc_html($product['title']); ?></a>
-                  <br>
-                  <small>by <?php echo esc_html($product['vendor_name']); ?></small>
-                </h6>
+        if (!empty($product_categories) && !is_wp_error($product_categories)) :
+          foreach ($product_categories as $category) :
+            // Get category thumbnail
+            $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
+            $image_url = $thumbnail_id ? wp_get_attachment_url($thumbnail_id) : wc_placeholder_img_src();
+        ?>
+            <div class="px-2">
+              <div class="rounded-cat">
+                <a href="<?php echo esc_url(get_term_link($category)); ?>">
+                  <img src="<?php echo esc_url($image_url); ?>" class="img-fluid" alt="<?php echo esc_attr($category->name); ?>">
+                </a>
+                <div>
+                  <h6>
+                    <a href="<?php echo esc_url(get_term_link($category)); ?>"><?php echo esc_html($category->name); ?></a>
+                  </h6>
+                </div>
               </div>
             </div>
-          </div>
-        <?php endforeach; ?>
+        <?php
+          endforeach;
+        else :
+          echo '<p>No categories found.</p>';
+        endif;
+        ?>
+
       </div>
     </div>
   </div>
@@ -78,21 +57,15 @@
       responsive: [
         {
           breakpoint: 1200,
-          settings: {
-            slidesToShow: 3
-          }
+          settings: { slidesToShow: 3 }
         },
         {
           breakpoint: 992,
-          settings: {
-            slidesToShow: 2
-          }
+          settings: { slidesToShow: 2 }
         },
         {
           breakpoint: 576,
-          settings: {
-            slidesToShow: 1
-          }
+          settings: { slidesToShow: 1 }
         }
       ]
     });
