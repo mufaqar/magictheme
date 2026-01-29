@@ -358,13 +358,9 @@ echo '</ul>';
                         </div>
                     </div>
                 </div>
-
                 <?php get_template_part('template-parts/author-pro-slider'); ?>
                 <?php get_template_part('template-parts/author-cat-slider'); ?>
-
-                <!-- Testimonial Slider -->
                 <?php get_template_part('template-parts/testimonials'); ?>
-
                 <div class="features-section container-fluid">
                     <div class="stats_box">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gal.png"
