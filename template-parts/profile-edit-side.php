@@ -95,13 +95,13 @@
         </li>
 
         <li>
-            <a href="#" class="<?php echo is_page('orders') ? 'active' : ''; ?>">
-                Order
+            <a href="<?php echo site_url('artist-dashboard/artist-orders/'); ?>" class="<?php echo is_page('artist-orders') ? 'active' : ''; ?>">
+                Orders
             </a>
         </li>
 
         <li>
-            <a href="#"
+            <a href="<?php echo site_url('artist-dashboard/purchase-history/'); ?>"
                 class="<?php echo is_page('purchase-history') ? 'active' : ''; ?>">
                 Purchase History
             </a>

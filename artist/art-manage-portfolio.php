@@ -156,92 +156,92 @@ get_header();
                 </label>
 
                 <?php 
-if ( is_user_logged_in() ) {
+                    if ( is_user_logged_in() ) {
 
-    $current_user_id = get_current_user_id();
+                        $current_user_id = get_current_user_id();
 
-    $args = array(
-        'post_type'      => 'product',
-        'posts_per_page' => -1,
-        'author'         => $current_user_id,
-        'post_status'    => array('publish', 'draft', 'pending'),
-        'orderby'        => 'date',
-        'order'          => 'DESC',
-    );
+                        $args = array(
+                            'post_type'      => 'product',
+                            'posts_per_page' => -1,
+                            'author'         => $current_user_id,
+                            'post_status'    => array('publish', 'draft', 'pending'),
+                            'orderby'        => 'date',
+                            'order'          => 'DESC',
+                        );
 
-    $products = new WP_Query($args);
+                        $products = new WP_Query($args);
 
-    if ( $products->have_posts() ) : ?>
+                        if ( $products->have_posts() ) : ?>
 
-        <div class="pro_table mt-5">
+                            <div class="pro_table mt-5">
 
-            <ul class="pro_table_list">
-                <li><span>Product </span></li>
-                <li><span>Price </span></li>
-                <li><span>Publish </span></li>
-                <li><span>Edit </span></li>
-                <li><span>Private </span></li>
-                <li><span>Delete </span></li>
-            </ul>
+                                <ul class="pro_table_list">
+                                    <li><span>Product </span></li>
+                                    <li><span>Price </span></li>
+                                    <li><span>Publish </span></li>
+                                    <li><span>Edit </span></li>
+                                    <li><span>Private </span></li>
+                                    <li><span>Delete </span></li>
+                                </ul>
 
-            <?php while ( $products->have_posts() ) : $products->the_post(); ?>
+                                <?php while ( $products->have_posts() ) : $products->the_post(); ?>
 
-                <?php
-                    $product = wc_get_product( get_the_ID() );
-                    $price   = $product->get_price_html();
-                    $status  = get_post_status( get_the_ID() );
-                ?>
+                                    <?php
+                                        $product = wc_get_product( get_the_ID() );
+                                        $price   = $product->get_price_html();
+                                        $status  = get_post_status( get_the_ID() );
+                                    ?>
 
-                <ul class="pro_table_list">
-                    <li>
-                        <div class="table_pro">
-                            <?php echo get_the_post_thumbnail( get_the_ID(), 'thumbnail' ); ?>
-                            <div class="table_pro_info">
-                                <h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-                                <p><?php echo wc_get_product_category_list( get_the_ID() ); ?></p>
+                                    <ul class="pro_table_list">
+                                        <li>
+                                            <div class="table_pro">
+                                                <?php echo get_the_post_thumbnail( get_the_ID(), 'thumbnail' ); ?>
+                                                <div class="table_pro_info">
+                                                    <h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+                                                    <p><?php echo wc_get_product_category_list( get_the_ID() ); ?></p>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li><span><?php echo $price; ?></span></li>
+
+                                        <li>
+                                            <span>
+                                                <?php echo ucfirst($status); ?>
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <button type="button" onclick="openEditProduct(<?php echo get_the_ID(); ?>)">
+                                                Edit
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button onclick="window.location.href='<?php echo get_permalink(get_the_ID()); ?>'">
+                                                <i class="fa-regular fa-eye"></i>
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button onclick="#">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                            </button>
+                                        </li>
+                                    </ul>
+
+                                <?php endwhile; wp_reset_postdata(); ?>
+
                             </div>
-                        </div>
-                    </li>
 
-                    <li><span><?php echo $price; ?></span></li>
+                        <?php else: ?>
+                            <p>No products found.</p>
+                        <?php endif;
 
-                    <li>
-                        <span>
-                            <?php echo ucfirst($status); ?>
-                        </span>
-                    </li>
-
-                    <li>
-                        <button type="button" onclick="openEditProduct(<?php echo get_the_ID(); ?>)">
-                            Edit
-                        </button>
-                    </li>
-
-                    <li>
-                        <button onclick="window.location.href='<?php echo get_permalink(get_the_ID()); ?>'">
-                            <i class="fa-regular fa-eye"></i>
-                        </button>
-                    </li>
-
-                    <li>
-                        <button onclick="#">
-                            <i class="fa-regular fa-trash-can"></i>
-                        </button>
-                    </li>
-                </ul>
-
-            <?php endwhile; wp_reset_postdata(); ?>
-
-        </div>
-
-    <?php else: ?>
-        <p>No products found.</p>
-    <?php endif;
-
-} else {
-    echo '<p>Please login to view your products.</p>';
-}
-?>
+                    } else {
+                        echo '<p>Please login to view your products.</p>';
+                    }
+                    ?>
 
                 
                 <!-- Buttons -->
