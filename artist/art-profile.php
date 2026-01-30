@@ -40,6 +40,14 @@ if (is_numeric($profile_cover)) {
 $avatar_url = $profile_avatar ? esc_url($profile_avatar) : get_template_directory_uri() . '/assets/images/aut_feat.png';
 $cover_url  = $profile_cover ? esc_url($profile_cover) : get_template_directory_uri() . '/assets/images/profile-bg.png';
 
+$product_count = count( get_posts([
+    'post_type'   => 'product',
+    'post_status' => 'publish',
+    'author'      => $vendor_id,
+    'numberposts' => -1,
+    'fields'      => 'ids',
+]) );
+
 ?>
 
 
@@ -370,7 +378,7 @@ $cover_url  = $profile_cover ? esc_url($profile_cover) : get_template_directory_
                     Profile
                 </button>
                 <button class="profile-tab" data-tab="artworks-tab">
-                    All Artworks <span>(750)</span>
+                   All Artworks <span>(<?php echo esc_html( $product_count ); ?>)</span>
                 </button>
             </div>
         </div>
@@ -425,7 +433,11 @@ $cover_url  = $profile_cover ? esc_url($profile_cover) : get_template_directory_
             </div>
             <div id="artworks-tab" class="profile-tab-content">
                 <!-- ARTWORKS CONTENT -->
-                <?php get_template_part('template-parts/auth-work'); ?>
+                <?php get_template_part(
+                        'template-parts/auth-work',
+                        null,
+                        [ 'vendor_id' => $vendor_id ]
+                    ); ?>
             </div>
         </div>
     </div>
