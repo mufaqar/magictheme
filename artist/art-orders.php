@@ -30,7 +30,6 @@ get_header();
         ?>
 
             <div class="pro_table mt-5">
-
                 <ul class="pro_table_list">
                     <li><span>Order</span></li>
                     <li><span>Date</span></li>
@@ -38,7 +37,6 @@ get_header();
                     <li><span>Total</span></li>
                     <li><span>View</span></li>
                 </ul>
-
                 <?php foreach ( $orders as $order ) : ?>
 
                     <ul class="pro_table_list">
