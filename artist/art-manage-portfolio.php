@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Art Manage Portfolio */
+/* Template Name: Artist Portfolio */
 get_header();
 ?>
 <style>

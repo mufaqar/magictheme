@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Art Edit Profile */
+/* Template Name: Artist Edit Profile */
 get_header();
 $user_id = get_current_user_id();
 $first_name = get_user_meta( $user_id, 'first_name', true );

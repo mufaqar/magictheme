@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Art Purchased */
+/* Template Name: Artist Purchased */
 get_header();
 ?>
 

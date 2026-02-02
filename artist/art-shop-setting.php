@@ -1,9 +1,5 @@
 <?php
-/* Template Name: Art Shop Setting */
-get_header();
-
-
-/* Template Name: Art Shop Setting */
+/* Template Name: Artist Shop Setting */
 get_header();
 
 $user_id = get_current_user_id();

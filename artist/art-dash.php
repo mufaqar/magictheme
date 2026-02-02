@@ -1,4 +1,4 @@
-<?php /*Template Name: Art Dashboard */ get_header();
+<?php /*Template Name: Artist Dashboard */ get_header();
 
 
 if ( ! is_user_logged_in() ) {
