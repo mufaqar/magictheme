@@ -75,12 +75,12 @@ if ( ! user_can( $user_id, 'vendor' ) && ! user_can( $user_id, 'manage_vendor' )
                                     class="fa-solid fa-chevron-right"></i> Manage Portfolio</a>
                         </li>
                         <li>
-                            <a href="<?php echo home_url('/artist-dashboard/shop-settings'); ?>"><i
-                                    class="fa-solid fa-chevron-right"></i> Add social links </a>
+                            <a href="<?php echo home_url('/artist-dashboard/artist-orders/'); ?>"><i
+                                    class="fa-solid fa-chevron-right"></i> Orders </a>
                         </li>
                         <li>
-                            <a href="<?php echo home_url('/artist-dashboard/shop-settings'); ?>"><i
-                                    class="fa-solid fa-chevron-right"></i> Add a bio</a>
+                            <a href="<?php echo home_url('/artist-dashboard/purchase-history/'); ?>"><i
+                                    class="fa-solid fa-chevron-right"></i> Purchase History</a>
                         </li>
                     </ul>
                 </div>
