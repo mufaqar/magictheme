@@ -125,14 +125,14 @@
         </li>
 
         <li>
-            <a href="<?php echo site_url('/change-password'); ?>"
+            <a href="<?php echo site_url('artist-dashboard/change-password/'); ?>"
                 class="<?php echo is_page('change-password') ? 'active' : ''; ?>">
                 Change Password
             </a>
         </li>
 
         <li>
-            <a href="<?php echo site_url('/close-account'); ?>"
+            <a href="<?php echo site_url('artist-dashboard/close-account/'); ?>"
                 class="<?php echo is_page('close-account') ? 'active' : ''; ?>">
                 Close Account
             </a>
