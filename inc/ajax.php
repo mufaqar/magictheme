@@ -187,6 +187,7 @@ add_action('wp_ajax_vendor_get_product', function () {
     // Get featured image
     $image_id = get_post_thumbnail_id($product_id);
     $image_url = $image_id ? wp_get_attachment_url($image_id) : '';
+    $image_thumbnail = $image_id ? wp_get_attachment_image_url($image_id, 'thumbnail') : '';
 
     wp_send_json_success([
         'id' => $product_id,
@@ -196,6 +197,7 @@ add_action('wp_ajax_vendor_get_product', function () {
         'shape' => $shape[0] ?? '',
         'image_id' => $image_id,
         'image_url' => $image_url,
+        'image_thumbnail' => $image_thumbnail,
         'img_bio' => $product->get_description(),
         'p_feature' => $product->get_short_description(),
     ]);
@@ -224,6 +226,33 @@ add_action('wp_ajax_vendor_unpublish_product', function () {
 
     wp_send_json_success('Product unpublished');
 });
+
+/* =============================
+   DELETE PRODUCT
+============================= */
+add_action('wp_ajax_wcv_ajax_delete_product', 'wcv_ajax_delete_product');
+
+function wcv_ajax_delete_product() {
+
+    check_ajax_referer('vendor_ajax_product', 'vendor_nonce');
+
+    if (!is_user_logged_in() || !current_user_can('vendor')) {
+        wp_send_json_error('Unauthorized');
+    }
+
+    $product_id = absint($_POST['product_id']);
+    $post = get_post($product_id);
+
+    if (!$post || $post->post_type !== 'product' || $post->post_author != get_current_user_id()) {
+        wp_send_json_error('Unauthorized');
+    }
+
+    // Move product to trash
+    wp_trash_post($product_id);
+
+    wp_send_json_success('Product deleted');
+}
+
 
 /* =============================
    Wishlist PRODUCTS
@@ -339,6 +368,99 @@ function magic_update_vendor_profile() {
 }
 
 
+// Change Password AJAX
+add_action('wp_ajax_change_vendor_password', 'magic_change_vendor_password');
+
+function magic_change_vendor_password() {
+
+    check_ajax_referer('vendor_profile_nonce', 'nonce');
+
+    if ( ! is_user_logged_in() ) {
+        wp_send_json_error(['message' => 'Unauthorized']);
+    }
+
+    $user_id = get_current_user_id();
+    $user    = wp_get_current_user();
+
+    if ( ! in_array( 'vendor', (array) $user->roles ) ) {
+        wp_send_json_error(['message' => 'Not allowed']);
+    }
+
+    $current = isset($_POST['current_password']) ? wp_unslash($_POST['current_password']) : '';
+    $new     = isset($_POST['new_password']) ? wp_unslash($_POST['new_password']) : '';
+    $confirm = isset($_POST['confirm_password']) ? wp_unslash($_POST['confirm_password']) : '';
+
+    if ( empty( $current ) || empty( $new ) || empty( $confirm ) ) {
+        wp_send_json_error(['message' => 'Please fill all fields']);
+    }
+
+    if ( $new !== $confirm ) {
+        wp_send_json_error(['message' => 'New password and confirm password do not match']);
+    }
+
+    if ( strlen( $new ) < 6 ) {
+        wp_send_json_error(['message' => 'Password must be at least 6 characters']);
+    }
+
+    if ( ! wp_check_password( $current, $user->user_pass, $user_id ) ) {
+        wp_send_json_error(['message' => 'Current password is incorrect']);
+    }
+
+    // Set new password
+    wp_set_password( $new, $user_id );
+
+    // Re-authenticate user to keep the session active
+    wp_set_current_user( $user_id );
+    wp_set_auth_cookie( $user_id );
+
+    wp_send_json_success(['message' => 'Password updated successfully']);
+}
+
+
+// Close Account AJAX
+add_action('wp_ajax_close_vendor_account', 'magic_close_vendor_account');
+
+function magic_close_vendor_account() {
+
+    check_ajax_referer('vendor_profile_nonce', 'nonce');
+
+    if ( ! is_user_logged_in() ) {
+        wp_send_json_error(['message' => 'Unauthorized']);
+    }
+
+    $user_id = get_current_user_id();
+    $user    = wp_get_current_user();
+
+    if ( ! in_array( 'vendor', (array) $user->roles ) ) {
+        wp_send_json_error(['message' => 'Not allowed']);
+    }
+
+    $confirm = isset($_POST['confirm_text']) ? sanitize_text_field($_POST['confirm_text']) : '';
+    $feedback = isset($_POST['feedback']) ? sanitize_textarea_field($_POST['feedback']) : '';
+
+    if ( strtoupper($confirm) !== 'CLOSE' ) {
+        wp_send_json_error(['message' => 'Invalid confirmation text']);
+    }
+
+    // Send feedback to admin email for review (non-blocking)
+    if ( ! empty( $feedback ) ) {
+        $admin_email = get_option('admin_email');
+        $subject = 'User closed account - ID ' . $user_id;
+        $message = "User ID: {$user_id}\nUser Email: {$user->user_email}\nFeedback:\n{$feedback}";
+        wp_mail( $admin_email, $subject, $message );
+    }
+
+    // Delete user
+    $deleted = wp_delete_user( $user_id );
+
+    if ( ! $deleted ) {
+        wp_send_json_error(['message' => 'Could not delete account, please contact support']);
+    }
+
+    wp_send_json_success(['message' => 'Your account has been closed', 'redirect' => home_url('/')]);
+}
+
+
 // Artist Add Product AJAX
 
 add_action('wp_ajax_wcv_ajax_add_product', 'wcv_ajax_add_product');
@@ -423,17 +545,54 @@ function wcv_ajax_add_product() {
     }
 
     // ✅ FEATURED IMAGE FROM AJAX UPLOAD
+    $returned_image = null;
     if (!empty($_POST['global_product_image_id'])) {
-        set_post_thumbnail($product_id, (int) $_POST['global_product_image_id']);
+        $thumb_id = (int) $_POST['global_product_image_id'];
+
+        // Try the normal API first
+        set_post_thumbnail($product_id, $thumb_id);
+
+        // Double-check and fallback to direct meta update if needed
+        if (get_post_thumbnail_id($product_id) != $thumb_id) {
+            update_post_meta($product_id, '_thumbnail_id', $thumb_id);
+        }
+
+        // Ensure attachment is attached to the product (helps some themes/plugins)
+        if (get_post($thumb_id)) {
+            wp_update_post(['ID' => $thumb_id, 'post_parent' => $product_id]);
+        }
+
+        // Ensure attachment metadata exists (generate if missing)
+        $meta = wp_get_attachment_metadata($thumb_id);
+        if (empty($meta)) {
+            require_once ABSPATH . 'wp-admin/includes/image.php';
+            $file = get_attached_file($thumb_id);
+            if (file_exists($file)) {
+                $meta = wp_generate_attachment_metadata($thumb_id, $file);
+                if (!empty($meta)) wp_update_attachment_metadata($thumb_id, $meta);
+            }
+        }
+
+        $returned_image = [
+            'id'        => $thumb_id,
+            'url'       => wp_get_attachment_url($thumb_id),
+            'thumbnail' => wp_get_attachment_image_url($thumb_id, 'thumbnail'),
+        ];
     }
 
     // WC Vendors ownership
     update_post_meta($product_id, '_wcv_vendor_id', $vendor_id);
 
-     wp_send_json_success([
+    $response = [
         'message' => 'Product submitted successfully 🎉',
         'redirect' => site_url('artist-dashboard/manage-portfolio/')
-    ]);
+    ];
+
+    if ($returned_image) {
+        $response['image'] = $returned_image;
+    }
+
+    wp_send_json_success($response);
 
      
     
@@ -460,8 +619,9 @@ function wcv_ajax_upload_product_image() {
     }
 
     wp_send_json_success([
-        'id'  => $id,
-        'url' => wp_get_attachment_url($id),
+        'id'        => $id,
+        'url'       => wp_get_attachment_url($id),
+        'thumbnail' => wp_get_attachment_image_url($id, 'thumbnail'),
     ]);
 }
 

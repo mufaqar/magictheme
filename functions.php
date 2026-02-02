@@ -59,6 +59,15 @@ function bootstrap_theme_files() {
         true
     );
 
+    // SweetAlert2 for confirmation dialogs
+    wp_enqueue_script(
+        'sweetalert2',
+        'https://cdn.jsdelivr.net/npm/sweetalert2@11',
+        array(),
+        null,
+        true
+    );
+
    if ( is_product() ) {
 
     wp_enqueue_style(
@@ -107,6 +116,36 @@ function custom_after_short_info() {
    // var_dump($product);
    //echo "test";
 }
+
+
+/* One-time ensure Close Account page exists with our template */
+add_action('init', function() {
+    if ( get_option('magictheme_close_account_page_created') ) {
+        return;
+    }
+
+    // Check if page already exists
+    $existing = get_page_by_path('close-account');
+    if ( $existing ) {
+        update_option('magictheme_close_account_page_created', 1);
+        return;
+    }
+
+    // Create the page
+    $page_id = wp_insert_post([
+        'post_title'   => 'Close Account',
+        'post_name'    => 'close-account',
+        'post_content' => '',
+        'post_status'  => 'publish',
+        'post_type'    => 'page',
+    ]);
+
+    if ( $page_id && locate_template('artist/art-close-account.php') ) {
+        update_post_meta($page_id, '_wp_page_template', 'artist/art-close-account.php');
+        update_option('magictheme_close_account_page_created', 1);
+    }
+});
+
 
 
 

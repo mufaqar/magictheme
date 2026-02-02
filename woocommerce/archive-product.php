@@ -114,6 +114,12 @@ get_header('shop');
                     </span>
                 </div>
                 <!-- PRODUCT GRID -->
+                <style>
+                    .own-product-thumb { cursor: not-allowed; opacity: 0.8; }
+                    .own-product-title { cursor: default; color: #6c757d; }
+                    .own-product-msg { color: #c00; font-size: 13px; margin-top: 6px; }
+                    .disabled-own-btn[aria-disabled="true"] { pointer-events: none; opacity: 0.6; }
+                </style>
                 <div class="grid_3">
                     <!-- PRODUCT -->
                     <?php
@@ -131,21 +137,43 @@ get_header('shop');
                             $vendor_id = get_post_field('post_author', get_the_ID());
                             $vendor_name = get_the_author_meta('display_name', $vendor_id);
                             ?>
-                            <div class="product_box">
+                            <?php
+                            $current_user_id = get_current_user_id();
+                            $is_own_product = ($current_user_id && $current_user_id == $vendor_id);
+                            ?>
+                            <div class="product_box <?php echo $is_own_product ? 'own-product' : ''; ?>">
                                 <?php get_template_part('template-parts/cart-btns'); ?>
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php
-                                    if (has_post_thumbnail()) {
-                                        the_post_thumbnail('medium', ['class' => 'img-fluid']);
-                                    }
-                                    ?>
-                                </a>
+                                <?php if ($is_own_product): ?>
+                                    <div class="product-thumb own-product-thumb" role="button" aria-disabled="true" title="<?php echo esc_attr__('You cannot view or purchase your own product.', 'your-theme-textdomain'); ?>">
+                                        <?php
+                                        if (has_post_thumbnail()) {
+                                            the_post_thumbnail('medium', ['class' => 'img-fluid']);
+                                        }
+                                        ?>
+                                    </div>
+                                <?php else: ?>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <?php
+                                        if (has_post_thumbnail()) {
+                                            the_post_thumbnail('medium', ['class' => 'img-fluid']);
+                                        }
+                                        ?>
+                                    </a>
+                                <?php endif; ?>
                                 <div>
-                                    <h6><span> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> <br> <small>by
-                                                <?php echo esc_html($vendor_name); ?></small></span>
+                                    <h6><span>
+                                            <?php if ($is_own_product): ?>
+                                                <span class="own-product-title" title="<?php echo esc_attr__('You cannot view or purchase your own product.', 'your-theme-textdomain'); ?>"><?php the_title(); ?></span>
+                                            <?php else: ?>
+                                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                            <?php endif; ?>
+                                            <br> <small>by <?php echo esc_html($vendor_name); ?></small></span>
                                         <span><small>from</small><br>
                                             <?php echo $product->get_price_html(); ?></span>
                                     </h6>
+                                    <!-- <?php if ($is_own_product): ?>
+                                        <div class="own-product-msg"><?php echo esc_html__('You cannot view or purchase your own product.', 'your-theme-textdomain'); ?></div>
+                                    <?php endif; ?> -->
                                 </div>
                             </div>
                             <?php
@@ -221,5 +249,13 @@ get_footer('shop');
         const params = new URLSearchParams(window.location.search);
         params.set('orderby', this.value);
         window.location.search = params.toString();
+    });
+
+    // Prevent viewing own products from archive and show message
+    document.querySelectorAll('.own-product-thumb, .own-product-title, .disabled-own-btn').forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('You cannot view or purchase your own product.');
+        });
     });
 </script>

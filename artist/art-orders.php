@@ -29,8 +29,8 @@ get_header();
             if ( ! empty( $orders ) ) :
         ?>
 
-            <div class="pro_table mt-5">
-                <ul class="pro_table_list">
+            <div class="order_table mt-5">
+                <ul class="order_table_list">
                     <li><span>Order</span></li>
                     <li><span>Date</span></li>
                     <li><span>Status</span></li>
@@ -39,7 +39,7 @@ get_header();
                 </ul>
                 <?php foreach ( $orders as $order ) : ?>
 
-                    <ul class="pro_table_list">
+                    <ul class="order_table_list">
                         <li>
                             <span>#<?php echo $order->get_id(); ?></span>
                         </li>
