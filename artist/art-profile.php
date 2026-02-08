@@ -1,7 +1,4 @@
-<?php  get_header(); ?>
-
-
-<?php
+<?php  get_header(); 
 // Get the vendor username from query var
 $vendor_username = get_query_var('vendor_shop'); // 'softsgens'
 
@@ -15,7 +12,6 @@ if ( ! $vendor_user || ! in_array('vendor', (array) $vendor_user->roles) ) {
 
 // Vendor ID
 $vendor_id = $vendor_user->ID;
-
 $shop_name = get_user_meta($vendor_id, 'pv_shop_name', true); // Vendor shop name
 $shop_description = get_user_meta($vendor_id, 'pv_shop_description', true); // Description
 $shop_banner = get_user_meta($vendor_id, 'pv_shop_header', true); // Banner
@@ -35,7 +31,6 @@ if (is_numeric($profile_avatar)) {
 if (is_numeric($profile_cover)) {
     $profile_cover = wp_get_attachment_url($profile_cover);
 }
-
 // Set fallbacks
 $avatar_url = $profile_avatar ? esc_url($profile_avatar) : get_template_directory_uri() . '/assets/images/aut_feat.png';
 $cover_url  = $profile_cover ? esc_url($profile_cover) : get_template_directory_uri() . '/assets/images/profile-bg.png';
