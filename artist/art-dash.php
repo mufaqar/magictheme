@@ -1,10 +1,12 @@
 <?php /*Template Name: Artist Dashboard */ get_header();
-
+  exit;
 
 if ( ! is_user_logged_in() ) {
     wp_redirect( wc_get_page_permalink( 'myaccount' ) );
-    exit;
+  
 }
+   
+
 
 $user_id = get_current_user_id();
 $current_user = wp_get_current_user();
